@@ -1,0 +1,22 @@
+baseURL = "https://fungo.hotdogsandeggs.com/"
+languageCode = "en-us"
+title = "Fungo by Chris Gallo"
+
+[permalinks]
+    post = ":slug"
+
+[[menu.main]]
+    name = "fungo by chris gallo"
+    url = "/about-fungo/"
+
+[params]
+    description = "Data practice from Chris Gallo."
+
+    # options for highlight.js (version, additional languages, and theme)
+    highlightjsVersion = "9.12.0"
+    highlightjsCDN = "//cdnjs.cloudflare.com/ajax/libs"
+    highlightjsLang = ["r", "yaml"]
+    highlightjsTheme = "github"
+
+    MathJaxCDN = "//cdnjs.cloudflare.com/ajax/libs"
+    MathJaxVersion = "2.7.5"

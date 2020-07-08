@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fungo by Chris Gallo</title>
+    <link>/</link>
+    <description>Recent content on Fungo by Chris Gallo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 08 Jul 2020 21:13:14 -0500</lastBuildDate>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>What is fungo?</title>
+      <link>/about-fungo/</link>
+      <pubDate>Wed, 08 Jul 2020 21:48:51 -0700</pubDate>
+      
+      <guid>/about-fungo/</guid>
+      <description>Hi, I&amp;rsquo;m Chris and this is fungo, a place for me to play with data and practice using R.
+The site is built with the blogdown package using the Lithium theme.
+Check out hotdogsandeggs.com to learn more about me.
+ </description>
+    </item>
+    
+    <item>
+      <title>Moneyline Odds to Percentages</title>
+      <link>/moneyline-percentages/</link>
+      <pubDate>Wed, 08 Jul 2020 21:13:14 -0500</pubDate>
+      
+      <guid>/moneyline-percentages/</guid>
+      <description>{&#34;x&#34;:{&#34;tag&#34;:{&#34;name&#34;:&#34;Reactable&#34;,&#34;attribs&#34;:{&#34;data&#34;:{&#34;short_odds&#34;:[0.909,0.9,0.889,0.875,0.857,0.833,0.8,0.75,0.667,0.5],&#34;odds&#34;:[1000,900,800,700,600,500,400,300,200,100],&#34;long_odds&#34;:[0.0909,0.1,0.111,0.125,0.143,0.167,0.2,0.25,0.33,0.5]},&#34;columns&#34;:[{&#34;accessor&#34;:&#34;short_odds&#34;,&#34;name&#34;:&#34;➖ Short Odds (i.e. -200)&#34;,&#34;type&#34;:&#34;numeric&#34;,&#34;align&#34;:&#34;left&#34;,&#34;headerClassName&#34;:&#34;header-p&#34;,&#34;cell&#34;:&#34;function(cellInfo) {\n // Format as percentage\n const pct = (cellInfo.value * 100).toFixed(1) + &#39;%&#39;\n // Pad single-digit numbers\n let value = pct.padStart(5)\n // Show % on first row only\n if (cellInfo.viewIndex  0) {\n value = value.replace(&#39;%&#39;, &#39; &#39;)\n }\n // Render bar chart\n return (\n &#39;&#39; +\n &#39;&#39; + value + &#39;&#39; +\n &#39;&#39; +\n &#39;&#39; +\n &#39;&#39; +\n &#39;&#39;\n )\n }&#34;</description>
+    </item>
+    
+  </channel>
+</rss>
