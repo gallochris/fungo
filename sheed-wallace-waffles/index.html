@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.73.0" />
+
+
+<title>Rasheed Wallace Waffles - Fungo by Chris Gallo</title>
+<meta property="og:title" content="Rasheed Wallace Waffles - Fungo by Chris Gallo">
+
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <ul class="nav-links">
+    
+    <li><a href="/about-fungo/">fungo by chris gallo</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">1 min read</span>
+    
+
+    <h1 class="article-title">Rasheed Wallace Waffles</h1>
+
+    
+    <span class="article-date">2020-07-20</span>
+    
+
+    <div class="article-content">
+      
+
+
+<div id="section" class="section level2">
+<h2><img src="/post/2020-07-20-waffle-sheed_files/figure-html/table-1.png" width="672" /></h2>
+<p>Rasheed Wallace is one of my favorite basketball players. This uses a waffle chart to display his points distribution in both college and the NBA.</p>
+<p>Wallace attempted only four three-point shots in his collegiate career. This means only 0.67 percent of his shot attempts at North Carolina were behind the three-point line.</p>
+<p>He played 18 years in the NBA and attempted 3,228 three-point shots. 23.9 percent of his shots came from three-point land as a pro, and he scored ~21 percent of his points in the NBA via the three-point shot.</p>
+<p>Built using the <a href="https://github.com/hrbrmstr/waffle">waffle package</a>.</p>
+<p>Code is below . . .</p>
+<pre><code>library(ggplot2)
+library(waffle)
+library(hrbrthemes)
+library(htmltools)
+
+sheed.college &lt;- c(`3PTers (0.3%)` = 1, `2PTers (83.7%)` = 84, `Free Throws (16.0%)` = 15)
+
+waffle(
+  sheed.college, rows = 5, size = 4,
+  colors = c(&quot;#969696&quot;, &quot;#56a0d3&quot;, &quot;#13294b&quot;),
+  title = &quot;Rasheed Wallace: College Points Distribution (69 Games)&quot;
+) -&gt; College
+
+sheed.nba &lt;- c(`3PTers (20.5%)` = 21, `2PTers (65.5%)` = 65, `Free Throws (14.2%)` = 14)
+
+waffle(
+  sheed.nba, rows = 5, size = 4,
+  colors = c(&quot;#ed174c&quot;, &quot;#0067b1&quot;, &quot;#002d62&quot;),
+  title = &quot;Rasheed Wallace: NBA Points Distribution (1109 Games)&quot;
+) -&gt; NBA
+
+
+iron(College, NBA)</code></pre>
+</div>
+
+    </div>
+  </article>
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/" target="_blank">home</a>
+          </li>
+          <li>
+            <a href="https://hotdogsandeggs.com/" class="footer-links-kudos">made with hot dogs and eggs</a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+
+  </body>
+</html>
+

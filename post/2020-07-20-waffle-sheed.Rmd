@@ -1,7 +1,7 @@
 ---
 title: "Rasheed Wallace Waffles"
 author: "Chris Gallo"
-date: 2020-07-20T21:13:14-05:00
+date: 2020-07-20
 categories: ["R"]
 slug: "sheed-wallace-waffles"
 type: "post"
