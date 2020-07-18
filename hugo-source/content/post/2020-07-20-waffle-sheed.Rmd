@@ -1,7 +1,7 @@
 ---
 title: "Rasheed Wallace Waffles"
 author: "Chris Gallo"
-date: 2020-07-20T21:13:14-05:00
+date: 2020-07-20
 categories: ["R"]
 slug: "sheed-wallace-waffles"
 type: "post"
@@ -46,6 +46,8 @@ Wallace attempted only four three-point shots in his collegiate career. This mea
 He played 18 years in the NBA and attempted 3,228 three-point shots. 23.9 percent of his shots came from three-point land as a pro, and he scored ~21 percent of his points in the NBA via the three-point shot.
 
 Built using the [waffle package](https://github.com/hrbrmstr/waffle). 
+
+Data via [UNC Record Book](https://goheels.com/documents/2019/10/30/2019_19_UNC_Men_s_Basketball_Record_Book.pdf) and [Basketball Reference](https://www.basketball-reference.com/players/w/wallara01.html).
 
 Code is below . . .
 

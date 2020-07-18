@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fungo Friday on Fungo by Chris Gallo</title>
+    <link>/tags/fungo-friday/</link>
+    <description>Recent content in Fungo Friday on Fungo by Chris Gallo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 20 Jul 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/fungo-friday/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Rasheed Wallace Waffles</title>
+      <link>/sheed-wallace-waffles/</link>
+      <pubDate>Mon, 20 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/sheed-wallace-waffles/</guid>
+      <description>Rasheed Wallace is one of my favorite basketball players. This uses a waffle chart to display his points distribution in both college and the NBA.
+Wallace attempted only four three-point shots in his collegiate career. This means only 0.67 percent of his shot attempts at North Carolina were behind the three-point line.
+He played 18 years in the NBA and attempted 3,228 three-point shots. 23.9 percent of his shots came from three-point land as a pro, and he scored ~21 percent of his points in the NBA via the three-point shot.</description>
+    </item>
+    
+  </channel>
+</rss>
