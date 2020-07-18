@@ -47,6 +47,8 @@ He played 18 years in the NBA and attempted 3,228 three-point shots. 23.9 percen
 
 Built using the [waffle package](https://github.com/hrbrmstr/waffle). 
 
+Data via [UNC Record Book](https://goheels.com/documents/2019/10/30/2019_19_UNC_Men_s_Basketball_Record_Book.pdf) and [Basketball Reference](https://www.basketball-reference.com/players/w/wallara01.html).
+
 Code is below . . .
 
 ```
