@@ -1,0 +1,95 @@
+---
+title: "Scraping Odds"
+author: "Chris Gallo"
+date: 2020-07-24
+categories: ["R"]
+slug: "scrape-odds"
+type: "post"
+tags: ["R Markdown", "Fungo Friday"]
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo=FALSE, message=FALSE}
+library(knitr)
+library(rvest)
+
+odds <- read_html('https://www.oddsboom.com/nba/futures/22-nba-championship/')
+
+team <- odds %>% 
+  rvest::html_nodes('table') %>% 
+  xml2::xml_find_all("//td[contains(@class, 'competitor')]") %>% 
+  rvest::html_text()
+
+pb <- odds %>% 
+  rvest::html_nodes('table') %>% 
+  xml2::xml_find_all("//td[contains(@class, 'goto pb odds-cell')]") %>% 
+  rvest::html_text()
+
+mgm <- odds %>% 
+  rvest::html_nodes('table') %>% 
+  xml2::xml_find_all("//td[contains(@class, 'goto bo odds-cell')]") %>% 
+  rvest::html_text()
+
+bet365 <- odds %>% 
+  rvest::html_nodes('table') %>% 
+  xml2::xml_find_all("//td[contains(@class, 'goto b3 odds-cell')]") %>% 
+  rvest::html_text()
+
+
+chart_df <- data.frame(team, pb, mgm, bet365)
+
+kable(chart_df, col.names = c("Team",
+                           "PointsBet",
+                           "BetMGM",
+                           "Bet365"), caption = "NBA Champ Odds", format="markdown")
+
+
+```
+---
+
+Web scraping sounds hard. I'm finding it's not too difficult with tools like [rvest](https://blog.rstudio.com/2014/11/24/rvest-easy-web-scraping-with-r/). 
+
+This is a simple example pulling together markdown table of team's odds to make the NBA Championship. It pulls from [OddsBoom](https://www.oddsboom.com/nba/futures/22-nba-championship/) and selects the odds of three sports books. 
+
+There isn't any sorting, converting of the odds, and styling done.
+
+Code is below . . .
+
+```
+library(knitr)
+library(rvest)
+
+odds <- read_html('https://www.oddsboom.com/nba/futures/22-nba-championship/')
+
+team <- odds %>% 
+  rvest::html_nodes('table') %>% 
+  xml2::xml_find_all("//td[contains(@class, 'competitor')]") %>% 
+  rvest::html_text()
+
+pb <- odds %>% 
+  rvest::html_nodes('table') %>% 
+  xml2::xml_find_all("//td[contains(@class, 'goto pb odds-cell')]") %>% 
+  rvest::html_text()
+
+mgm <- odds %>% 
+  rvest::html_nodes('table') %>% 
+  xml2::xml_find_all("//td[contains(@class, 'goto bo odds-cell')]") %>% 
+  rvest::html_text()
+
+bet365 <- odds %>% 
+  rvest::html_nodes('table') %>% 
+  xml2::xml_find_all("//td[contains(@class, 'goto b3 odds-cell')]") %>% 
+  rvest::html_text()
+
+
+chart_df <- data.frame(team, pb, mgm, bet365)
+
+kable(chart_df, col.names = c("Team",
+                           "PointsBet",
+                           "BetMGM",
+                           "Bet365"), caption = "NBA Champ Odds", format="markdown")
+
+```
