@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.73.0" />
+
+
+<title>Scraping Odds - Fungo by Chris Gallo</title>
+<meta property="og:title" content="Scraping Odds - Fungo by Chris Gallo">
+
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <ul class="nav-links">
+    
+    <li><a href="/about-fungo/">fungo by chris gallo</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">2 min read</span>
+    
+
+    <h1 class="article-title">Scraping Odds</h1>
+
+    
+    <span class="article-date">2020-07-24</span>
+    
+
+    <div class="article-content">
+      
+
+
+<table>
+<caption><span id="tab:unnamed-chunk-1">Table 1: </span>NBA Champ Odds</caption>
+<thead>
+<tr class="header">
+<th align="left">Team</th>
+<th align="left">PointsBet</th>
+<th align="left">BetMGM</th>
+<th align="left">Bet365</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Celtics</td>
+<td align="left">+1600</td>
+<td align="left">+1800</td>
+<td align="left">+1600</td>
+</tr>
+<tr class="even">
+<td align="left">Nets</td>
+<td align="left">200-1</td>
+<td align="left">150-1</td>
+<td align="left">150-1</td>
+</tr>
+<tr class="odd">
+<td align="left">Mavericks</td>
+<td align="left">40-1</td>
+<td align="left">30-1</td>
+<td align="left">40-1</td>
+</tr>
+<tr class="even">
+<td align="left">Nuggets</td>
+<td align="left">25-1</td>
+<td align="left">+2200</td>
+<td align="left">+2200</td>
+</tr>
+<tr class="odd">
+<td align="left">Rockets</td>
+<td align="left">+1200</td>
+<td align="left">+1200</td>
+<td align="left">+1300</td>
+</tr>
+<tr class="even">
+<td align="left">Pacers</td>
+<td align="left">80-1</td>
+<td align="left">100-1</td>
+<td align="left">100-1</td>
+</tr>
+<tr class="odd">
+<td align="left">Clippers</td>
+<td align="left">+300</td>
+<td align="left">+325</td>
+<td align="left">+333</td>
+</tr>
+<tr class="even">
+<td align="left">Lakers</td>
+<td align="left">+250</td>
+<td align="left">+250</td>
+<td align="left">+229</td>
+</tr>
+<tr class="odd">
+<td align="left">Grizzlies</td>
+<td align="left">150-1</td>
+<td align="left">500-1</td>
+<td align="left">150-1</td>
+</tr>
+<tr class="even">
+<td align="left">Heat</td>
+<td align="left">30-1</td>
+<td align="left">25-1</td>
+<td align="left">28-1</td>
+</tr>
+<tr class="odd">
+<td align="left">Bucks</td>
+<td align="left">+250</td>
+<td align="left">+280</td>
+<td align="left">+250</td>
+</tr>
+<tr class="even">
+<td align="left">Pelicans</td>
+<td align="left">125-1</td>
+<td align="left">125-1</td>
+<td align="left">80-1</td>
+</tr>
+<tr class="odd">
+<td align="left">Thunder</td>
+<td align="left">100-1</td>
+<td align="left">80-1</td>
+<td align="left">60-1</td>
+</tr>
+<tr class="even">
+<td align="left">Magic</td>
+<td align="left">250-1</td>
+<td align="left">250-1</td>
+<td align="left">150-1</td>
+</tr>
+<tr class="odd">
+<td align="left">76ers</td>
+<td align="left">+2000</td>
+<td align="left">25-1</td>
+<td align="left">+2000</td>
+</tr>
+<tr class="even">
+<td align="left">Suns</td>
+<td align="left">1000-1</td>
+<td align="left">1000-1</td>
+<td align="left">250-1</td>
+</tr>
+<tr class="odd">
+<td align="left">Blazers</td>
+<td align="left">150-1</td>
+<td align="left">150-1</td>
+<td align="left">100-1</td>
+</tr>
+<tr class="even">
+<td align="left">Kings</td>
+<td align="left">250-1</td>
+<td align="left">500-1</td>
+<td align="left">200-1</td>
+</tr>
+<tr class="odd">
+<td align="left">Spurs</td>
+<td align="left">500-1</td>
+<td align="left">500-1</td>
+<td align="left">200-1</td>
+</tr>
+<tr class="even">
+<td align="left">Raptors</td>
+<td align="left">+2000</td>
+<td align="left">+2200</td>
+<td align="left">+1400</td>
+</tr>
+<tr class="odd">
+<td align="left">Jazz</td>
+<td align="left">40-1</td>
+<td align="left">25-1</td>
+<td align="left">+2200</td>
+</tr>
+<tr class="even">
+<td align="left">Wizards</td>
+<td align="left">1000-1</td>
+<td align="left">500-1</td>
+<td align="left">300-1</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>Web scraping sounds hard. I’m finding it’s not too difficult with tools like <a href="https://blog.rstudio.com/2014/11/24/rvest-easy-web-scraping-with-r/">rvest</a>.</p>
+<p>This is a simple example pulling together markdown table of team’s odds to make the NBA Championship. It pulls from <a href="https://www.oddsboom.com/nba/futures/22-nba-championship/">OddsBoom</a> and selects the odds of three sports books.</p>
+<p>There isn’t any sorting, converting of the odds, and styling done.</p>
+<p>Code is below . . .</p>
+<pre><code>library(knitr)
+library(rvest)
+
+odds &lt;- read_html(&#39;https://www.oddsboom.com/nba/futures/22-nba-championship/&#39;)
+
+team &lt;- odds %&gt;% 
+  rvest::html_nodes(&#39;table&#39;) %&gt;% 
+  xml2::xml_find_all(&quot;//td[contains(@class, &#39;competitor&#39;)]&quot;) %&gt;% 
+  rvest::html_text()
+
+pb &lt;- odds %&gt;% 
+  rvest::html_nodes(&#39;table&#39;) %&gt;% 
+  xml2::xml_find_all(&quot;//td[contains(@class, &#39;goto pb odds-cell&#39;)]&quot;) %&gt;% 
+  rvest::html_text()
+
+mgm &lt;- odds %&gt;% 
+  rvest::html_nodes(&#39;table&#39;) %&gt;% 
+  xml2::xml_find_all(&quot;//td[contains(@class, &#39;goto bo odds-cell&#39;)]&quot;) %&gt;% 
+  rvest::html_text()
+
+bet365 &lt;- odds %&gt;% 
+  rvest::html_nodes(&#39;table&#39;) %&gt;% 
+  xml2::xml_find_all(&quot;//td[contains(@class, &#39;goto b3 odds-cell&#39;)]&quot;) %&gt;% 
+  rvest::html_text()
+
+
+chart_df &lt;- data.frame(team, pb, mgm, bet365)
+
+kable(chart_df, col.names = c(&quot;Team&quot;,
+                           &quot;PointsBet&quot;,
+                           &quot;BetMGM&quot;,
+                           &quot;Bet365&quot;), caption = &quot;NBA Champ Odds&quot;, format=&quot;markdown&quot;)
+</code></pre>
+
+    </div>
+  </article>
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/" target="_blank">home</a>
+          </li>
+          <li>
+            <a href="https://hotdogsandeggs.com/" class="footer-links-kudos">made with hot dogs and eggs</a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+
+  </body>
+</html>
+
