@@ -12,6 +12,10 @@ body {
   -moz-font-feature-settings: "liga" on;
 }
 
+img {
+    max-width: 100%;
+}
+
 h1,
 h2,
 h3,

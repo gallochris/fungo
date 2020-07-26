@@ -6,15 +6,24 @@
     <description>Recent content in R Markdown on Fungo by Chris Gallo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 24 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/r-markdown/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Scraping Odds</title>
+      <link>/scrape-odds/</link>
+      <pubDate>Fri, 24 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/scrape-odds/</guid>
+      <description>Table 1: NBA Champ Odds  Team PointsBet BetMGM Bet365    Celtics +1600 +1800 +1600  Nets 200-1 150-1 150-1  Mavericks 40-1 30-1 40-1  Nuggets 25-1 +2200 +2200  Rockets +1200 +1200 +1300  Pacers 80-1 100-1 100-1  Clippers +300 +325 +333  Lakers +250 +250 +229  Grizzlies 150-1 500-1 150-1  Heat 30-1 25-1 28-1  Bucks +250 +280 +250  Pelicans 125-1 125-1 80-1  Thunder 100-1 80-1 60-1  Magic 250-1 250-1 150-1  76ers +2000 25-1 +2000  Suns 1000-1 1000-1 250-1  Blazers 150-1 150-1 100-1  Kings 250-1 500-1 200-1  Spurs 500-1 500-1 200-1  Raptors +2000 +2200 +1400  Jazz 40-1 25-1 +2200  Wizards 1000-1 500-1 300-1    Web scraping sounds hard.</description>
+    </item>
+    
+    <item>
       <title>Rasheed Wallace Waffles</title>
       <link>/sheed-wallace-waffles/</link>
-      <pubDate>Mon, 20 Jul 2020 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 17 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>/sheed-wallace-waffles/</guid>
       <description>Rasheed Wallace is one of my favorite basketball players. This uses a waffle chart to display his points distribution in both college and the NBA.
