@@ -25,17 +25,17 @@ team <- odds %>%
 
 pb <- odds %>% 
   rvest::html_nodes('table') %>% 
-  xml2::xml_find_all("//td[contains(@class, 'goto pb odds-cell')]") %>% 
+  xml2::xml_find_all("//td[contains(@class, 'goto pb _pb odds-cell')]") %>% 
   rvest::html_text()
 
 mgm <- odds %>% 
   rvest::html_nodes('table') %>% 
-  xml2::xml_find_all("//td[contains(@class, 'goto bo odds-cell')]") %>% 
+  xml2::xml_find_all("//td[contains(@class, 'goto bo _bo odds-cell')]") %>% 
   rvest::html_text()
 
 bet365 <- odds %>% 
   rvest::html_nodes('table') %>% 
-  xml2::xml_find_all("//td[contains(@class, 'goto b3 odds-cell')]") %>% 
+  xml2::xml_find_all("//td[contains(@class, 'goto b3 _b3 odds-cell')]") %>% 
   rvest::html_text()
 
 
