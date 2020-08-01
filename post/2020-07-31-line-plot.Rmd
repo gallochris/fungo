@@ -1,0 +1,78 @@
+---
+title: "Ch-Ch-Changes"
+author: "Chris Gallo"
+date: 2020-07-31
+categories: ["R"]
+slug: "line-plot-over-time"
+type: "post"
+tags: ["R Markdown", "Fungo Friday"]
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.width=12, fig.height=8)
+```
+
+```{r, echo=FALSE, message=FALSE}
+library(ggplot2)
+library(ggthemes)
+library(extrafont)
+
+charts.data <- read.csv("kpdata.csv")
+
+charts.data <- as.data.frame(charts.data)
+charts.data$product <- factor(charts.data$product, levels = c("three","free"),
+                              labels = c("Three-Point Attempt Rate","Free Throw Rate"))
+
+options(repr.plot.width = 1, repr.plot.height = 0.75)
+
+p1 <- ggplot() + theme_economist() + scale_colour_economist() +
+  geom_line(aes(y = rate, x = year, colour = product), size=1.5, data = charts.data,
+            stat="identity") +
+  theme(legend.position="bottom", legend.direction="horizontal",
+        legend.title = element_blank()) +
+  scale_x_continuous(breaks=seq(1988,2020,4)) +
+  labs(x="Year", y="Rate", 
+title = "Median Division-I Three-Point Attempt Rate and Free Throw Rate Since 1987",
+        caption = "Data source: kenpom.com")
+p1
+
+
+```
+---
+
+FiveThirtyEight wrote an [article about Roy Williams](https://fivethirtyeight.com/features/happy-birthday-to-roy-williams-the-coach-who-never-changes/) recently, and it in it discusses _how_ his team's do not attempt as many three-point shots compared to the rest of college basketball. 
+
+Williams has been around a long time. 30 plus years as a head coach. College basketball has changed quite a lot. Williams has not.  
+
+This is a line plot showing how free throw rate and three-point attempt rate has changed since 1987. It doesn't factor in rule changes, only the raw data via [kenpom.com](https://kenpom.com/trends.php). 
+
+Teams attempt three-point shots more often than free throws in today's game.
+
+This riffs on the [economist theme](https://cran.r-project.org/web/packages/ggthemes/vignettes/ggthemes.html) and uses [ggplot2 package](https://ggplot2.tidyverse.org/). The [tutorials here](http://t-redactyl.io/blog/2015/12/creating-plots-in-r-using-ggplot2-part-1-line-plots.html) are handy. 
+
+Code is below . . .
+
+```
+library(ggplot2)
+library(ggthemes)
+library(extrafont)
+
+charts.data <- read.csv("kpdata.csv")
+
+charts.data <- as.data.frame(charts.data)
+charts.data$product <- factor(charts.data$product, levels = c("three","free"),
+                              labels = c("Three-Point Attempt Rate","Free Throw Rate"))
+
+p1 <- ggplot() + theme_economist() + scale_colour_economist() +
+  geom_line(aes(y = rate, x = year, colour = product), size=1.5, data = charts.data,
+            stat="identity") +
+  theme(legend.position="bottom", legend.direction="horizontil",
+        legend.title = element_blank()) +
+  scale_x_continuous(breaks=seq(1988,2020,4)) +
+  labs(x="Year", y="Rate", 
+title = "Median Division-I Three-Point Attempt Rate and Free Throw Rate Since 1987",
+        caption = "Data source: kenpom.com")
+p1
+
+
+```

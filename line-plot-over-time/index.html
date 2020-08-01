@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.73.0" />
+
+
+<title>Ch-Ch-Changes - Fungo by Chris Gallo</title>
+<meta property="og:title" content="Ch-Ch-Changes - Fungo by Chris Gallo">
+
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <ul class="nav-links">
+    
+    <li><a href="/about-fungo/">fungo by chris gallo</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">1 min read</span>
+    
+
+    <h1 class="article-title">Ch-Ch-Changes</h1>
+
+    
+    <span class="article-date">2020-07-31</span>
+    
+
+    <div class="article-content">
+      
+
+
+<div id="section" class="section level2">
+<h2><img src="/post/2020-07-31-line-plot_files/figure-html/unnamed-chunk-1-1.png" width="1152" /></h2>
+<p>FiveThirtyEight wrote an <a href="https://fivethirtyeight.com/features/happy-birthday-to-roy-williams-the-coach-who-never-changes/">article about Roy Williams</a> recently, and it in it discusses <em>how</em> his team’s do not attempt as many three-point shots compared to the rest of college basketball.</p>
+<p>Williams has been around a long time. 30 plus years as a head coach. College basketball has changed quite a lot. Williams has not.</p>
+<p>This is a line plot showing how free throw rate and three-point attempt rate has changed since 1987. It doesn’t factor in rule changes, only the raw data via <a href="https://kenpom.com/trends.php">kenpom.com</a>.</p>
+<p>Teams attempt three-point shots more often than free throws in today’s game.</p>
+<p>This riffs on the <a href="https://cran.r-project.org/web/packages/ggthemes/vignettes/ggthemes.html">economist theme</a> and uses <a href="https://ggplot2.tidyverse.org/">ggplot2 package</a>. The <a href="http://t-redactyl.io/blog/2015/12/creating-plots-in-r-using-ggplot2-part-1-line-plots.html">tutorials here</a> are handy.</p>
+<p>Code is below . . .</p>
+<pre><code>library(ggplot2)
+library(ggthemes)
+library(extrafont)
+
+charts.data &lt;- read.csv(&quot;kpdata.csv&quot;)
+
+charts.data &lt;- as.data.frame(charts.data)
+charts.data$product &lt;- factor(charts.data$product, levels = c(&quot;three&quot;,&quot;free&quot;),
+                              labels = c(&quot;Three-Point Attempt Rate&quot;,&quot;Free Throw Rate&quot;))
+
+p1 &lt;- ggplot() + theme_economist() + scale_colour_economist() +
+  geom_line(aes(y = rate, x = year, colour = product), size=1.5, data = charts.data,
+            stat=&quot;identity&quot;) +
+  theme(legend.position=&quot;bottom&quot;, legend.direction=&quot;horizontil&quot;,
+        legend.title = element_blank()) +
+  scale_x_continuous(breaks=seq(1988,2020,4)) +
+  labs(x=&quot;Year&quot;, y=&quot;Rate&quot;, 
+title = &quot;Median Division-I Three-Point Attempt Rate and Free Throw Rate Since 1987&quot;,
+        caption = &quot;Data source: kenpom.com&quot;)
+p1
+
+</code></pre>
+</div>
+
+    </div>
+  </article>
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/" target="_blank">home</a>
+          </li>
+          <li>
+            <a href="https://hotdogsandeggs.com/" class="footer-links-kudos">made with hot dogs and eggs</a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+  </body>
+</html>
+
