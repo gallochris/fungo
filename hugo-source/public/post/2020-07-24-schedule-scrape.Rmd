@@ -25,26 +25,26 @@ team <- odds %>%
 
 pb <- odds %>% 
   rvest::html_nodes('table') %>% 
-  xml2::xml_find_all("//td[contains(@class, 'goto pb _pb odds-cell')]") %>% 
+  xml2::xml_find_all("//td[contains(@class, 'goto pb _pb odds-cell null')]") %>% 
   rvest::html_text()
 
-mgm <- odds %>% 
+dk <- odds %>% 
   rvest::html_nodes('table') %>% 
-  xml2::xml_find_all("//td[contains(@class, 'goto bo _bo odds-cell')]") %>% 
+  xml2::xml_find_all("//td[contains(@class, 'goto dk _dk odds-cell null')]") %>% 
   rvest::html_text()
 
-bet365 <- odds %>% 
+foxbet <- odds %>% 
   rvest::html_nodes('table') %>% 
-  xml2::xml_find_all("//td[contains(@class, 'goto b3 _b3 odds-cell')]") %>% 
+  xml2::xml_find_all("//td[contains(@class, 'goto fb _fb odds-cell null')]") %>% 
   rvest::html_text()
 
 
-chart_df <- data.frame(team, pb, mgm, bet365)
+chart_df <- data.frame(team, pb, dk, foxbet)
 
 kable(chart_df, col.names = c("Team",
                            "PointsBet",
-                           "BetMGM",
-                           "Bet365"), caption = "NBA Champ Odds", format="markdown")
+                           "DraftKings",
+                           "FoxBet"), caption = "NBA Champ Odds", format="markdown")
 
 
 ```

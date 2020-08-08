@@ -2,6 +2,7 @@
 date: "2020-07-08T21:48:51-07:00"
 title: "What is fungo?"
 slug: "about-fungo"
+layout: "about"
 ---
 
 Hi, I'm Chris and this is **fungo**, a place for me to play with data and practice using R. 

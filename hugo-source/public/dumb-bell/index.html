@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.73.0" />
+
+
+<title>Bells are not Dumb - Fungo by Chris Gallo</title>
+<meta property="og:title" content="Bells are not Dumb - Fungo by Chris Gallo">
+
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <ul class="nav-links">
+    
+    <li><a href="/about-fungo/">fungo by chris gallo</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">2 min read</span>
+    
+
+    <h1 class="article-title">Bells are not Dumb</h1>
+
+    
+    <span class="article-date">2020-08-07</span>
+    
+
+    <div class="article-content">
+      
+
+
+<div id="section" class="section level2">
+<h2><img src="/post/2020-08-07-dumb-bell_files/figure-html/unnamed-chunk-1-1.png" width="1152" /></h2>
+<p>This is a riff off the <a href="https://fungo.hotdogsandeggs.com/sheed-wallace-waffles/">Rasheed Wallace Waffles</a> post. It looks at college and pro three-point rates for four Tar Heels that played at least 16 seasons in the NBA using a dumbbell plot to show the change.</p>
+<p>It’s incredible how much the game changed, and Vince Carter’s rate actually went down. Carter played 22 years in the league. About 31 percent of Carter’s shot attempts were from thee-point land as a collegiate player, and about 29 percent as a pro.</p>
+<p>Carter’s three-point percentage was 36.8 in college, and a 37.1 in the NBA. Consistency.</p>
+<p>The data was pulled from <a href="https://www.basketball-reference.com/">basketball-reference.com</a> and the <a href="https://goheels.com/documents/2019/10/30/2019_19_UNC_Men_s_Basketball_Record_Book.pdf">UNC Record Book</a>. This plot uses the <a href="https://cran.r-project.org/web/packages/ggalt/index.html">ggalt package</a>. The <a href="https://data-se.netlify.app/2018/05/23/playing-around-with-dumbbell-plots/">tutorial here</a>) was helpful.</p>
+<p>Code is below . . .</p>
+<pre><code>library(tidyverse)
+library(dplyr)
+library(ggalt)
+
+# fix and manipulate data
+d &lt;- tibble::tribble(
+    ~player, ~college, ~nba,
+  &quot;Rasheed Wallace&quot;,  0.01, 0.24, 
+  &quot;Jerry Stackhouse&quot;, 0.15, 0.24, 
+  &quot;Vince Carter&quot;, 0.31, 0.29, 
+  &quot;Antawn Jamison&quot;, 0.02, 0.20 
+  )
+
+d %&gt;% 
+  mutate(diff = nba - college) -&gt; d 
+
+d$player &lt;- factor(d$player, levels = rev(d$player))
+
+d %&gt;%
+  ggplot() +
+  geom_dumbbell(aes(y = player,
+      x = college, xend = nba),
+    colour = &quot;grey60&quot;, size = 5,
+    colour_x = &quot;#56a0d3&quot;, colour_xend = &quot;#395B74&quot;) +
+  theme_minimal() +
+  geom_text(data = filter(d, player == &quot;Rasheed Wallace&quot;),
+    aes(x = college, y = player),
+    label = &quot;College&quot;, fontface = &quot;bold&quot;,
+    color = &quot;#56a0d3&quot;,
+    vjust = -1) +
+  geom_text(data = filter(d, player == &quot;Rasheed Wallace&quot;),
+    aes(x = nba, y = player),
+    label = &quot;NBA&quot;, fontface = &quot;bold&quot;,
+    color = &quot;#395B74&quot;,
+    vjust = -1) +
+  labs(x = &quot;Three-Point Attempt Rate (% of shots from 3)&quot;,
+    y = &quot;Player&quot;,
+    title = &quot;Three-Point Attempt Rates in Collegiate and Pro Careers&quot;, caption = &quot;Source: UNC Record Book and Pro-Basketball Reference&quot;) +
+  theme(title = element_text()) +
+  scale_x_continuous(labels = scales::percent,
+    breaks = c(0, 0.10, 0.20, 0.30, .40)) +
+  coord_cartesian(xlim = c(0, 0.40)) +
+  geom_text(aes(y = player, label = diff),
+    x = 0.4, hjust = 0.25) +
+  annotate(x = 0.4, y = &quot;Rasheed Wallace&quot;, label = &quot;Delta&quot;,
+    geom = &quot;text&quot;, vjust = -2,
+    fontface = &quot;bold&quot;,
+    hjust = 1)</code></pre>
+</div>
+
+    </div>
+  </article>
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/" target="_blank">home</a>
+          </li>
+          <li>
+            <a href="https://hotdogsandeggs.com/" class="footer-links-kudos">made with hot dogs and eggs</a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+  </body>
+</html>
+
