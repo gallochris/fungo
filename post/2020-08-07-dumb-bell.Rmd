@@ -1,0 +1,127 @@
+---
+title: "Bells are not Dumb"
+author: "Chris Gallo"
+date: 2020-08-07
+categories: ["R"]
+slug: "dumb-bell"
+type: "post"
+tags: ["R Markdown", "Fungo Friday"]
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.width=12, fig.height=8)
+```
+
+```{r, echo=FALSE, message=FALSE}
+library(tidyverse)
+library(dplyr)
+library(ggalt)
+
+# fix and manipulate data
+d <- tibble::tribble(
+    ~player, ~college, ~nba,
+  "Rasheed Wallace",  0.01, 0.24, 
+  "Jerry Stackhouse", 0.15, 0.24, 
+  "Vince Carter", 0.31, 0.29, 
+  "Antawn Jamison", 0.02, 0.20 
+  )
+
+d %>% 
+  mutate(diff = nba - college) -> d 
+
+d$player <- factor(d$player, levels = rev(d$player))
+
+d %>%
+  ggplot() +
+  geom_dumbbell(aes(y = player,
+      x = college, xend = nba),
+    colour = "grey60", size = 5,
+    colour_x = "#56a0d3", colour_xend = "#395B74") +
+  theme_minimal() +
+  geom_text(data = filter(d, player == "Rasheed Wallace"),
+    aes(x = college, y = player),
+    label = "College", fontface = "bold",
+    color = "#56a0d3",
+    vjust = -1) +
+  geom_text(data = filter(d, player == "Rasheed Wallace"),
+    aes(x = nba, y = player),
+    label = "NBA", fontface = "bold",
+    color = "#395B74",
+    vjust = -1) +
+  labs(x = "Three-Point Attempt Rate (% of shots from 3)",
+    y = "Player",
+    title = "Three-Point Attempt Rates in Collegiate and Pro Careers", caption = "Source: UNC Record Book and Pro-Basketball Reference") +
+  theme(title = element_text(size = rel(1.4))) +
+  scale_x_continuous(labels = scales::percent,
+    breaks = c(0, 0.10, 0.20, 0.30, .40)) +
+  coord_cartesian(xlim = c(0, 0.40)) +
+  geom_text(aes(y = player, label = diff),
+    x = 0.4, hjust = 0.25) +
+  annotate(x = 0.4, y = "Rasheed Wallace", label = "Delta",
+    geom = "text", vjust = -2,
+    fontface = "bold",
+    hjust = 1)
+
+```
+---
+
+This is a riff off the [Rasheed Wallace Waffles](https://fungo.hotdogsandeggs.com/sheed-wallace-waffles/) post. It looks at college and pro three-point rates for four Tar Heels that played at least 16 seasons in the NBA using a dumbbell plot to show the change. 
+
+It's incredible how much the game changed, and Vince Carter's rate actually went down. Carter played 22 years in the league. About 31 percent of Carter's shot attempts were from thee-point land as a collegiate player, and about 29 percent as a pro. 
+
+Carter's three-point percentage was 36.8 in college, and a 37.1 in the NBA. Consistency. 
+
+The data was pulled from [basketball-reference.com](https://www.basketball-reference.com/) and the [UNC Record Book](https://goheels.com/documents/2019/10/30/2019_19_UNC_Men_s_Basketball_Record_Book.pdf). This plot uses the [ggalt package](https://cran.r-project.org/web/packages/ggalt/index.html). The [tutorial here](https://data-se.netlify.app/2018/05/23/playing-around-with-dumbbell-plots/)) was helpful. 
+
+Code is below . . .
+
+```
+library(tidyverse)
+library(dplyr)
+library(ggalt)
+
+# fix and manipulate data
+d <- tibble::tribble(
+    ~player, ~college, ~nba,
+  "Rasheed Wallace",  0.01, 0.24, 
+  "Jerry Stackhouse", 0.15, 0.24, 
+  "Vince Carter", 0.31, 0.29, 
+  "Antawn Jamison", 0.02, 0.20 
+  )
+
+d %>% 
+  mutate(diff = nba - college) -> d 
+
+d$player <- factor(d$player, levels = rev(d$player))
+
+d %>%
+  ggplot() +
+  geom_dumbbell(aes(y = player,
+      x = college, xend = nba),
+    colour = "grey60", size = 5,
+    colour_x = "#56a0d3", colour_xend = "#395B74") +
+  theme_minimal() +
+  geom_text(data = filter(d, player == "Rasheed Wallace"),
+    aes(x = college, y = player),
+    label = "College", fontface = "bold",
+    color = "#56a0d3",
+    vjust = -1) +
+  geom_text(data = filter(d, player == "Rasheed Wallace"),
+    aes(x = nba, y = player),
+    label = "NBA", fontface = "bold",
+    color = "#395B74",
+    vjust = -1) +
+  labs(x = "Three-Point Attempt Rate (% of shots from 3)",
+    y = "Player",
+    title = "Three-Point Attempt Rates in Collegiate and Pro Careers", caption = "Source: UNC Record Book and Pro-Basketball Reference") +
+  theme(title = element_text()) +
+  scale_x_continuous(labels = scales::percent,
+    breaks = c(0, 0.10, 0.20, 0.30, .40)) +
+  coord_cartesian(xlim = c(0, 0.40)) +
+  geom_text(aes(y = player, label = diff),
+    x = 0.4, hjust = 0.25) +
+  annotate(x = 0.4, y = "Rasheed Wallace", label = "Delta",
+    geom = "text", vjust = -2,
+    fontface = "bold",
+    hjust = 1)
+```

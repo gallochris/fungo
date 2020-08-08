@@ -3,62 +3,67 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://fungo.hotdogsandeggs.com/categories/</loc>
+    <loc>/dumb-bell/</loc>
+    <lastmod>2020-08-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
+    <lastmod>2020-08-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-08-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/fungo-friday/</loc>
+    <lastmod>2020-08-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2020-08-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/r/</loc>
+    <lastmod>2020-08-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/r-markdown/</loc>
+    <lastmod>2020-08-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-08-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/line-plot-over-time/</loc>
     <lastmod>2020-07-31T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://fungo.hotdogsandeggs.com/line-plot-over-time/</loc>
-    <lastmod>2020-07-31T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://fungo.hotdogsandeggs.com/</loc>
-    <lastmod>2020-07-31T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://fungo.hotdogsandeggs.com/tags/fungo-friday/</loc>
-    <lastmod>2020-07-31T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://fungo.hotdogsandeggs.com/post/</loc>
-    <lastmod>2020-07-31T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://fungo.hotdogsandeggs.com/categories/r/</loc>
-    <lastmod>2020-07-31T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://fungo.hotdogsandeggs.com/tags/r-markdown/</loc>
-    <lastmod>2020-07-31T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://fungo.hotdogsandeggs.com/tags/</loc>
-    <lastmod>2020-07-31T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://fungo.hotdogsandeggs.com/scrape-odds/</loc>
+    <loc>/scrape-odds/</loc>
     <lastmod>2020-07-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://fungo.hotdogsandeggs.com/sheed-wallace-waffles/</loc>
+    <loc>/sheed-wallace-waffles/</loc>
     <lastmod>2020-07-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://fungo.hotdogsandeggs.com/about-fungo/</loc>
+    <loc>/about-fungo/</loc>
     <lastmod>2020-07-08T21:48:51-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://fungo.hotdogsandeggs.com/moneyline-percentages/</loc>
+    <loc>/moneyline-percentages/</loc>
     <lastmod>2020-07-08T21:13:14-05:00</lastmod>
   </url>
   

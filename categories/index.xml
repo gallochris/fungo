@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Fungo by Chris Gallo</title>
-    <link>https://fungo.hotdogsandeggs.com/categories/</link>
+    <link>/categories/</link>
     <description>Recent content in Categories on Fungo by Chris Gallo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 31 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 07 Aug 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://fungo.hotdogsandeggs.com/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>R</title>
-      <link>https://fungo.hotdogsandeggs.com/categories/r/</link>
-      <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
+      <link>/categories/r/</link>
+      <pubDate>Fri, 07 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://fungo.hotdogsandeggs.com/categories/r/</guid>
+      <guid>/categories/r/</guid>
       <description></description>
     </item>
     
