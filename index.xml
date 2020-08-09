@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Fungo by Chris Gallo</title>
-    <link>/</link>
+    <link>https://fungo.hotdogsandeggs.com/</link>
     <description>Recent content on Fungo by Chris Gallo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 07 Aug 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://fungo.hotdogsandeggs.com/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Bells are not Dumb</title>
-      <link>/dumb-bell/</link>
+      <link>https://fungo.hotdogsandeggs.com/dumb-bell/</link>
       <pubDate>Fri, 07 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>/dumb-bell/</guid>
+      <guid>https://fungo.hotdogsandeggs.com/dumb-bell/</guid>
       <description>This is a riff off the Rasheed Wallace Waffles post. It looks at college and pro three-point rates for four Tar Heels that played at least 16 seasons in the NBA using a dumbbell plot to show the change.
 It’s incredible how much the game changed, and Vince Carter’s rate actually went down. Carter played 22 years in the league. About 31 percent of Carter’s shot attempts were from thee-point land as a collegiate player, and about 29 percent as a pro.</description>
     </item>
     
     <item>
       <title>Ch-Ch-Changes</title>
-      <link>/line-plot-over-time/</link>
+      <link>https://fungo.hotdogsandeggs.com/line-plot-over-time/</link>
       <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>/line-plot-over-time/</guid>
+      <guid>https://fungo.hotdogsandeggs.com/line-plot-over-time/</guid>
       <description>FiveThirtyEight wrote an article about Roy Williams recently, and it in it discusses how his team’s do not attempt as many three-point shots compared to the rest of college basketball.
 Williams has been around a long time. 30 plus years as a head coach. College basketball has changed quite a lot. Williams has not.
 This is a line plot showing how free throw rate and three-point attempt rate has changed since 1987.</description>
@@ -34,19 +34,19 @@ This is a line plot showing how free throw rate and three-point attempt rate has
     
     <item>
       <title>Scraping Odds</title>
-      <link>/scrape-odds/</link>
+      <link>https://fungo.hotdogsandeggs.com/scrape-odds/</link>
       <pubDate>Fri, 24 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>/scrape-odds/</guid>
-      <description>Table 1: NBA Champ Odds  Team PointsBet DraftKings FoxBet    Celtics +1600 +2000 +2000  Nets +20000 +30000 +25000  Mavericks +4000 +5000 +5000  Nuggets +2500 +2500 +2800  Rockets +1200 +1400 +1400  Pacers +8000 +8000 +10000  Clippers +300 +309 +309  Lakers +250 +250 +250  Grizzlies +20000 +20000 +20000  Heat +3000 +2500 +3000  Bucks +250 +250 +250  Pelicans +12500 +15000 +12500  Thunder +6600 +7000 +8500  Magic +25000 +30000 +25000  76ers +2000 +3300 +3000  Suns +50000 +50000 +25000  Blazers +6600 +7000 +8500  Kings +25000 +50000 +30000  Spurs +20000 +20000 +30000  Raptors +1400 +1000 +1400  Jazz +4000 +7000 +4000  Wizards +100000 +80000 +50000    Web scraping sounds hard.</description>
+      <guid>https://fungo.hotdogsandeggs.com/scrape-odds/</guid>
+      <description>Table 1: NBA Champ Odds  Team PointsBet DraftKings FoxBet    Celtics +1800 +2000 +1800  Nets +25000 +30000 +25000  Mavericks +5000 +5000 +5000  Nuggets +2500 +2500 +2500  Rockets +1200 +1400 +1400  Pacers +9000 +8000 +10000  Clippers +315 +309 +309  Lakers +250 +250 +250  Grizzlies +20000 +20000 +20000  Heat +3000 +2500 +3000  Bucks +250 +250 +250  Pelicans +15000 +15000 +15000  Thunder +7000 +7000 +8500  Magic +25000 +30000 +25000  76ers +3000 +3300 +3000  Suns +25000 +15000 +25000  Blazers +6600 +6000 +6600  Kings +35000 +50000 +30000  Spurs +20000 +20000 +30000  Raptors +1200 +1000 +1200  Jazz +4500 +7000 +5000  Wizards  +80000 +50000    Web scraping sounds hard.</description>
     </item>
     
     <item>
       <title>Rasheed Wallace Waffles</title>
-      <link>/sheed-wallace-waffles/</link>
+      <link>https://fungo.hotdogsandeggs.com/sheed-wallace-waffles/</link>
       <pubDate>Fri, 17 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>/sheed-wallace-waffles/</guid>
+      <guid>https://fungo.hotdogsandeggs.com/sheed-wallace-waffles/</guid>
       <description>Rasheed Wallace is one of my favorite basketball players. This uses a waffle chart to display his points distribution in both college and the NBA.
 Wallace attempted only four three-point shots in his collegiate career. This means only 0.67 percent of his shot attempts at North Carolina were behind the three-point line.
 He played 18 years in the NBA and attempted 3,228 three-point shots. 23.9 percent of his shots came from three-point land as a pro, and he scored ~21 percent of his points in the NBA via the three-point shot.</description>
@@ -54,10 +54,10 @@ He played 18 years in the NBA and attempted 3,228 three-point shots. 23.9 percen
     
     <item>
       <title>What is fungo?</title>
-      <link>/about-fungo/</link>
+      <link>https://fungo.hotdogsandeggs.com/about-fungo/</link>
       <pubDate>Wed, 08 Jul 2020 21:48:51 -0700</pubDate>
       
-      <guid>/about-fungo/</guid>
+      <guid>https://fungo.hotdogsandeggs.com/about-fungo/</guid>
       <description>Hi, I&amp;rsquo;m Chris and this is fungo, a place for me to play with data and practice using R.
 The site is built with the blogdown package using the Lithium theme.
 Check out hotdogsandeggs.com to learn more about me.
@@ -66,10 +66,10 @@ Check out hotdogsandeggs.com to learn more about me.
     
     <item>
       <title>Moneyline Odds to Percentages</title>
-      <link>/moneyline-percentages/</link>
+      <link>https://fungo.hotdogsandeggs.com/moneyline-percentages/</link>
       <pubDate>Wed, 08 Jul 2020 21:13:14 -0500</pubDate>
       
-      <guid>/moneyline-percentages/</guid>
+      <guid>https://fungo.hotdogsandeggs.com/moneyline-percentages/</guid>
       <description>{&#34;x&#34;:{&#34;tag&#34;:{&#34;name&#34;:&#34;Reactable&#34;,&#34;attribs&#34;:{&#34;data&#34;:{&#34;short_odds&#34;:[0.909,0.9,0.889,0.875,0.857,0.833,0.8,0.75,0.667,0.5],&#34;odds&#34;:[1000,900,800,700,600,500,400,300,200,100],&#34;long_odds&#34;:[0.0909,0.1,0.111,0.125,0.143,0.167,0.2,0.25,0.33,0.5]},&#34;columns&#34;:[{&#34;accessor&#34;:&#34;short_odds&#34;,&#34;name&#34;:&#34;➖ Short Odds (i.e. -200)&#34;,&#34;type&#34;:&#34;numeric&#34;,&#34;align&#34;:&#34;left&#34;,&#34;headerClassName&#34;:&#34;header-p&#34;,&#34;cell&#34;:&#34;function(cellInfo) {\n // Format as percentage\n const pct = (cellInfo.value * 100).toFixed(1) + &#39;%&#39;\n // Pad single-digit numbers\n let value = pct.padStart(5)\n // Show % on first row only\n if (cellInfo.viewIndex  0) {\n value = value.replace(&#39;%&#39;, &#39; &#39;)\n }\n // Render bar chart\n return (\n &#39;&#39; +\n &#39;&#39; + value + &#39;&#39; +\n &#39;&#39; +\n &#39;&#39; +\n &#39;&#39; +\n &#39;&#39;\n )\n }&#34;</description>
     </item>
     
