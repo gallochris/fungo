@@ -6,10 +6,23 @@
     <description>Recent content on Fungo by Chris Gallo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 07 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 14 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://fungo.hotdogsandeggs.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>MLB Sans Bubble</title>
+      <link>https://fungo.hotdogsandeggs.com/mlb-games-played/</link>
+      <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://fungo.hotdogsandeggs.com/mlb-games-played/</guid>
+      <description>Major League Baseball without a bubble is strange. Through August 14, the St. Louis Cardinals have played only five games.
+10 percent of the league (three teams) have played less that 15 total games. While almost a quarter (23.3 percent) of the league has played 20 games.
+The data was pulled from baseball-reference.com. This plot uses the Economist theme.
+Code is below . . .
+library(tidyverse) library(rvest) library(ggthemes) library(extrafont) &amp;#39;https://www.</description>
+    </item>
     
     <item>
       <title>Bells are not Dumb</title>
@@ -38,7 +51,7 @@ This is a line plot showing how free throw rate and three-point attempt rate has
       <pubDate>Fri, 24 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>https://fungo.hotdogsandeggs.com/scrape-odds/</guid>
-      <description>Table 1: NBA Champ Odds  Team PointsBet DraftKings FoxBet    Celtics +1800 +2000 +1800  Nets +25000 +30000 +25000  Mavericks +5000 +5000 +5000  Nuggets +2500 +2500 +2500  Rockets +1200 +1400 +1400  Pacers +9000 +8000 +10000  Clippers +315 +309 +309  Lakers +250 +250 +250  Grizzlies +20000 +20000 +20000  Heat +3000 +2500 +3000  Bucks +250 +250 +250  Pelicans +15000 +15000 +15000  Thunder +7000 +7000 +8500  Magic +25000 +30000 +25000  76ers +3000 +3300 +3000  Suns +25000 +15000 +25000  Blazers +6600 +6000 +6600  Kings +35000 +50000 +30000  Spurs +20000 +20000 +30000  Raptors +1200 +1000 +1200  Jazz +4500 +7000 +5000  Wizards  +80000 +50000    Web scraping sounds hard.</description>
+      <description>Table 1: NBA Champ Odds  Team PointsBet DraftKings FoxBet    Celtics +1600 +1500 +1400  Nets +25000 +40000 +25000  Mavericks +5000 +5000 +5000  Nuggets +2500 +2200 +2500  Rockets +1200 +1400 +1400  Pacers +9000 +10000 +9000  Clippers +260 +300 +280  Lakers +325 +250 +300  Grizzlies +25000 +20000 +25000  Heat +3000 +2500 +2800  Bucks +250 +250 +250  Thunder +7000 +6000 +8500  Magic +25000 +30000 +40000  76ers +5000 +5000 +6000  Blazers +6000 +5000 +6000  Raptors +1200 +1100 +1100  Jazz +5000 +5000 +5000  Spurs     Suns       Web scraping sounds hard.</description>
     </item>
     
     <item>
