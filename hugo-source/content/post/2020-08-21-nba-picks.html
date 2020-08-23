@@ -1,0 +1,40 @@
+---
+title: "Scatter First Round"
+author: "Chris Gallo"
+date: '2020-08-21'
+slug: tar-heel-nba-draft-picks
+tags:
+- R Markdown
+- Fungo Friday
+categories: R
+type: post
+---
+
+
+
+<div id="section" class="section level2">
+<h2><img src="/post/2020-08-21-nba-picks_files/figure-html/unnamed-chunk-1-1.png" width="1152" /></h2>
+<p>Here is a scatter plot showing all NBA first round draft picks out of North Carolina since 1976. The draft has changed a ton. Fewer rounds. Expansion teams. Eligibility rules.</p>
+<p>But there is always round one.</p>
+<p>Random notes:</p>
+<ul>
+<li>16 of Carolina’s 21 top five picks came from 1976 to 1998</li>
+<li><a href="https://twitter.com/dadgumboxscores/status/1296942976569151488?s=20">three instances of Tar Heels</a> being drafted back-to-back in the top five</li>
+<li>the last Tar Heel picked in round one of the 2009 draft is the only one still in the league today</li>
+</ul>
+<p>The data is pulled from <a href="https://basketball.realgm.com/ncaa/conferences/Atlantic-Coast-Conference/1/North-Carolina/2/nba-draft">basketball.realgm.com</a>. This plot uses the Economist theme and <a href="https://cran.r-project.org/web/packages/ggrepel/vignettes/ggrepel.html">ggrepel package</a>.</p>
+<p>Code is below . . .</p>
+<pre><code>library(ggplot2)
+library(ggthemes)
+library(ggrepel)
+
+p1 &lt;-ggplot(data, aes(Year, Pick, label = Player))+
+  geom_text_repel() +
+  scale_x_continuous(breaks=seq(1976,2020,4)) +
+ scale_y_reverse(breaks =seq(0,30,5)) +
+  labs(x=&quot;Year&quot;, y=&quot;Pick Number&quot;, 
+title = &quot;Carolina: NBA First Round Draft Picks Since 1976&quot;,
+caption = &quot;Data source: realgm.com&quot;) + theme_economist() + theme(plot.title=element_text(family=&quot;OfficinaSanITC-Book&quot;),
+        text=element_text(family=&quot;OfficinaSanITC-Book&quot;)) 
+p1</code></pre>
+</div>

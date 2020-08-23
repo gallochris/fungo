@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Fungo by Chris Gallo</title>
-    <link>https://fungo.hotdogsandeggs.com/tags/</link>
+    <link>/tags/</link>
     <description>Recent content in Tags on Fungo by Chris Gallo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 14 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 21 Aug 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://fungo.hotdogsandeggs.com/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Fungo Friday</title>
-      <link>https://fungo.hotdogsandeggs.com/tags/fungo-friday/</link>
-      <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
+      <link>/tags/fungo-friday/</link>
+      <pubDate>Fri, 21 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://fungo.hotdogsandeggs.com/tags/fungo-friday/</guid>
+      <guid>/tags/fungo-friday/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R Markdown</title>
-      <link>https://fungo.hotdogsandeggs.com/tags/r-markdown/</link>
-      <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
+      <link>/tags/r-markdown/</link>
+      <pubDate>Fri, 21 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://fungo.hotdogsandeggs.com/tags/r-markdown/</guid>
+      <guid>/tags/r-markdown/</guid>
       <description></description>
     </item>
     
