@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.73.0" />
+
+
+<title>Dot Drill - Fungo by Chris Gallo</title>
+<meta property="og:title" content="Dot Drill - Fungo by Chris Gallo">
+
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <ul class="nav-links">
+    
+    <li><a href="/about-fungo/">fungo by chris gallo</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">1 min read</span>
+    
+
+    <h1 class="article-title">Dot Drill</h1>
+
+    
+    <span class="article-date">2020-08-28</span>
+    
+
+    <div class="article-content">
+      
+
+
+<div id="section" class="section level2">
+<h2><img src="/post/2020-08-28-dot-champs_files/figure-html/unnamed-chunk-1-1.png" width="1152" /></h2>
+<p>This is a dotchart showing the University of North Carolina team championships by sport. It includes NCAA and ITA (tennis) events for any teams.</p>
+<p>Women’s soccer has 22 of Carolina’s 51 team National Championships. While women’s soccer owns 43 percent of all team titles, it hasn’t won any of the last 10:</p>
+<ul>
+<li>Women’s Tennis (4)</li>
+<li>Field Hockey (2)</li>
+<li>Women’s Lacrosse (2)</li>
+<li>Men’s Basketball (1)</li>
+<li>Men’s Tennis (1)</li>
+</ul>
+<p>The data is pulled from <a href="https://goheels.com/news/2015/6/10/205473190.aspx">goheels.com</a>. This plot uses the Economist theme and leaned on <a href="https://ggplot2.tidyverse.org/reference/geom_point.html">this tutorial</a>.</p>
+<p>Code is below . . .</p>
+<pre><code>library(ggplot2)
+library(ggthemes)
+
+# define data
+d &lt;- tibble::tribble(
+    ~sports, ~champs,
+  &quot;Soccer (Women)&quot;,  22, 
+  &quot;Field Hockey&quot;, 8, 
+  &quot;Basketball (Men)&quot;, 6, 
+  &quot;Lacrosse (Men)&quot;, 5,
+  &quot;Tennis (Women)&quot;, 4,
+  &quot;Soccer (Men)&quot;, 2,
+  &quot;Lacrosse (Women)&quot;, 2,
+  &quot;Basketball (Women)&quot;, 1,
+  &quot;Tennis (Men)&quot;, 1
+  )
+
+
+ggplot(d) +
+    geom_point(aes(x = champs, y = reorder(sports, champs)), colour = &quot;#16284c&quot;, size = 3) +  
+    theme_economist() + theme(plot.title=element_text(family=&quot;OfficinaSanITC-Book&quot;),
+    text=element_text(family=&quot;OfficinaSanITC-Book&quot;)) +
+    scale_x_continuous(breaks=seq(0,22,4)) +
+    labs(x=&quot;NCAA Championships&quot;, y=&quot;Sport&quot;, 
+    title = &quot;University of North Carolina: Team National Championships By Sport (includes NCAA, ITA)&quot;,
+    caption = &quot;Data source: goheels.com&quot;)</code></pre>
+</div>
+
+    </div>
+  </article>
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/" target="_blank">home</a>
+          </li>
+          <li>
+            <a href="https://hotdogsandeggs.com/" class="footer-links-kudos">made with hot dogs and eggs</a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+
+  </body>
+</html>
+
