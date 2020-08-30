@@ -64,7 +64,7 @@
 
 <div id="section" class="section level2">
 <h2><img src="/post/2020-08-14-mlb-sans-bubble_files/figure-html/unnamed-chunk-1-1.png" width="1152" /></h2>
-<p>Major League Baseball without a bubble is strange. We’re now updating this chart weekly.</p>
+<p>Major League Baseball without a bubble is strange. We’re now updating this chart weekly (last update: <strong>August 29</strong>).</p>
 <p>The data was pulled from <a href="https://www.baseball-reference.com/leagues/MLB/2020-standings.shtml">baseball-reference.com</a>. This plot uses the Economist theme.</p>
 <p>Code is below . . .</p>
 <pre><code>library(tidyverse)
@@ -85,10 +85,10 @@ library(extrafont)
     alpha = 0.8
     ) + 
     theme_economist() + 
-    scale_x_continuous(breaks=seq(0,20,5)) +
+    scale_x_continuous(breaks=seq(0,40,5)) +
     scale_y_continuous(breaks=seq(0,10,1)) +
     labs(x=&quot;Games Played&quot;, y=&quot;Number of Teams&quot;, 
-    title = &quot;MLB: Number of Games Played by Team Through August 14, 2020&quot;,
+    title = &quot;MLB: Number of Games Played by Team Through August 29, 2020&quot;,
     caption = &quot;Data source: baseball-reference.com&quot;)</code></pre>
 </div>
 

@@ -6,10 +6,21 @@
     <description>Recent content on Fungo by Chris Gallo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 21 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 28 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Dot Drill</title>
+      <link>/dot-champs/</link>
+      <pubDate>Fri, 28 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/dot-champs/</guid>
+      <description>This is a dotchart showing the University of North Carolina team championships by sport. It includes NCAA and ITA (tennis) events for any teams.
+Women’s soccer has 22 of Carolina’s 51 team National Championships. While women’s soccer owns 43 percent of all team titles, it hasn’t won any of the last 10:
+ Women’s Tennis (4) Field Hockey (2) Women’s Lacrosse (2) Men’s Basketball (1) Men’s Tennis (1)  The data is pulled from goheels.</description>
+    </item>
     
     <item>
       <title>Scatter First Round</title>
@@ -29,10 +40,10 @@ Random notes:
       <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>/mlb-games-played/</guid>
-      <description>Major League Baseball without a bubble is strange. We’re now updating this chart weekly.
+      <description>Major League Baseball without a bubble is strange. We’re now updating this chart weekly (last update: August 29).
 The data was pulled from baseball-reference.com. This plot uses the Economist theme.
 Code is below . . .
-library(tidyverse) library(rvest) library(ggthemes) library(extrafont) &amp;#39;https://www.baseball-reference.com/leagues/MLB/2020-standings.shtml&amp;#39; %&amp;gt;% read_html() %&amp;gt;% html_table() %&amp;gt;% bind_rows() %&amp;gt;% mutate(gp = W + L) %&amp;gt;% count(gp) %&amp;gt;% ggplot(aes(gp, n)) + geom_bar( stat = &amp;#39;identity&amp;#39;, width = 0.8, alpha = 0.8 ) + theme_economist() + scale_x_continuous(breaks=seq(0,20,5)) + scale_y_continuous(breaks=seq(0,10,1)) + labs(x=&amp;quot;Games Played&amp;quot;, y=&amp;quot;Number of Teams&amp;quot;, title = &amp;quot;MLB: Number of Games Played by Team Through August 14, 2020&amp;quot;, caption = &amp;quot;Data source: baseball-reference.</description>
+library(tidyverse) library(rvest) library(ggthemes) library(extrafont) &amp;#39;https://www.baseball-reference.com/leagues/MLB/2020-standings.shtml&amp;#39; %&amp;gt;% read_html() %&amp;gt;% html_table() %&amp;gt;% bind_rows() %&amp;gt;% mutate(gp = W + L) %&amp;gt;% count(gp) %&amp;gt;% ggplot(aes(gp, n)) + geom_bar( stat = &amp;#39;identity&amp;#39;, width = 0.8, alpha = 0.</description>
     </item>
     
     <item>
@@ -62,7 +73,7 @@ This is a line plot showing how free throw rate and three-point attempt rate has
       <pubDate>Fri, 24 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>/scrape-odds/</guid>
-      <description>Table 1: NBA Champ Odds  Team PointsBet DraftKings FoxBet    Celtics +1000 +1100 +1100  Nets +100000 +50000 +95000  Mavericks +6000 +5000 +5000  Nuggets +8000 +6600 +5000  Rockets +1000 +900 +900  Pacers +100000 +25000 +50000  Clippers +250 +260 +250  Lakers +300 +400 +333  Heat +2000 +2000 +2000  Bucks +300 +275 +300  Thunder +15000 +15000 +20000  Magic +100000 +50000 +95000  76ers +100000 +25000 +15000  Blazers +15000 +6000 +6600  Raptors +900 +650 +700  Jazz +3500 +4000 +3300    Web scraping sounds hard.</description>
+      <description>Table 1: NBA Champ Odds  Team PointsBet DraftKings FoxBet    Celtics +1000 +900 +900  Mavericks +6600 +6000 +6000  Nuggets +6600 +6600 +6600  Rockets +1000 +1100 +1000  Clippers +275 +275 +260  Lakers +275 +275 +270  Heat +1800 +2000 +1800  Bucks +300 +280 +300  Thunder +8000 +15000 +8000  Raptors +800 +750 +750  Jazz +3000 +4000 +4000  Clippers       Web scraping sounds hard.</description>
     </item>
     
     <item>
