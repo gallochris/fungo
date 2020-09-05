@@ -1,0 +1,239 @@
+---
+title: "Questionable Quarters"
+author: "Chris Gallo"
+date: '2020-09-04'
+slug: quarter-chart
+tags:
+- R Markdown
+- Fungo Friday
+categories: R
+type: post
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.width=12, fig.height=8)
+```
+
+```{r, echo=FALSE, message=FALSE}
+library(reactable)
+library(htmltools)
+
+d <- tibble::tribble(
+ ~Game, ~Q1, ~Q2, ~Q3, ~Q4, ~Total, 
+ "One", +11, -8, -9, -5, -11,
+ "Two", -9, +3, +2, +2, -2,
+ "Three", +1, +6, +5, -27, -15
+)
+
+tbl <- reactable(d, columns = list(
+  Q1 = colDef(
+    cell = function(value) {
+      if (value >= 0) paste0("+", value) else value
+    },
+    style = function(value) {
+      color <- if (value > 0) {
+        "#00471B"
+      } else if (value < 0) {
+        "#98002E"
+      }
+      list(fontWeight = 200, color = color,maxWidth = 20)
+    }
+  ),
+    Q2 = colDef(
+    cell = function(value) {
+      if (value >= 0) paste0("+", value) else value
+    },
+    style = function(value) {
+      color <- if (value > 0) {
+        "#00471B"
+      } else if (value < 0) {
+        "#98002E"
+      }
+      list(fontWeight = 400, color = color, maxWidth = 20)
+    }
+  ),
+  Q3 = colDef(
+    cell = function(value) {
+      if (value >= 0) paste0("+", value) else value
+    },
+    style = function(value) {
+      color <- if (value > 0) {
+        "#00471B"
+      } else if (value < 0) {
+        "#98002E"
+      }
+      list(fontWeight = 500, color = color, maxWidth = 20)
+    }
+  ),
+  Q4 = colDef(
+    cell = function(value) {
+      if (value >= 0) paste0("+", value) else value
+    },
+    style = function(value) {
+      color <- if (value > 0) {
+        "#00471B"
+      } else if (value < 0) {
+        "#98002E"
+      }
+      list(fontWeight = 800, color = color, maxwidth = 20)
+    }
+  )
+  )
+)
+div(class = "quarters",
+  div(class = "title",
+    h2("Milwaukee Bucks: Point Differential by Quarter Against Miami Heat"),
+    "Bucks have outscored the Heat in seven of 12 quarters depsite not wining a single game in the series yet."
+  ),
+  tbl,
+  "Data via NBA.com"
+)
+```
+
+This is a table showing the point differential per quarter in the first three games of the Milwaukee Bucks and Miami Heat series. The Heat have won all three games despite losing seven of 12 quarters thus far. 
+
+The data is pulled via NBA.com, and this uses the [reactable package](https://glin.github.io/reactable/). This [guide](https://glin.github.io/reactable/articles/womens-world-cup/womens-world-cup.html) helped with the styles. 
+
+Code is below . . .
+
+```
+library(reactable)
+library(htmltools)
+
+d <- tibble::tribble(
+ ~Game, ~Q1, ~Q2, ~Q3, ~Q4, ~Total, 
+ "One", +11, -8, -9, -5, -11,
+ "Two", -9, +3, +2, +2, -2,
+ "Three", +1, +6, +5, -27, -15
+)
+
+tbl <- reactable(d, columns = list(
+  Q1 = colDef(
+    cell = function(value) {
+      if (value >= 0) paste0("+", value) else value
+    },
+    style = function(value) {
+      color <- if (value > 0) {
+        "#00471B"
+      } else if (value < 0) {
+        "#98002E"
+      }
+      list(fontWeight = 200, color = color,maxWidth = 20)
+    }
+  ),
+    Q2 = colDef(
+    cell = function(value) {
+      if (value >= 0) paste0("+", value) else value
+    },
+    style = function(value) {
+      color <- if (value > 0) {
+        "#00471B"
+      } else if (value < 0) {
+        "#98002E"
+      }
+      list(fontWeight = 400, color = color, maxWidth = 20)
+    }
+  ),
+  Q3 = colDef(
+    cell = function(value) {
+      if (value >= 0) paste0("+", value) else value
+    },
+    style = function(value) {
+      color <- if (value > 0) {
+        "#00471B"
+      } else if (value < 0) {
+        "#98002E"
+      }
+      list(fontWeight = 500, color = color, maxWidth = 20)
+    }
+  ),
+  Q4 = colDef(
+    cell = function(value) {
+      if (value >= 0) paste0("+", value) else value
+    },
+    style = function(value) {
+      color <- if (value > 0) {
+        "#00471B"
+      } else if (value < 0) {
+        "#98002E"
+      }
+      list(fontWeight = 800, color = color, maxwidth = 20)
+    }
+  )
+  )
+)
+div(class = "quarters",
+  div(class = "title",
+    h2("Milwaukee Bucks: Point Differential by Quarter Against Miami Heat"),
+    "Bucks have outscored the Heat in seven of 12 quarters depsite not wining a single game in the series yet."
+  ),
+  tbl,
+  "Data via NBA.com"
+)
+```
+---
+```{css echo=FALSE}
+```
+
+```{r ref.label="tbl", eval=FALSE}
+```
+
+```{r}
+tags$link(href = "https://fonts.googleapis.com/css?family=Karla:400,700|Fira+Mono&display=fallback", rel = "stylesheet")
+```
+
+```{css}
+.quarters {
+  font-family: Karla, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.title {
+  margin: 18px 0;
+  font-size: 16px;
+}
+
+.title h2 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.quarters-table {
+  margin-bottom: 20px;
+}
+
+/* Align header text to the bottom */
+.header, {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.header {
+  border-bottom-color: #555;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+/* Highlight headers when sorting */
+.header:hover,
+.header[aria-sort="ascending"],
+.header[aria-sort="descending"] {
+  background-color: #eee;
+}
+
+.border-left {
+  border-left: 2px solid #555;
+}
+
+/* Use box-shadow to create row borders that appear behind vertical borders */
+.cell {
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+}
+
+.number {
+  font-family: "Fira Mono", Consolas, Monaco, monospace;
+  font-size: 16px;
+  line-height: 30px;
+  white-space: pre;
+}
+```

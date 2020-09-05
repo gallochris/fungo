@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.73.0" />
+
+
+<title>Questionable Quarters - Fungo by Chris Gallo</title>
+<meta property="og:title" content="Questionable Quarters - Fungo by Chris Gallo">
+
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <ul class="nav-links">
+    
+    <li><a href="/about-fungo/">fungo by chris gallo</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">3 min read</span>
+    
+
+    <h1 class="article-title">Questionable Quarters</h1>
+
+    
+    <span class="article-date">2020-09-04</span>
+    
+
+    <div class="article-content">
+      
+<script src="/rmarkdown-libs/core-js/shim.min.js"></script>
+<script src="/rmarkdown-libs/react/react.min.js"></script>
+<script src="/rmarkdown-libs/react/react-dom.min.js"></script>
+<script src="/rmarkdown-libs/reactwidget/react-tools.js"></script>
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/reactable-binding/reactable.js"></script>
+
+
+<div class="quarters">
+<div class="title">
+<h2>Milwaukee Bucks: Point Differential by Quarter Against Miami Heat</h2>
+Bucks have outscored the Heat in seven of 12 quarters depsite not wining a single game in the series yet.
+</div>
+<div id="htmlwidget-1" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Game":["One","Two","Three"],"Q1":[11,-9,1],"Q2":[-8,3,6],"Q3":[-9,2,5],"Q4":[-5,2,-27],"Total":[-11,-2,-15]},"columns":[{"accessor":"Game","name":"Game","type":"character"},{"accessor":"Q1","name":"Q1","type":"numeric","cell":["+11","-9","+1"],"style":[{"fontWeight":200,"color":"#00471B","maxWidth":20},{"fontWeight":200,"color":"#98002E","maxWidth":20},{"fontWeight":200,"color":"#00471B","maxWidth":20}]},{"accessor":"Q2","name":"Q2","type":"numeric","cell":["-8","+3","+6"],"style":[{"fontWeight":400,"color":"#98002E","maxWidth":20},{"fontWeight":400,"color":"#00471B","maxWidth":20},{"fontWeight":400,"color":"#00471B","maxWidth":20}]},{"accessor":"Q3","name":"Q3","type":"numeric","cell":["-9","+2","+5"],"style":[{"fontWeight":500,"color":"#98002E","maxWidth":20},{"fontWeight":500,"color":"#00471B","maxWidth":20},{"fontWeight":500,"color":"#00471B","maxWidth":20}]},{"accessor":"Q4","name":"Q4","type":"numeric","cell":["-5","+2","-27"],"style":[{"fontWeight":800,"color":"#98002E","maxwidth":20},{"fontWeight":800,"color":"#00471B","maxwidth":20},{"fontWeight":800,"color":"#98002E","maxwidth":20}]},{"accessor":"Total","name":"Total","type":"numeric"}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"dataKey":"fcf524de9c001ec88802d670cdd6fc8a"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+Data via NBA.com
+</div>
+<p>This is a table showing the point differential per quarter in the first three games of the Milwaukee Bucks and Miami Heat series. The Heat have won all three games despite losing seven of 12 quarters thus far.</p>
+<p>The data is pulled via NBA.com, and this uses the <a href="https://glin.github.io/reactable/">reactable package</a>. This <a href="https://glin.github.io/reactable/articles/womens-world-cup/womens-world-cup.html">guide</a> helped with the styles.</p>
+<p>Code is below . . .</p>
+<pre><code>library(reactable)
+library(htmltools)
+
+d &lt;- tibble::tribble(
+ ~Game, ~Q1, ~Q2, ~Q3, ~Q4, ~Total, 
+ &quot;One&quot;, +11, -8, -9, -5, -11,
+ &quot;Two&quot;, -9, +3, +2, +2, -2,
+ &quot;Three&quot;, +1, +6, +5, -27, -15
+)
+
+tbl &lt;- reactable(d, columns = list(
+  Q1 = colDef(
+    cell = function(value) {
+      if (value &gt;= 0) paste0(&quot;+&quot;, value) else value
+    },
+    style = function(value) {
+      color &lt;- if (value &gt; 0) {
+        &quot;#00471B&quot;
+      } else if (value &lt; 0) {
+        &quot;#98002E&quot;
+      }
+      list(fontWeight = 200, color = color,maxWidth = 20)
+    }
+  ),
+    Q2 = colDef(
+    cell = function(value) {
+      if (value &gt;= 0) paste0(&quot;+&quot;, value) else value
+    },
+    style = function(value) {
+      color &lt;- if (value &gt; 0) {
+        &quot;#00471B&quot;
+      } else if (value &lt; 0) {
+        &quot;#98002E&quot;
+      }
+      list(fontWeight = 400, color = color, maxWidth = 20)
+    }
+  ),
+  Q3 = colDef(
+    cell = function(value) {
+      if (value &gt;= 0) paste0(&quot;+&quot;, value) else value
+    },
+    style = function(value) {
+      color &lt;- if (value &gt; 0) {
+        &quot;#00471B&quot;
+      } else if (value &lt; 0) {
+        &quot;#98002E&quot;
+      }
+      list(fontWeight = 500, color = color, maxWidth = 20)
+    }
+  ),
+  Q4 = colDef(
+    cell = function(value) {
+      if (value &gt;= 0) paste0(&quot;+&quot;, value) else value
+    },
+    style = function(value) {
+      color &lt;- if (value &gt; 0) {
+        &quot;#00471B&quot;
+      } else if (value &lt; 0) {
+        &quot;#98002E&quot;
+      }
+      list(fontWeight = 800, color = color, maxwidth = 20)
+    }
+  )
+  )
+)
+div(class = &quot;quarters&quot;,
+  div(class = &quot;title&quot;,
+    h2(&quot;Milwaukee Bucks: Point Differential by Quarter Against Miami Heat&quot;),
+    &quot;Bucks have outscored the Heat in seven of 12 quarters depsite not wining a single game in the series yet.&quot;
+  ),
+  tbl,
+  &quot;Data via NBA.com&quot;
+)</code></pre>
+<hr />
+<style type="text/css">
+</style>
+<pre class="r"><code>tags$link(href = &quot;https://fonts.googleapis.com/css?family=Karla:400,700|Fira+Mono&amp;display=fallback&quot;, rel = &quot;stylesheet&quot;)</code></pre>
+<link href="https://fonts.googleapis.com/css?family=Karla:400,700|Fira+Mono&amp;display=fallback" rel="stylesheet"/>
+<pre class="css"><code>.quarters {
+  font-family: Karla, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;
+}
+
+.title {
+  margin: 18px 0;
+  font-size: 16px;
+}
+
+.title h2 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.quarters-table {
+  margin-bottom: 20px;
+}
+
+/* Align header text to the bottom */
+.header, {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.header {
+  border-bottom-color: #555;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+/* Highlight headers when sorting */
+.header:hover,
+.header[aria-sort=&quot;ascending&quot;],
+.header[aria-sort=&quot;descending&quot;] {
+  background-color: #eee;
+}
+
+.border-left {
+  border-left: 2px solid #555;
+}
+
+/* Use box-shadow to create row borders that appear behind vertical borders */
+.cell {
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+}
+
+.number {
+  font-family: &quot;Fira Mono&quot;, Consolas, Monaco, monospace;
+  font-size: 16px;
+  line-height: 30px;
+  white-space: pre;
+}</code></pre>
+<style type="text/css">
+.quarters {
+  font-family: Karla, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.title {
+  margin: 18px 0;
+  font-size: 16px;
+}
+
+.title h2 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.quarters-table {
+  margin-bottom: 20px;
+}
+
+/* Align header text to the bottom */
+.header, {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.header {
+  border-bottom-color: #555;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+/* Highlight headers when sorting */
+.header:hover,
+.header[aria-sort="ascending"],
+.header[aria-sort="descending"] {
+  background-color: #eee;
+}
+
+.border-left {
+  border-left: 2px solid #555;
+}
+
+/* Use box-shadow to create row borders that appear behind vertical borders */
+.cell {
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+}
+
+.number {
+  font-family: "Fira Mono", Consolas, Monaco, monospace;
+  font-size: 16px;
+  line-height: 30px;
+  white-space: pre;
+}
+</style>
+
+    </div>
+  </article>
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/" target="_blank">home</a>
+          </li>
+          <li>
+            <a href="https://hotdogsandeggs.com/" class="footer-links-kudos">made with hot dogs and eggs</a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+  </body>
+</html>
+
