@@ -6,8 +6,8 @@
 <meta name="generator" content="Hugo 0.73.0" />
 
 
-<title>MLB Sans Bubble - Fungo by Chris Gallo</title>
-<meta property="og:title" content="MLB Sans Bubble - Fungo by Chris Gallo">
+<title>Lines and Points - Fungo by Chris Gallo</title>
+<meta property="og:title" content="Lines and Points - Fungo by Chris Gallo">
 
 
 
@@ -52,45 +52,34 @@
     <span class="article-duration">1 min read</span>
     
 
-    <h1 class="article-title">MLB Sans Bubble</h1>
+    <h1 class="article-title">Lines and Points</h1>
 
     
-    <span class="article-date">2020-08-14</span>
+    <span class="article-date">2020-09-13</span>
     
 
     <div class="article-content">
       
 
 
-<div id="section" class="section level2">
-<h2><img src="/post/2020-08-14-mlb-sans-bubble_files/figure-html/unnamed-chunk-1-1.png" width="1152" /></h2>
-<p>Major League Baseball without a bubble is strange. We’re now updating this chart weekly (last update: <strong>September 12</strong>).</p>
-<p>The data was pulled from <a href="https://www.baseball-reference.com/leagues/MLB/2020-standings.shtml">baseball-reference.com</a>. This plot uses the Economist theme.</p>
+<p><img src="/post/2020-09-13-football-graph_files/figure-html/unnamed-chunk-1-1.png" width="1152" /></p>
+<p>This is a table showing yards per play by drive during the Syracuse and North Carolina football game. This shows Syracuse offense and Carolina defense.</p>
+<p>It uses the following packages: ggplot, <a href="https://github.com/hrbrmstr/hrbrthemes">hrbrthemes</a>, and <a href="https://github.com/saiemgilani/cfbscrapR">cfbscrapR</a>.</p>
 <p>Code is below . . .</p>
-<pre><code>library(tidyverse)
-library(rvest)
-library(ggthemes)
-library(extrafont)
+<pre><code>library(ggplot2)
+library(hrbrthemes)
 
-&#39;https://www.baseball-reference.com/leagues/MLB/2020-standings.shtml&#39; %&gt;%
-  read_html() %&gt;%
-  html_table() %&gt;%
-  bind_rows() %&gt;%
-  mutate(gp = W + L) %&gt;%
-  count(gp) %&gt;%
-  ggplot(aes(gp, n)) + 
-  geom_bar(
-    stat = &#39;identity&#39;,
-    width = 0.8, 
-    alpha = 0.8
-    ) + 
-    theme_economist() + 
-    scale_x_continuous(breaks=seq(0,40,5)) +
-    scale_y_continuous(breaks=seq(0,10,1)) +
-    labs(x=&quot;Games Played&quot;, y=&quot;Number of Teams&quot;, 
-    title = &quot;MLB: Number of Games Played by Team Through August 29, 2020&quot;,
-    caption = &quot;Data source: baseball-reference.com&quot;)</code></pre>
-</div>
+charts.data &lt;- read.csv(&quot;cuse.csv&quot;)
+
+ggplot(charts.data, aes(y = Yards/Play, x = Drive)) + geom_line() + geom_point(aes(color=Result)) +
+theme_ipsum() +
+  scale_x_continuous(breaks=seq(1,14,1)) +
+  scale_y_continuous(breaks=seq(-1,6,1)) +
+  labs(x=&quot;Drive&quot;, y=&quot;Yards per Play (Drive)&quot;, 
+title = &quot;Syracuse: Yards Per Play by Drive (Carolina Defense)&quot;,
+subtitle = &quot;Carolina held Syracuse to eight drives of less than 3 yards per play.&quot;,
+        caption = &quot;Data source: cfbscrapR | collegefootballdata.com&quot;)white-space: pre;
+}</code></pre>
 
     </div>
   </article>

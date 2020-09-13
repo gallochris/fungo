@@ -1,0 +1,31 @@
+---
+title: "Lines and Points"
+author: "Chris Gallo"
+date: '2020-09-13'
+slug: lines-and-points
+tags:
+- R Markdown
+categories: R
+type: post
+---
+
+
+
+<p><img src="/post/2020-09-13-football-graph_files/figure-html/unnamed-chunk-1-1.png" width="1152" /></p>
+<p>This is a table showing yards per play by drive during the Syracuse and North Carolina football game. This shows Syracuse offense and Carolina defense.</p>
+<p>It uses the following packages: ggplot, <a href="https://github.com/hrbrmstr/hrbrthemes">hrbrthemes</a>, and <a href="https://github.com/saiemgilani/cfbscrapR">cfbscrapR</a>.</p>
+<p>Code is below . . .</p>
+<pre><code>library(ggplot2)
+library(hrbrthemes)
+
+charts.data &lt;- read.csv(&quot;cuse.csv&quot;)
+
+ggplot(charts.data, aes(y = Yards/Play, x = Drive)) + geom_line() + geom_point(aes(color=Result)) +
+theme_ipsum() +
+  scale_x_continuous(breaks=seq(1,14,1)) +
+  scale_y_continuous(breaks=seq(-1,6,1)) +
+  labs(x=&quot;Drive&quot;, y=&quot;Yards per Play (Drive)&quot;, 
+title = &quot;Syracuse: Yards Per Play by Drive (Carolina Defense)&quot;,
+subtitle = &quot;Carolina held Syracuse to eight drives of less than 3 yards per play.&quot;,
+        caption = &quot;Data source: cfbscrapR | collegefootballdata.com&quot;)white-space: pre;
+}</code></pre>
