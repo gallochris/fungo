@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.73.0" />
+
+
+<title>Lines and Points - Fungo by Chris Gallo</title>
+<meta property="og:title" content="Lines and Points - Fungo by Chris Gallo">
+
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <ul class="nav-links">
+    
+    <li><a href="/about-fungo/">fungo by chris gallo</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">1 min read</span>
+    
+
+    <h1 class="article-title">Lines and Points</h1>
+
+    
+    <span class="article-date">2020-09-13</span>
+    
+
+    <div class="article-content">
+      
+
+
+<p><img src="/post/2020-09-13-football-graph_files/figure-html/unnamed-chunk-1-1.png" width="1152" /></p>
+<p>This is a table showing yards per play by drive during the Syracuse and North Carolina football game. This shows Syracuse offense and Carolina defense.</p>
+<p>It uses the following packages: ggplot, <a href="https://github.com/hrbrmstr/hrbrthemes">hrbrthemes</a>, and <a href="https://github.com/saiemgilani/cfbscrapR">cfbscrapR</a>.</p>
+<p>Code is below . . .</p>
+<pre><code>library(ggplot2)
+library(hrbrthemes)
+
+charts.data &lt;- read.csv(&quot;cuse.csv&quot;)
+
+ggplot(charts.data, aes(y = Yards/Play, x = Drive)) + geom_line() + geom_point(aes(color=Result)) +
+theme_ipsum() +
+  scale_x_continuous(breaks=seq(1,14,1)) +
+  scale_y_continuous(breaks=seq(-1,6,1)) +
+  labs(x=&quot;Drive&quot;, y=&quot;Yards per Play (Drive)&quot;, 
+title = &quot;Syracuse: Yards Per Play by Drive (Carolina Defense)&quot;,
+subtitle = &quot;Carolina held Syracuse to eight drives of less than 3 yards per play.&quot;,
+        caption = &quot;Data source: cfbscrapR | collegefootballdata.com&quot;)white-space: pre;
+}</code></pre>
+
+    </div>
+  </article>
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/" target="_blank">home</a>
+          </li>
+          <li>
+            <a href="https://hotdogsandeggs.com/" class="footer-links-kudos">made with hot dogs and eggs</a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+
+  </body>
+</html>
+

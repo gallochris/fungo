@@ -1,0 +1,53 @@
+---
+title: "Lines and Points"
+author: "Chris Gallo"
+date: '2020-09-13'
+slug: lines-and-points
+tags:
+- R Markdown
+categories: R
+type: post
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.width=12, fig.height=8)
+```
+
+```{r, echo=FALSE, message=FALSE}
+library(ggplot2)
+library(hrbrthemes)
+
+charts.data <- read.csv("cuse.csv")
+
+ggplot(charts.data, aes(y = Yards/Play, x = Drive)) + geom_line() + geom_point(aes(color=Result)) +
+theme_ipsum() +
+  scale_x_continuous(breaks=seq(1,14,1)) +
+  scale_y_continuous(breaks=seq(-1,6,1)) +
+  labs(x="Drive", y="Yards per Play (Drive)", 
+title = "Syracuse: Yards Per Play by Drive (Carolina Defense)",
+subtitle = "Carolina held Syracuse to eight drives of less than 3 yards per play.",
+        caption = "Data source: cfbscrapR | collegefootballdata.com")
+```
+
+This is a table showing yards per play by drive during the Syracuse and North Carolina football game. This shows Syracuse offense and Carolina defense. 
+
+It uses the following packages: ggplot, [hrbrthemes](https://github.com/hrbrmstr/hrbrthemes), and [cfbscrapR](https://github.com/saiemgilani/cfbscrapR). 
+
+Code is below . . .
+
+```
+library(ggplot2)
+library(hrbrthemes)
+
+charts.data <- read.csv("cuse.csv")
+
+ggplot(charts.data, aes(y = Yards/Play, x = Drive)) + geom_line() + geom_point(aes(color=Result)) +
+theme_ipsum() +
+  scale_x_continuous(breaks=seq(1,14,1)) +
+  scale_y_continuous(breaks=seq(-1,6,1)) +
+  labs(x="Drive", y="Yards per Play (Drive)", 
+title = "Syracuse: Yards Per Play by Drive (Carolina Defense)",
+subtitle = "Carolina held Syracuse to eight drives of less than 3 yards per play.",
+        caption = "Data source: cfbscrapR | collegefootballdata.com")white-space: pre;
+}
+```

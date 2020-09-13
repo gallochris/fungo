@@ -6,10 +6,22 @@
     <description>Recent content on Fungo by Chris Gallo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 04 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 13 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Lines and Points</title>
+      <link>/lines-and-points/</link>
+      <pubDate>Sun, 13 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/lines-and-points/</guid>
+      <description>This is a table showing yards per play by drive during the Syracuse and North Carolina football game. This shows Syracuse offense and Carolina defense.
+It uses the following packages: ggplot, hrbrthemes, and cfbscrapR.
+Code is below . . .
+library(ggplot2) library(hrbrthemes) charts.data &amp;lt;- read.csv(&amp;quot;cuse.csv&amp;quot;) ggplot(charts.data, aes(y = Yards/Play, x = Drive)) + geom_line() + geom_point(aes(color=Result)) + theme_ipsum() + scale_x_continuous(breaks=seq(1,14,1)) + scale_y_continuous(breaks=seq(-1,6,1)) + labs(x=&amp;quot;Drive&amp;quot;, y=&amp;quot;Yards per Play (Drive)&amp;quot;, title = &amp;quot;Syracuse: Yards Per Play by Drive (Carolina Defense)&amp;quot;, subtitle = &amp;quot;Carolina held Syracuse to eight drives of less than 3 yards per play.</description>
+    </item>
     
     <item>
       <title>Questionable Quarters</title>
@@ -17,7 +29,7 @@
       <pubDate>Fri, 04 Sep 2020 00:00:00 +0000</pubDate>
       
       <guid>/quarter-chart/</guid>
-      <description>Milwaukee Bucks: Point Differential by Quarter Against Miami Heat Bucks have outscored the Heat in seven of 12 quarters depsite not wining a single game in the series yet.   {&#34;x&#34;:{&#34;tag&#34;:{&#34;name&#34;:&#34;Reactable&#34;,&#34;attribs&#34;:{&#34;data&#34;:{&#34;Game&#34;:[&#34;One&#34;,&#34;Two&#34;,&#34;Three&#34;],&#34;Q1&#34;:[11,-9,1],&#34;Q2&#34;:[-8,3,6],&#34;Q3&#34;:[-9,2,5],&#34;Q4&#34;:[-5,2,-27],&#34;Total&#34;:[-11,-2,-15]},&#34;columns&#34;:[{&#34;accessor&#34;:&#34;Game&#34;,&#34;name&#34;:&#34;Game&#34;,&#34;type&#34;:&#34;character&#34;},{&#34;accessor&#34;:&#34;Q1&#34;,&#34;name&#34;:&#34;Q1&#34;,&#34;type&#34;:&#34;numeric&#34;,&#34;cell&#34;:[&#34;+11&#34;,&#34;-9&#34;,&#34;+1&#34;],&#34;style&#34;:[{&#34;fontWeight&#34;:200,&#34;color&#34;:&#34;#00471B&#34;,&#34;maxWidth&#34;:20},{&#34;fontWeight&#34;:200,&#34;color&#34;:&#34;#98002E&#34;,&#34;maxWidth&#34;:20},{&#34;fontWeight&#34;:200,&#34;color&#34;:&#34;#00471B&#34;,&#34;maxWidth&#34;:20}]},{&#34;accessor&#34;:&#34;Q2&#34;,&#34;name&#34;:&#34;Q2&#34;,&#34;type&#34;:&#34;numeric&#34;,&#34;cell&#34;:[&#34;-8&#34;,&#34;+3&#34;,&#34;+6&#34;],&#34;style&#34;:[{&#34;fontWeight&#34;:400,&#34;color&#34;:&#34;#98002E&#34;,&#34;maxWidth&#34;:20},{&#34;fontWeight&#34;:400,&#34;color&#34;:&#34;#00471B&#34;,&#34;maxWidth&#34;:20},{&#34;fontWeight&#34;:400,&#34;color&#34;:&#34;#00471B&#34;,&#34;maxWidth&#34;:20}]},{&#34;accessor&#34;:&#34;Q3&#34;,&#34;name&#34;:&#34;Q3&#34;,&#34;type&#34;:&#34;numeric&#34;,&#34;cell&#34;:[&#34;-9&#34;,&#34;+2&#34;,&#34;+5&#34;],&#34;style&#34;:[{&#34;fontWeight&#34;:500,&#34;color&#34;:&#34;#98002E&#34;,&#34;maxWidth&#34;:20},{&#34;fontWeight&#34;:500,&#34;color&#34;:&#34;#00471B&#34;,&#34;maxWidth&#34;:20},{&#34;fontWeight&#34;:500,&#34;color&#34;:&#34;#00471B&#34;,&#34;maxWidth&#34;:20}]},{&#34;accessor&#34;:&#34;Q4&#34;,&#34;name&#34;:&#34;Q4&#34;,&#34;type&#34;:&#34;numeric&#34;,&#34;cell&#34;:[&#34;-5&#34;,&#34;+2&#34;,&#34;-27&#34;],&#34;style&#34;:[{&#34;fontWeight&#34;:800,&#34;color&#34;:&#34;#98002E&#34;,&#34;maxwidth&#34;:20},{&#34;fontWeight&#34;:800,&#34;color&#34;:&#34;#00471B&#34;,&#34;maxwidth&#34;:20},{&#34;fontWeight&#34;:800,&#34;color&#34;:&#34;#98002E&#34;,&#34;maxwidth&#34;:20}]},{&#34;accessor&#34;:&#34;Total&#34;,&#34;name&#34;:&#34;Total&#34;,&#34;type&#34;:&#34;numeric&#34;}],&#34;defaultPageSize&#34;:10,&#34;paginationType&#34;:&#34;numbers&#34;,&#34;showPageInfo&#34;:true,&#34;minRows&#34;:1,&#34;dataKey&#34;:&#34;fcf524de9c001ec88802d670cdd6fc8a&#34;},&#34;children&#34;:[]},&#34;class&#34;:&#34;reactR_markup&#34;},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]} Data via NBA.com  This is a table showing the point differential per quarter in the first three games of the Milwaukee Bucks and Miami Heat series. The Heat have won all three games despite losing seven of 12 quarters thus far.</description>
+      <description>Milwaukee Bucks: Point Differential by Quarter Against Miami Heat Bucks have outscored the Heat in seven of 12 quarters depsite not wining a single game in the series yet.   {&#34;x&#34;:{&#34;tag&#34;:{&#34;name&#34;:&#34;Reactable&#34;,&#34;attribs&#34;:{&#34;data&#34;:{&#34;Game&#34;:[&#34;One&#34;,&#34;Two&#34;,&#34;Three&#34;],&#34;Q1&#34;:[11,-9,1],&#34;Q2&#34;:[-8,3,6],&#34;Q3&#34;:[-9,2,5],&#34;Q4&#34;:[-5,2,-27],&#34;Total&#34;:[-11,-2,-15]},&#34;columns&#34;:[{&#34;accessor&#34;:&#34;Game&#34;,&#34;name&#34;:&#34;Game&#34;,&#34;type&#34;:&#34;character&#34;},{&#34;accessor&#34;:&#34;Q1&#34;,&#34;name&#34;:&#34;Q1&#34;,&#34;type&#34;:&#34;numeric&#34;,&#34;cell&#34;:[&#34;+11&#34;,&#34;-9&#34;,&#34;+1&#34;],&#34;style&#34;:[{&#34;fontWeight&#34;:200,&#34;color&#34;:&#34;#00471B&#34;,&#34;maxWidth&#34;:20},{&#34;fontWeight&#34;:200,&#34;color&#34;:&#34;#98002E&#34;,&#34;maxWidth&#34;:20},{&#34;fontWeight&#34;:200,&#34;color&#34;:&#34;#00471B&#34;,&#34;maxWidth&#34;:20}]},{&#34;accessor&#34;:&#34;Q2&#34;,&#34;name&#34;:&#34;Q2&#34;,&#34;type&#34;:&#34;numeric&#34;,&#34;cell&#34;:[&#34;-8&#34;,&#34;+3&#34;,&#34;+6&#34;],&#34;style&#34;:[{&#34;fontWeight&#34;:400,&#34;color&#34;:&#34;#98002E&#34;,&#34;maxWidth&#34;:20},{&#34;fontWeight&#34;:400,&#34;color&#34;:&#34;#00471B&#34;,&#34;maxWidth&#34;:20},{&#34;fontWeight&#34;:400,&#34;color&#34;:&#34;#00471B&#34;,&#34;maxWidth&#34;:20}]},{&#34;accessor&#34;:&#34;Q3&#34;,&#34;name&#34;:&#34;Q3&#34;,&#34;type&#34;:&#34;numeric&#34;,&#34;cell&#34;:[&#34;-9&#34;,&#34;+2&#34;,&#34;+5&#34;],&#34;style&#34;:[{&#34;fontWeight&#34;:500,&#34;color&#34;:&#34;#98002E&#34;,&#34;maxWidth&#34;:20},{&#34;fontWeight&#34;:500,&#34;color&#34;:&#34;#00471B&#34;,&#34;maxWidth&#34;:20},{&#34;fontWeight&#34;:500,&#34;color&#34;:&#34;#00471B&#34;,&#34;maxWidth&#34;:20}]},{&#34;accessor&#34;:&#34;Q4&#34;,&#34;name&#34;:&#34;Q4&#34;,&#34;type&#34;:&#34;numeric&#34;,&#34;cell&#34;:[&#34;-5&#34;,&#34;+2&#34;,&#34;-27&#34;],&#34;style&#34;:[{&#34;fontWeight&#34;:800,&#34;color&#34;:&#34;#98002E&#34;,&#34;maxwidth&#34;:20},{&#34;fontWeight&#34;:800,&#34;color&#34;:&#34;#00471B&#34;,&#34;maxwidth&#34;:20},{&#34;fontWeight&#34;:800,&#34;color&#34;:&#34;#98002E&#34;,&#34;maxwidth&#34;:20}]},{&#34;accessor&#34;:&#34;Total&#34;,&#34;name&#34;:&#34;Total&#34;,&#34;type&#34;:&#34;numeric&#34;}],&#34;defaultPageSize&#34;:10,&#34;paginationType&#34;:&#34;numbers&#34;,&#34;showPageInfo&#34;:true,&#34;minRows&#34;:1,&#34;dataKey&#34;:&#34;fcf524de9c001ec88802d670cdd6fc8a&#34;,&#34;key&#34;:&#34;fcf524de9c001ec88802d670cdd6fc8a&#34;},&#34;children&#34;:[]},&#34;class&#34;:&#34;reactR_markup&#34;},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]} Data via NBA.com  This is a table showing the point differential per quarter in the first three games of the Milwaukee Bucks and Miami Heat series. The Heat have won all three games despite losing seven of 12 quarters thus far.</description>
     </item>
     
     <item>
@@ -49,7 +61,7 @@ Random notes:
       <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>/mlb-games-played/</guid>
-      <description>Major League Baseball without a bubble is strange. We’re now updating this chart weekly (last update: September 4).
+      <description>Major League Baseball without a bubble is strange. We’re now updating this chart weekly (last update: September 12).
 The data was pulled from baseball-reference.com. This plot uses the Economist theme.
 Code is below . . .
 library(tidyverse) library(rvest) library(ggthemes) library(extrafont) &amp;#39;https://www.baseball-reference.com/leagues/MLB/2020-standings.shtml&amp;#39; %&amp;gt;% read_html() %&amp;gt;% html_table() %&amp;gt;% bind_rows() %&amp;gt;% mutate(gp = W + L) %&amp;gt;% count(gp) %&amp;gt;% ggplot(aes(gp, n)) + geom_bar( stat = &amp;#39;identity&amp;#39;, width = 0.8, alpha = 0.</description>
@@ -82,7 +94,8 @@ This is a line plot showing how free throw rate and three-point attempt rate has
       <pubDate>Fri, 24 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>/scrape-odds/</guid>
-      <description>Table 1: NBA Champ Odds  Team PointsBet DraftKings FoxBet    Celtics +600 +550 +550  Nuggets +6600 +10000 +10000  Rockets +900 +800 +800  Clippers +175 +190 +190  Lakers +300 +390 +380  Heat +500 +450 +450  Bucks +2500 +3000 +3000  Raptors +1200 +1200 +1100    Web scraping sounds hard. I’m finding it’s not too difficult with tools like rvest.</description>
+      <description>Table 1: NBA Champ Odds  Team PointsBet DraftKings FoxBet    Celtics +400 +370 +400  Nuggets +5000 +6600 +5000  Clippers +180 +190 +190  Lakers +150 +170 +140  Heat +550 +450 +550    Web scraping sounds hard. I’m finding it’s not too difficult with tools like rvest.
+This is a simple example pulling together markdown table of team’s odds to make the NBA Championship.</description>
     </item>
     
     <item>
