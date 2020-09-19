@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.73.0" />
+
+
+<title>GT Tables - Fungo by Chris Gallo</title>
+<meta property="og:title" content="GT Tables - Fungo by Chris Gallo">
+
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <ul class="nav-links">
+    
+    <li><a href="/about-fungo/">fungo by chris gallo</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">5 min read</span>
+    
+
+    <h1 class="article-title">GT Tables</h1>
+
+    
+    <span class="article-date">2020-09-19</span>
+    
+
+    <div class="article-content">
+      
+
+
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#qkbuezzqri .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#qkbuezzqri .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#qkbuezzqri .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#qkbuezzqri .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 4px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#qkbuezzqri .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#qkbuezzqri .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#qkbuezzqri .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#qkbuezzqri .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#qkbuezzqri .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#qkbuezzqri .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#qkbuezzqri .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#qkbuezzqri .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#qkbuezzqri .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#qkbuezzqri .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#qkbuezzqri .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#qkbuezzqri .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#qkbuezzqri .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
+}
+
+#qkbuezzqri .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#qkbuezzqri .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#qkbuezzqri .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#qkbuezzqri .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#qkbuezzqri .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#qkbuezzqri .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#qkbuezzqri .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#qkbuezzqri .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
+}
+
+#qkbuezzqri .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#qkbuezzqri .gt_sourcenote {
+  font-size: 90%;
+  padding: 4px;
+}
+
+#qkbuezzqri .gt_left {
+  text-align: left;
+}
+
+#qkbuezzqri .gt_center {
+  text-align: center;
+}
+
+#qkbuezzqri .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#qkbuezzqri .gt_font_normal {
+  font-weight: normal;
+}
+
+#qkbuezzqri .gt_font_bold {
+  font-weight: bold;
+}
+
+#qkbuezzqri .gt_font_italic {
+  font-style: italic;
+}
+
+#qkbuezzqri .gt_super {
+  font-size: 65%;
+}
+
+#qkbuezzqri .gt_footnote_marks {
+  font-style: italic;
+  font-size: 65%;
+}
+</style>
+<div id="qkbuezzqri" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
+  <thead class="gt_header">
+    <tr>
+      <th colspan="4" class="gt_heading gt_title gt_font_normal" style>Carolina: Point Differential in Final Game of Each Season Since 2004</th>
+    </tr>
+    <tr>
+      <th colspan="4" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style>Tar Heels season has ended with a double-digit loss three seasons in a row.</th>
+    </tr>
+  </thead>
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Season</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Type</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Opponent</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Differential</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr>
+      <td class="gt_row gt_left">2020</td>
+      <td class="gt_row gt_left">ACC 2nd Round</td>
+      <td class="gt_row gt_left">Syracuse</td>
+      <td class="gt_row gt_left">-28</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">2019</td>
+      <td class="gt_row gt_left">NCAA Sweet Sixteen</td>
+      <td class="gt_row gt_left">Auburn</td>
+      <td class="gt_row gt_left">-17</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">2018</td>
+      <td class="gt_row gt_left">NCAA 2nd Round</td>
+      <td class="gt_row gt_left">Texas A&amp;M</td>
+      <td class="gt_row gt_left">-21</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">2017</td>
+      <td class="gt_row gt_left">NCAA Championship</td>
+      <td class="gt_row gt_left">Gonzaga</td>
+      <td class="gt_row gt_left">+6</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">2016</td>
+      <td class="gt_row gt_left">NCAA Championship</td>
+      <td class="gt_row gt_left">Vilianova</td>
+      <td class="gt_row gt_left">-3</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">2015</td>
+      <td class="gt_row gt_left">NCAA Sweet Sixteen</td>
+      <td class="gt_row gt_left">Wisconsin</td>
+      <td class="gt_row gt_left">-7</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">2014</td>
+      <td class="gt_row gt_left">NCAA 2nd Round</td>
+      <td class="gt_row gt_left">Iowa State</td>
+      <td class="gt_row gt_left">-2</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">2013</td>
+      <td class="gt_row gt_left">NCAA 2nd Round</td>
+      <td class="gt_row gt_left">Kansas</td>
+      <td class="gt_row gt_left">-12</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">2012</td>
+      <td class="gt_row gt_left">NCAA Elite Eight</td>
+      <td class="gt_row gt_left">Kansas</td>
+      <td class="gt_row gt_left">-13</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">2011</td>
+      <td class="gt_row gt_left">NCAA Elite Eight</td>
+      <td class="gt_row gt_left">Kentucky</td>
+      <td class="gt_row gt_left">-7</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">2010</td>
+      <td class="gt_row gt_left">NIT Final</td>
+      <td class="gt_row gt_left">Dayton</td>
+      <td class="gt_row gt_left">-11</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">2009</td>
+      <td class="gt_row gt_left">NCAA Championship</td>
+      <td class="gt_row gt_left">Michigan State</td>
+      <td class="gt_row gt_left">+17</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">2008</td>
+      <td class="gt_row gt_left">NCAA Semifinal</td>
+      <td class="gt_row gt_left">Kanas</td>
+      <td class="gt_row gt_left">-18</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">2007</td>
+      <td class="gt_row gt_left">NCAA Elite Eight</td>
+      <td class="gt_row gt_left">Georgetown</td>
+      <td class="gt_row gt_left">-12</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">2006</td>
+      <td class="gt_row gt_left">NCAA 2nd Round</td>
+      <td class="gt_row gt_left">George Mason</td>
+      <td class="gt_row gt_left">-5</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">2005</td>
+      <td class="gt_row gt_left">NCAA Championship</td>
+      <td class="gt_row gt_left">Illinois</td>
+      <td class="gt_row gt_left">+5</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">2004</td>
+      <td class="gt_row gt_left">NCAA 2nd Round</td>
+      <td class="gt_row gt_left">Texas</td>
+      <td class="gt_row gt_left">-3</td>
+    </tr>
+  </tbody>
+  <tfoot class="gt_sourcenotes">
+    <tr>
+      <td class="gt_sourcenote" colspan="4">Source: goheels.com</td>
+    </tr>
+  </tfoot>
+  
+</table></div>
+<p>This is a table showing the point differential for the final game of each North Carolina men’s basketball season since 2004. Carolina’s season has ended with a double-digit loss three seasons in a row by a combined 66 points.</p>
+<p>This is my first use of the <a href="https://github.com/rstudio/gt/">gt package</a>. It’s quite useuful to put together a quick table without many lines of code. The labeling feels much better than formattable or dt packages.</p>
+<p>Code is below . . .</p>
+<pre><code>library(dplyr)
+library(gt)
+
+d &lt;- tibble::tribble(
+ ~Season,  ~Type, ~Opponent, ~Differential,
+ &quot;2004&quot;, &quot;NCAA 2nd Round&quot;, &quot;Texas&quot;, &quot;-3&quot;,
+ &quot;2005&quot;, &quot;NCAA Championship&quot;, &quot;Illinois&quot;, &quot;+5&quot;,
+ &quot;2006&quot;, &quot;NCAA 2nd Round&quot;, &quot;George Mason&quot;, &quot;-5&quot;,
+ &quot;2007&quot;, &quot;NCAA Elite Eight&quot;, &quot;Georgetown&quot;, &quot;-12&quot;,
+ &quot;2008&quot;, &quot;NCAA Semifinal&quot;, &quot;Kanas&quot;, &quot;-18&quot;, 
+ &quot;2009&quot;, &quot;NCAA Championship&quot;, &quot;Michigan State&quot;, &quot;+17&quot;,
+ &quot;2010&quot;, &quot;NIT Final&quot;, &quot;Dayton&quot;, &quot;-11&quot;,
+ &quot;2011&quot;, &quot;NCAA Elite Eight&quot;, &quot;Kentucky&quot;, &quot;-7&quot;,
+ &quot;2012&quot;, &quot;NCAA Elite Eight&quot;, &quot;Kansas&quot;, &quot;-13&quot;, 
+ &quot;2013&quot;, &quot;NCAA 2nd Round&quot;, &quot;Kansas&quot;, &quot;-12&quot;,
+ &quot;2014&quot;, &quot;NCAA 2nd Round&quot;, &quot;Iowa State&quot;, &quot;-2&quot;,
+ &quot;2015&quot;, &quot;NCAA Sweet Sixteen&quot;, &quot;Wisconsin&quot;, &quot;-7&quot;,
+ &quot;2016&quot;, &quot;NCAA Championship&quot;, &quot;Vilianova&quot;, &quot;-3&quot;,
+ &quot;2017&quot;, &quot;NCAA Championship&quot;, &quot;Gonzaga&quot;, &quot;+6&quot;,
+ &quot;2018&quot;, &quot;NCAA 2nd Round&quot;, &quot;Texas A&amp;M&quot;, &quot;-21&quot;,
+ &quot;2019&quot;, &quot;NCAA Sweet Sixteen&quot;, &quot;Auburn&quot;, &quot;-17&quot;,
+ &quot;2020&quot;, &quot;ACC 2nd Round&quot;, &quot;Syracuse&quot;, &quot;-28&quot;
+)  %&gt;%
+  dplyr::arrange(desc(Season)) %&gt;%
+
+gt_tbl &lt;- 
+  gt_tbl %&gt;%
+  tab_header(
+    title = &quot;Carolina: Point Differential in Final Game of Each Season Since 2004&quot;,
+    subtitle = &quot;Tar Heels season has ended with a double-digit loss three seasons in a row.&quot;
+  ) %&gt;%
+  tab_source_note(
+    source_note = &quot;Source: goheels.com&quot;
+  )</code></pre>
+
+    </div>
+  </article>
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/" target="_blank">home</a>
+          </li>
+          <li>
+            <a href="https://hotdogsandeggs.com/" class="footer-links-kudos">made with hot dogs and eggs</a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+
+  </body>
+</html>
+

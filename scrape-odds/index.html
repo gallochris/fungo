@@ -69,63 +69,34 @@
 <th align="left">Team</th>
 <th align="left">PointsBet</th>
 <th align="left">DraftKings</th>
-<th align="left">FoxBet</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td align="left">Celtics</td>
-<td align="left">+600</td>
-<td align="left">+550</td>
-<td align="left">+550</td>
+<td align="left">-303</td>
+<td align="left">+1100</td>
 </tr>
 <tr class="even">
 <td align="left">Nuggets</td>
-<td align="left">+6600</td>
-<td align="left">+10000</td>
-<td align="left">+10000</td>
-</tr>
-<tr class="odd">
-<td align="left">Rockets</td>
-<td align="left">+900</td>
-<td align="left">+800</td>
-<td align="left">+800</td>
-</tr>
-<tr class="even">
-<td align="left">Clippers</td>
-<td align="left">+175</td>
-<td align="left">+190</td>
-<td align="left">+190</td>
+<td align="left">-303</td>
+<td align="left">+2000</td>
 </tr>
 <tr class="odd">
 <td align="left">Lakers</td>
-<td align="left">+300</td>
-<td align="left">+390</td>
-<td align="left">+380</td>
+<td align="left">-303</td>
+<td align="left">-333</td>
 </tr>
 <tr class="even">
 <td align="left">Heat</td>
-<td align="left">+500</td>
-<td align="left">+450</td>
-<td align="left">+450</td>
-</tr>
-<tr class="odd">
-<td align="left">Bucks</td>
-<td align="left">+2500</td>
-<td align="left">+3000</td>
-<td align="left">+3000</td>
-</tr>
-<tr class="even">
-<td align="left">Raptors</td>
-<td align="left">+1200</td>
-<td align="left">+1200</td>
-<td align="left">+1100</td>
+<td align="left">-303</td>
+<td align="left">+375</td>
 </tr>
 </tbody>
 </table>
 <hr />
 <p>Web scraping sounds hard. I’m finding it’s not too difficult with tools like <a href="https://blog.rstudio.com/2014/11/24/rvest-easy-web-scraping-with-r/">rvest</a>.</p>
-<p>This is a simple example pulling together markdown table of team’s odds to make the NBA Championship. It pulls from <a href="https://www.oddsboom.com/nba/futures/22-nba-championship/">OddsBoom</a> and selects the odds of three sports books.</p>
+<p>This is a simple example pulling together markdown table of team’s odds to make the NBA Championship. It pulls from <a href="https://www.oddsboom.com/nba/futures/22-nba-championship/">OddsBoom</a> and selects the odds of a few sports books.</p>
 <p>There isn’t any sorting, converting of the odds, and styling done.</p>
 <p>Code is below . . .</p>
 <pre><code>library(knitr)
@@ -140,26 +111,21 @@ team &lt;- odds %&gt;%
 
 pb &lt;- odds %&gt;% 
   rvest::html_nodes(&#39;table&#39;) %&gt;% 
-  xml2::xml_find_all(&quot;//td[contains(@class, &#39;goto pb odds-cell&#39;)]&quot;) %&gt;% 
+  xml2::xml_find_all(&quot;//td[contains(@class, &#39;goto pb _pb odds-cell null  odds-above-average &#39;)]&quot;) %&gt;% 
   rvest::html_text()
 
-mgm &lt;- odds %&gt;% 
+dk &lt;- odds %&gt;% 
   rvest::html_nodes(&#39;table&#39;) %&gt;% 
-  xml2::xml_find_all(&quot;//td[contains(@class, &#39;goto bo odds-cell&#39;)]&quot;) %&gt;% 
-  rvest::html_text()
-
-bet365 &lt;- odds %&gt;% 
-  rvest::html_nodes(&#39;table&#39;) %&gt;% 
-  xml2::xml_find_all(&quot;//td[contains(@class, &#39;goto b3 odds-cell&#39;)]&quot;) %&gt;% 
+  xml2::xml_find_all(&quot;//td[contains(@class, &#39;goto dk _dk odds-cell null&#39;)]&quot;) %&gt;% 
   rvest::html_text()
 
 
-chart_df &lt;- data.frame(team, pb, mgm, bet365)
+chart_df &lt;- data.frame(team, pb, dk)
 
 kable(chart_df, col.names = c(&quot;Team&quot;,
                            &quot;PointsBet&quot;,
-                           &quot;BetMGM&quot;,
-                           &quot;Bet365&quot;), caption = &quot;NBA Champ Odds&quot;, format=&quot;markdown&quot;)
+                           &quot;DraftKings&quot;
+                           ), caption = &quot;NBA Champ Odds&quot;, format=&quot;markdown&quot;)
 </code></pre>
 
     </div>
