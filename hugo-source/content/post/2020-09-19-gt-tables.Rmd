@@ -1,0 +1,99 @@
+---
+title: "GT Tables"
+author: "Chris Gallo"
+date: '2020-09-19'
+slug: gt-tables
+tags:
+- R Markdown
+categories: R
+type: post
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.width=12, fig.height=8)
+```
+
+```{r, echo=FALSE, message=FALSE}
+library(dplyr)
+library(gt)
+
+d <- tibble::tribble(
+ ~Season,  ~Type, ~Opponent, ~Differential,
+ "2004", "NCAA 2nd Round", "Texas", "-3",
+ "2005", "NCAA Championship", "Illinois", "+5",
+ "2006", "NCAA 2nd Round", "George Mason", "-5",
+ "2007", "NCAA Elite Eight", "Georgetown", "-12",
+ "2008", "NCAA Semifinal", "Kanas", "-18", 
+ "2009", "NCAA Championship", "Michigan State", "+17",
+ "2010", "NIT Final", "Dayton", "-11",
+ "2011", "NCAA Elite Eight", "Kentucky", "-7",
+ "2012", "NCAA Elite Eight", "Kansas", "-13", 
+ "2013", "NCAA 2nd Round", "Kansas", "-12",
+ "2014", "NCAA 2nd Round", "Iowa State", "-2",
+ "2015", "NCAA Sweet Sixteen", "Wisconsin", "-7",
+ "2016", "NCAA Championship", "Vilianova", "-3",
+ "2017", "NCAA Championship", "Gonzaga", "+6",
+ "2018", "NCAA 2nd Round", "Texas A&M", "-21",
+ "2019", "NCAA Sweet Sixteen", "Auburn", "-17",
+ "2020", "ACC 2nd Round", "Syracuse", "-28"
+)  %>%
+  dplyr::arrange(desc(Season))
+
+gt_tbl <- gt(d)
+
+gt_tbl <- 
+  gt_tbl %>%
+  tab_header(
+    title = "Carolina: Point Differential in Final Game of Each Season Since 2004",
+    subtitle = "Tar Heels season has ended with a double-digit loss three seasons in a row."
+  ) %>%
+  tab_source_note(
+    source_note = "Source: goheels.com"
+  )
+
+gt_tbl 
+
+```
+
+This is a table showing the point differential for the final game of each North Carolina men's basketball season since 2004. Carolina's season has ended with a double-digit loss three seasons in a row by a combined 66 points. 
+
+This is my first use of the [gt package](https://github.com/rstudio/gt/). It's quite useuful to put together a quick table without many lines of code. The labeling feels much better than formattable or dt packages. 
+
+Code is below . . .
+
+```
+library(dplyr)
+library(gt)
+
+d <- tibble::tribble(
+ ~Season,  ~Type, ~Opponent, ~Differential,
+ "2004", "NCAA 2nd Round", "Texas", "-3",
+ "2005", "NCAA Championship", "Illinois", "+5",
+ "2006", "NCAA 2nd Round", "George Mason", "-5",
+ "2007", "NCAA Elite Eight", "Georgetown", "-12",
+ "2008", "NCAA Semifinal", "Kanas", "-18", 
+ "2009", "NCAA Championship", "Michigan State", "+17",
+ "2010", "NIT Final", "Dayton", "-11",
+ "2011", "NCAA Elite Eight", "Kentucky", "-7",
+ "2012", "NCAA Elite Eight", "Kansas", "-13", 
+ "2013", "NCAA 2nd Round", "Kansas", "-12",
+ "2014", "NCAA 2nd Round", "Iowa State", "-2",
+ "2015", "NCAA Sweet Sixteen", "Wisconsin", "-7",
+ "2016", "NCAA Championship", "Vilianova", "-3",
+ "2017", "NCAA Championship", "Gonzaga", "+6",
+ "2018", "NCAA 2nd Round", "Texas A&M", "-21",
+ "2019", "NCAA Sweet Sixteen", "Auburn", "-17",
+ "2020", "ACC 2nd Round", "Syracuse", "-28"
+)  %>%
+  dplyr::arrange(desc(Season)) %>%
+
+gt_tbl <- 
+  gt_tbl %>%
+  tab_header(
+    title = "Carolina: Point Differential in Final Game of Each Season Since 2004",
+    subtitle = "Tar Heels season has ended with a double-digit loss three seasons in a row."
+  ) %>%
+  tab_source_note(
+    source_note = "Source: goheels.com"
+  )
+```
