@@ -1,0 +1,32 @@
+---
+title: "Area Plots"
+author: "Chris Gallo"
+date: '2020-09-26'
+slug: area-plot
+tags:
+- R Markdown
+categories: R
+type: post
+---
+
+
+
+<p><img src="/post/2020-09-26-area-plot_files/figure-html/unnamed-chunk-1-1.png" width="1152" /></p>
+<p>This is an area plot showing the number of different starting lineups and <a href="https://kenpom.com/blog/measuring-continuity/">minutes continuity</a> since the 2010 season for the North Carolina men’s basketball. Carolina turned it its lowest minutes continuity (24.3) and highest number of starting lineups (10) last season.</p>
+<p>This uses the <a href="https://cran.r-project.org/web/packages/ggplot2/index.html">ggplot2 package</a> and <a href="https://github.com/hrbrmstr/hrbrthemes">hrbrthemes package</a>. Followed the <a href="https://t-redactyl.io/blog/2015/12/creating-plots-in-r-using-ggplot2-part-2-area-plots.html">tutorials here</a>.</p>
+<p>Code is below . . .</p>
+<pre><code>library(ggplot2)
+library(dplyr)
+library(hrbrthemes)
+data &lt;- read.csv(&quot;cons.csv&quot;)
+
+
+p &lt;- ggplot(aes(x=Season, y=Value, fill=Stat), data = data, stat=&quot;identity&quot;) +
+  geom_area(alpha =0.5) +
+  geom_line() +
+  scale_x_continuous(breaks=seq(2010,2020,1)) +
+  scale_y_continuous(breaks=seq(0,80,5)) +
+  labs(x=&quot;Season&quot;, y=&quot;Value&quot;) +
+  ggtitle(&quot;Carolina: Minutes Continuity and Starting Lineups Each Season Since 2010&quot;) +
+  theme_ipsum()
+p</code></pre>

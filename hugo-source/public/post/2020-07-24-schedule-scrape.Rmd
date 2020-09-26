@@ -25,7 +25,7 @@ team <- odds %>%
 
 pb <- odds %>% 
   rvest::html_nodes('table') %>% 
-  xml2::xml_find_all("//td[contains(@class, 'goto pb _pb odds-cell null  odds-above-average ')]") %>% 
+  xml2::xml_find_all("//td[contains(@class, 'goto fd _fd odds-cell null')]") %>% 
   rvest::html_text()
 
 dk <- odds %>% 
@@ -37,7 +37,7 @@ dk <- odds %>%
 chart_df <- data.frame(team, pb, dk)
 
 kable(chart_df, col.names = c("Team",
-                           "PointsBet",
+                           "FanDuel",
                            "DraftKings"
                            ), caption = "NBA Champ Odds", format="markdown")
 
