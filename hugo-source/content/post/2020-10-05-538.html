@@ -1,0 +1,759 @@
+---
+title: "538-and-Late"
+author: "Chris Gallo"
+date: '2020-10-05'
+slug: 538-late
+tags:
+- R Markdown
+categories: R
+type: post
+---
+
+
+
+<style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+html {
+  font-family: Chivo, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#nokurxuzrs .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 3px;
+  border-top-color: transparent;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 3px;
+  border-bottom-color: transparent;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#nokurxuzrs .gt_heading {
+  background-color: #FFFFFF;
+  text-align: left;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#nokurxuzrs .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#nokurxuzrs .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 4px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#nokurxuzrs .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#nokurxuzrs .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 3px;
+  border-top-color: transparent;
+  border-bottom-style: solid;
+  border-bottom-width: 3px;
+  border-bottom-color: black;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#nokurxuzrs .gt_col_heading {
+  color: #333333;
+  background-color: white;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#nokurxuzrs .gt_column_spanner_outer {
+  color: #333333;
+  background-color: white;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#nokurxuzrs .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#nokurxuzrs .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#nokurxuzrs .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 3px;
+  border-bottom-color: black;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#nokurxuzrs .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#nokurxuzrs .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#nokurxuzrs .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#nokurxuzrs .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#nokurxuzrs .gt_row {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#nokurxuzrs .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
+}
+
+#nokurxuzrs .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nokurxuzrs .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#nokurxuzrs .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nokurxuzrs .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#nokurxuzrs .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#nokurxuzrs .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#nokurxuzrs .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#nokurxuzrs .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
+}
+
+#nokurxuzrs .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#nokurxuzrs .gt_sourcenote {
+  font-size: 12px;
+  padding: 4px;
+}
+
+#nokurxuzrs .gt_left {
+  text-align: left;
+}
+
+#nokurxuzrs .gt_center {
+  text-align: center;
+}
+
+#nokurxuzrs .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#nokurxuzrs .gt_font_normal {
+  font-weight: normal;
+}
+
+#nokurxuzrs .gt_font_bold {
+  font-weight: bold;
+}
+
+#nokurxuzrs .gt_font_italic {
+  font-style: italic;
+}
+
+#nokurxuzrs .gt_super {
+  font-size: 65%;
+}
+
+#nokurxuzrs .gt_footnote_marks {
+  font-style: italic;
+  font-size: 65%;
+}
+</style>
+<div id="nokurxuzrs" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
+  <thead class="gt_header">
+    <tr>
+      <th colspan="10" class="gt_heading gt_title gt_font_normal" style>Carolina: Offensive Rankings Compared to D-I Teams (kenpom)</th>
+    </tr>
+    <tr>
+      <th colspan="10" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style>All numbers are rankings compared to other D-I teams. Tempo and efficiency numbers are both adjusted.</th>
+    </tr>
+  </thead>
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_center gt_columns_bottom_border" rowspan="2" colspan="1">Season</th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2">
+        <span class="gt_column_spanner">Tempo + Efficiency</span>
+      </th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="4">
+        <span class="gt_column_spanner">Four Factors</span>
+      </th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="3">
+        <span class="gt_column_spanner">Shooting Pct</span>
+      </th>
+    </tr>
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1">AdjT</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1">AdjO</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1">eFG%</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1">TO%</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1">OR%</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1">FTR</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1">2PT%</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1">3PT%</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1">FT%</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr>
+      <td class="gt_row gt_right">2020</td>
+      <td class="gt_row gt_right" style="background-color: #F99D67; color: #000000;">67</td>
+      <td class="gt_row gt_right" style="background-color: #ACADFE; color: #000000;">77</td>
+      <td class="gt_row gt_right" style="background-color: #F99D67; color: #000000;">309</td>
+      <td class="gt_row gt_right" style="background-color: #CDCBFF; color: #000000;">119</td>
+      <td class="gt_row gt_right" style="background-color: #FFF1E8; color: #000000;">12</td>
+      <td class="gt_row gt_right" style="background-color: #D2D0FF; color: #000000;">154</td>
+      <td class="gt_row gt_right" style="background-color: #F99D67; color: #000000;">283</td>
+      <td class="gt_row gt_right" style="background-color: #8C93FD; color: #000000;">306</td>
+      <td class="gt_row gt_right" style="background-color: #FFB48A; color: #000000;">265</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_right">2019</td>
+      <td class="gt_row gt_right" style="background-color: #FFFFFF; color: #000000;">6</td>
+      <td class="gt_row gt_right" style="background-color: #F8F7FF; color: #000000;">8</td>
+      <td class="gt_row gt_right" style="background-color: #FFE6D8; color: #000000;">80</td>
+      <td class="gt_row gt_right" style="background-color: #DEDBFF; color: #000000;">84</td>
+      <td class="gt_row gt_right" style="background-color: #FFEBE0; color: #000000;">16</td>
+      <td class="gt_row gt_right" style="background-color: #ADADFE; color: #000000;">255</td>
+      <td class="gt_row gt_right" style="background-color: #FFE2D0; color: #000000;">92</td>
+      <td class="gt_row gt_right" style="background-color: #E4E2FF; color: #000000;">84</td>
+      <td class="gt_row gt_right" style="background-color: #FFF1E8; color: #000000;">60</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_right">2018</td>
+      <td class="gt_row gt_right" style="background-color: #FFBF9A; color: #000000;">46</td>
+      <td class="gt_row gt_right" style="background-color: #FAF9FF; color: #000000;">6</td>
+      <td class="gt_row gt_right" style="background-color: #FFD8C2; color: #000000;">124</td>
+      <td class="gt_row gt_right" style="background-color: #E8E6FF; color: #000000;">61</td>
+      <td class="gt_row gt_right" style="background-color: #FFFCFB; color: #000000;">3</td>
+      <td class="gt_row gt_right" style="background-color: #9599FD; color: #000000;">315</td>
+      <td class="gt_row gt_right" style="background-color: #FFD2B8; color: #000000;">135</td>
+      <td class="gt_row gt_right" style="background-color: #DAD8FF; color: #000000;">112</td>
+      <td class="gt_row gt_right" style="background-color: #FFEEE4; color: #000000;">68</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_right">2017</td>
+      <td class="gt_row gt_right" style="background-color: #FFC8A9; color: #000000;">40</td>
+      <td class="gt_row gt_right" style="background-color: #F7F6FF; color: #000000;">9</td>
+      <td class="gt_row gt_right" style="background-color: #FFDBC6; color: #000000;">115</td>
+      <td class="gt_row gt_right" style="background-color: #F2F1FF; color: #000000;">39</td>
+      <td class="gt_row gt_right" style="background-color: #FFFFFF; color: #000000;">1</td>
+      <td class="gt_row gt_right" style="background-color: #BFBDFF; color: #000000;">208</td>
+      <td class="gt_row gt_right" style="background-color: #FFDECB; color: #000000;">102</td>
+      <td class="gt_row gt_right" style="background-color: #CDCBFF; color: #000000;">148</td>
+      <td class="gt_row gt_right" style="background-color: #FFCFB4; color: #000000;">172</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_right">2016</td>
+      <td class="gt_row gt_right" style="background-color: #FCA878; color: #000000;">60</td>
+      <td class="gt_row gt_right" style="background-color: #FFFFFF; color: #000000;">1</td>
+      <td class="gt_row gt_right" style="background-color: #FFEFE5; color: #000000;">54</td>
+      <td class="gt_row gt_right" style="background-color: #FAFAFF; color: #000000;">21</td>
+      <td class="gt_row gt_right" style="background-color: #FFFCFB; color: #000000;">3</td>
+      <td class="gt_row gt_right" style="background-color: #A1A3FE; color: #000000;">285</td>
+      <td class="gt_row gt_right" style="background-color: #FFFBF9; color: #000000;">21</td>
+      <td class="gt_row gt_right" style="background-color: #A1A3FE; color: #000000;">259</td>
+      <td class="gt_row gt_right" style="background-color: #FFF9F5; color: #000000;">32</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_right">2015</td>
+      <td class="gt_row gt_right" style="background-color: #FFEFE5; color: #000000;">16</td>
+      <td class="gt_row gt_right" style="background-color: #F5F4FF; color: #000000;">11</td>
+      <td class="gt_row gt_right" style="background-color: #FFE8DB; color: #000000;">74</td>
+      <td class="gt_row gt_right" style="background-color: #D2CFFF; color: #000000;">109</td>
+      <td class="gt_row gt_right" style="background-color: #FFFAF7; color: #000000;">5</td>
+      <td class="gt_row gt_right" style="background-color: #B9B8FF; color: #000000;">224</td>
+      <td class="gt_row gt_right" style="background-color: #FFEFE5; color: #000000;">56</td>
+      <td class="gt_row gt_right" style="background-color: #DFDDFF; color: #000000;">99</td>
+      <td class="gt_row gt_right" style="background-color: #FFD8C1; color: #000000;">143</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_right">2014</td>
+      <td class="gt_row gt_right" style="background-color: #FFECE0; color: #000000;">18</td>
+      <td class="gt_row gt_right" style="background-color: #CECBFF; color: #000000;">48</td>
+      <td class="gt_row gt_right" style="background-color: #FFCEB2; color: #000000;">155</td>
+      <td class="gt_row gt_right" style="background-color: #E1DFFF; color: #000000;">76</td>
+      <td class="gt_row gt_right" style="background-color: #FFEFE6; color: #000000;">13</td>
+      <td class="gt_row gt_right" style="background-color: #E6E4FF; color: #000000;">97</td>
+      <td class="gt_row gt_right" style="background-color: #FFD9C2; color: #000000;">117</td>
+      <td class="gt_row gt_right" style="background-color: #BAB9FF; color: #000000;">198</td>
+      <td class="gt_row gt_right" style="background-color: #F99D67; color: #000000;">343</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_right">2013</td>
+      <td class="gt_row gt_right" style="background-color: #FFF5EF; color: #000000;">12</td>
+      <td class="gt_row gt_right" style="background-color: #E0DEFF; color: #000000;">31</td>
+      <td class="gt_row gt_right" style="background-color: #FFD7BF; color: #000000;">129</td>
+      <td class="gt_row gt_right" style="background-color: #F5F4FF; color: #000000;">33</td>
+      <td class="gt_row gt_right" style="background-color: #F99D67; color: #000000;">77</td>
+      <td class="gt_row gt_right" style="background-color: #8C93FD; color: #000000;">335</td>
+      <td class="gt_row gt_right" style="background-color: #FEB287; color: #000000;">224</td>
+      <td class="gt_row gt_right" style="background-color: #F4F3FF; color: #000000;">38</td>
+      <td class="gt_row gt_right" style="background-color: #FFBF9B; color: #000000;">226</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_right">2012</td>
+      <td class="gt_row gt_right" style="background-color: #FFF8F5; color: #000000;">10</td>
+      <td class="gt_row gt_right" style="background-color: #F4F3FF; color: #000000;">12</td>
+      <td class="gt_row gt_right" style="background-color: #FFD3B9; color: #000000;">141</td>
+      <td class="gt_row gt_right" style="background-color: #FFFFFF; color: #000000;">10</td>
+      <td class="gt_row gt_right" style="background-color: #FFF3EC; color: #000000;">10</td>
+      <td class="gt_row gt_right" style="background-color: #D4D1FF; color: #000000;">150</td>
+      <td class="gt_row gt_right" style="background-color: #FFDECA; color: #000000;">103</td>
+      <td class="gt_row gt_right" style="background-color: #B6B5FF; color: #000000;">207</td>
+      <td class="gt_row gt_right" style="background-color: #FFC3A0; color: #000000;">215</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_right">2011</td>
+      <td class="gt_row gt_right" style="background-color: #FFF0E8; color: #000000;">15</td>
+      <td class="gt_row gt_right" style="background-color: #CDCAFF; color: #000000;">49</td>
+      <td class="gt_row gt_right" style="background-color: #FFCAAB; color: #000000;">169</td>
+      <td class="gt_row gt_right" style="background-color: #E6E4FF; color: #000000;">66</td>
+      <td class="gt_row gt_right" style="background-color: #FFE5D6; color: #000000;">21</td>
+      <td class="gt_row gt_right" style="background-color: #CECBFF; color: #000000;">167</td>
+      <td class="gt_row gt_right" style="background-color: #FFDAC5; color: #000000;">112</td>
+      <td class="gt_row gt_right" style="background-color: #A6A7FE; color: #000000;">248</td>
+      <td class="gt_row gt_right" style="background-color: #FFBC97; color: #000000;">236</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_right">2010</td>
+      <td class="gt_row gt_right" style="background-color: #FFE3D3; color: #000000;">23</td>
+      <td class="gt_row gt_right" style="background-color: #8C93FD; color: #000000;">102</td>
+      <td class="gt_row gt_right" style="background-color: #FFBF9A; color: #000000;">204</td>
+      <td class="gt_row gt_right" style="background-color: #AAABFE; color: #000000;">189</td>
+      <td class="gt_row gt_right" style="background-color: #FFEBE0; color: #000000;">16</td>
+      <td class="gt_row gt_right" style="background-color: #C9C7FF; color: #000000;">179</td>
+      <td class="gt_row gt_right" style="background-color: #FFC3A0; color: #000000;">178</td>
+      <td class="gt_row gt_right" style="background-color: #AFAFFE; color: #000000;">225</td>
+      <td class="gt_row gt_right" style="background-color: #FEAF82; color: #000000;">282</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_right">2009</td>
+      <td class="gt_row gt_right" style="background-color: #FFFFFF; color: #000000;">6</td>
+      <td class="gt_row gt_right" style="background-color: #FFFFFF; color: #000000;">1</td>
+      <td class="gt_row gt_right" style="background-color: #FFF2EA; color: #000000;">45</td>
+      <td class="gt_row gt_right" style="background-color: #FFFFFF; color: #000000;">10</td>
+      <td class="gt_row gt_right" style="background-color: #FFE5D6; color: #000000;">21</td>
+      <td class="gt_row gt_right" style="background-color: #EDEBFF; color: #000000;">75</td>
+      <td class="gt_row gt_right" style="background-color: #FFECE1; color: #000000;">62</td>
+      <td class="gt_row gt_right" style="background-color: #F9F9FF; color: #000000;">24</td>
+      <td class="gt_row gt_right" style="background-color: #FFFEFE; color: #000000;">15</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_right">2008</td>
+      <td class="gt_row gt_right" style="background-color: #FFFAF7; color: #000000;">9</td>
+      <td class="gt_row gt_right" style="background-color: #FFFFFF; color: #000000;">1</td>
+      <td class="gt_row gt_right" style="background-color: #FFF0E8; color: #000000;">49</td>
+      <td class="gt_row gt_right" style="background-color: #EDEBFF; color: #000000;">51</td>
+      <td class="gt_row gt_right" style="background-color: #FFFFFF; color: #000000;">1</td>
+      <td class="gt_row gt_right" style="background-color: #DBD9FF; color: #000000;">128</td>
+      <td class="gt_row gt_right" style="background-color: #FFF2EB; color: #000000;">46</td>
+      <td class="gt_row gt_right" style="background-color: #E6E4FF; color: #000000;">78</td>
+      <td class="gt_row gt_right" style="background-color: #FFFFFF; color: #000000;">12</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_right">2007</td>
+      <td class="gt_row gt_right" style="background-color: #FFFCFA; color: #000000;">8</td>
+      <td class="gt_row gt_right" style="background-color: #FDFDFF; color: #000000;">3</td>
+      <td class="gt_row gt_right" style="background-color: #FFF9F5; color: #000000;">23</td>
+      <td class="gt_row gt_right" style="background-color: #F3F1FF; color: #000000;">38</td>
+      <td class="gt_row gt_right" style="background-color: #FFF5EE; color: #000000;">9</td>
+      <td class="gt_row gt_right" style="background-color: #E5E3FF; color: #000000;">99</td>
+      <td class="gt_row gt_right" style="background-color: #FFFFFF; color: #000000;">11</td>
+      <td class="gt_row gt_right" style="background-color: #D4D1FF; color: #000000;">130</td>
+      <td class="gt_row gt_right" style="background-color: #FFE1D0; color: #000000;">111</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_right">2006</td>
+      <td class="gt_row gt_right" style="background-color: #FFE3D3; color: #000000;">23</td>
+      <td class="gt_row gt_right" style="background-color: #F3F2FF; color: #000000;">13</td>
+      <td class="gt_row gt_right" style="background-color: #FFF8F4; color: #000000;">26</td>
+      <td class="gt_row gt_right" style="background-color: #8C93FD; color: #000000;">242</td>
+      <td class="gt_row gt_right" style="background-color: #FFF5EE; color: #000000;">9</td>
+      <td class="gt_row gt_right" style="background-color: #F2F0FF; color: #000000;">61</td>
+      <td class="gt_row gt_right" style="background-color: #FFF9F5; color: #000000;">28</td>
+      <td class="gt_row gt_right" style="background-color: #F0EEFF; color: #000000;">52</td>
+      <td class="gt_row gt_right" style="background-color: #FFDFCC; color: #000000;">120</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_right">2005</td>
+      <td class="gt_row gt_right" style="background-color: #FFFDFC; color: #000000;">7</td>
+      <td class="gt_row gt_right" style="background-color: #FEFEFF; color: #000000;">2</td>
+      <td class="gt_row gt_right" style="background-color: #FFFFFF; color: #000000;">4</td>
+      <td class="gt_row gt_right" style="background-color: #C0BEFF; color: #000000;">146</td>
+      <td class="gt_row gt_right" style="background-color: #FFEDE2; color: #000000;">15</td>
+      <td class="gt_row gt_right" style="background-color: #FFFFFF; color: #000000;">20</td>
+      <td class="gt_row gt_right" style="background-color: #FFFFFE; color: #000000;">12</td>
+      <td class="gt_row gt_right" style="background-color: #FFFFFF; color: #000000;">7</td>
+      <td class="gt_row gt_right" style="background-color: #FFF3EB; color: #000000;">53</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_right" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: transparent;">2004</td>
+      <td class="gt_row gt_right" style="background-color: #FFEFE5; color: #000000; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: transparent;">16</td>
+      <td class="gt_row gt_right" style="background-color: #F6F5FF; color: #000000; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: transparent;">10</td>
+      <td class="gt_row gt_right" style="background-color: #FFE4D4; color: #000000; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: transparent;">87</td>
+      <td class="gt_row gt_right" style="background-color: #D5D3FF; color: #000000; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: transparent;">102</td>
+      <td class="gt_row gt_right" style="background-color: #FFF2EA; color: #000000; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: transparent;">11</td>
+      <td class="gt_row gt_right" style="background-color: #E3E0FF; color: #000000; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: transparent;">106</td>
+      <td class="gt_row gt_right" style="background-color: #FFE8DB; color: #000000; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: transparent;">74</td>
+      <td class="gt_row gt_right" style="background-color: #D8D5FF; color: #000000; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: transparent;">119</td>
+      <td class="gt_row gt_right" style="background-color: #FFCDB0; color: #000000; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: transparent;">181</td>
+    </tr>
+  </tbody>
+  <tfoot class="gt_sourcenotes">
+    <tr>
+      <td class="gt_sourcenote" colspan="10">Source: Data via kenpom.com. All numbers are rankings compared to other D-I teams.</td>
+    </tr>
+  </tfoot>
+  
+</table></div>
+<p>This is a table showing Carolina basketball’s offensive rankings via <a href="https://kenpom.com/">kenpom.com</a> since 2004. All data is via kenpom.com.</p>
+<p>This uses the <a href="https://gt.rstudio.com/">gt package</a> and the <a href="https://rdrr.io/cran/ggthemes/man/theme_fivethirtyeight.html">538 theme</a>. The <a href="https://themockup.blog/posts/2020-09-26-functions-and-themes-for-gt-tables/?panelset3=table-code2&amp;panelset4=table-code3">tutorials</a> here were useful.</p>
+<p>I am late to the party with the 538 theme, but this is my first experience in utilizing it. The gt package remains impressive to me, and starting to learn how to use it more and more.</p>
+<p>Code is below . . .</p>
+<pre><code>library(tidyverse)
+library(gt)
+
+kenpom &lt;- tibble::tribble(
+~Season,~AdjT,~AdjO,~eFG,~TO,~OR,~FTR,~TP,~RP,~FT,
+2020,67,77,309,119,12,154,283,306,265,
+2019,6,8,80,84,16,255,92,84,60,
+2018,46,6,124,61,3,315,135,112,68,
+2017,40,9,115,39,1,208,102,148,172,
+2016,60,1,54,21,3,285,21,259,32,
+2015,16,11,74,109,5,224,56,99,143,
+2014,18,48,155,76,13,97,117,198,343,
+2013,12,31,129,33,77,335,224,38,226,
+2012,10,12,141,10,10,150,103,207,215,
+2011,15,49,169,66,21,167,112,248,236,
+2010,23,102,204,189,16,179,178,225,282,
+2009,6,1,45,10,21,75,62,24,15,
+2008,9,1,49,51,1,128,46,78,12,
+2007,8,3,23,38,9,99,11,130,111,
+2006,23,13,26,242,9,61,28,52,120,
+2005,7,2,4,146,15,20,12,7,53,
+2004,16,10,87,102,11,106,74,119,181,
+)
+
+gt_theme_538 &lt;- function(data,...) {
+  data %&gt;%
+  opt_all_caps()  %&gt;%
+  opt_table_font(
+    font = list(
+      google_font(&quot;Chivo&quot;),
+      default_fonts()
+    )
+  ) %&gt;%
+    tab_style(
+      style = cell_borders(
+        sides = &quot;bottom&quot;, color = &quot;transparent&quot;, weight = px(2)
+      ),
+      locations = cells_body(
+        columns = TRUE,
+        # This is a relatively sneaky way of changing the bottom border
+        # Regardless of data size
+        rows = nrow(data$`_data`)
+      )
+    )  %&gt;% 
+  tab_options(
+    column_labels.background.color = &quot;white&quot;,
+    table.border.top.width = px(3),
+    table.border.top.color = &quot;transparent&quot;,
+    table.border.bottom.color = &quot;transparent&quot;,
+    table.border.bottom.width = px(3),
+    column_labels.border.top.width = px(3),
+    column_labels.border.top.color = &quot;transparent&quot;,
+    column_labels.border.bottom.width = px(3),
+    column_labels.border.bottom.color = &quot;black&quot;,
+    data_row.padding = px(3),
+    source_notes.font.size = 12,
+    table.font.size = 16,
+    heading.align = &quot;left&quot;,
+    ...
+  ) 
+}
+
+gt_tbl &lt;- gt(data = kenpom)
+
+
+gt_tbl &lt;- 
+  gt_tbl %&gt;%
+   tab_spanner(
+    label = &quot;Tempo + Efficiency&quot;,
+    columns = vars(AdjT, AdjO)
+  ) %&gt;% 
+  tab_spanner(
+    label = &quot;Four Factors&quot;,
+    columns = vars(eFG, TO, OR, FTR)
+  ) %&gt;% 
+   tab_spanner(
+    label = &quot;Shooting Pct&quot;,
+    columns = vars(TP, RP, FT)
+  ) %&gt;% 
+  data_color(
+    columns = vars(AdjT),
+    colors = scales::col_numeric(
+      palette = c(&quot;white&quot;, &quot;#f99d67&quot;),
+      domain = NULL
+    )
+  ) %&gt;% 
+    data_color(
+    columns = vars(AdjO),
+    colors = scales::col_numeric(
+      palette = c(&quot;white&quot;, &quot;#8c93fd&quot;),
+      domain = NULL
+    )
+  ) %&gt;% 
+   data_color(
+    columns = vars(eFG),
+    colors = scales::col_numeric(
+      palette = c(&quot;white&quot;, &quot;#f99d67&quot;),
+      domain = NULL
+    )
+  ) %&gt;% 
+     data_color(
+    columns = vars(TO),
+    colors = scales::col_numeric(
+      palette = c(&quot;white&quot;, &quot;#8c93fd&quot;),
+      domain = NULL
+    )
+  ) %&gt;% 
+   data_color(
+    columns = vars(OR),
+    colors = scales::col_numeric(
+      palette = c(&quot;white&quot;, &quot;#f99d67&quot;),
+      domain = NULL
+    )
+  ) %&gt;%
+   data_color(
+    columns = vars(FTR),
+    colors = scales::col_numeric(
+      palette = c(&quot;white&quot;, &quot;#8c93fd&quot;),
+      domain = NULL
+    )
+  ) %&gt;%
+   data_color(
+    columns = vars(TP),
+    colors = scales::col_numeric(
+      palette = c(&quot;white&quot;, &quot;#f99d67&quot;),
+      domain = NULL
+    )
+  ) %&gt;%
+   data_color(
+    columns = vars(RP),
+    colors = scales::col_numeric(
+      palette = c(&quot;white&quot;, &quot;#8c93fd&quot;),
+      domain = NULL
+    )
+  ) %&gt;%
+     data_color(
+    columns = vars(FT),
+    colors = scales::col_numeric(
+      palette = c(&quot;white&quot;, &quot;#f99d67&quot;),
+      domain = NULL
+    )
+  ) %&gt;%
+   cols_label(
+    eFG = &quot;eFG%&quot;,
+    TO = &quot;TO%&quot;,
+    OR = &quot;OR%&quot;,
+    TP = &quot;2PT%&quot;,
+    RP = &quot;3PT%&quot;,
+    FT = &quot;FT%&quot;,
+  ) %&gt;%
+  tab_header(
+    title = &quot;Carolina: Offensive Rankings Compared to D-I Teams (kenpom)&quot;,
+    subtitle = &quot;All numbers are rankings compared to other D-I teams. Tempo and efficiency numbers are both adjusted.&quot;
+  ) %&gt;%
+  tab_source_note(
+    source_note = &quot;Source: Data via kenpom.com. All numbers are rankings compared to other D-I teams.&quot;
+  )  %&gt;% 
+  gt_theme_538()</code></pre>

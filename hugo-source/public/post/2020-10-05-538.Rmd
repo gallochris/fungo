@@ -1,0 +1,347 @@
+---
+title: "538-and-Late"
+author: "Chris Gallo"
+date: '2020-10-05'
+slug: 538-late
+tags:
+- R Markdown
+categories: R
+type: post
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.width=12, fig.height=8)
+```
+
+```{r, echo=FALSE, message=FALSE}
+library(tidyverse)
+library(gt)
+
+kenpom <- tibble::tribble(
+~Season,~AdjT,~AdjO,~eFG,~TO,~OR,~FTR,~TP,~RP,~FT,
+2020,67,77,309,119,12,154,283,306,265,
+2019,6,8,80,84,16,255,92,84,60,
+2018,46,6,124,61,3,315,135,112,68,
+2017,40,9,115,39,1,208,102,148,172,
+2016,60,1,54,21,3,285,21,259,32,
+2015,16,11,74,109,5,224,56,99,143,
+2014,18,48,155,76,13,97,117,198,343,
+2013,12,31,129,33,77,335,224,38,226,
+2012,10,12,141,10,10,150,103,207,215,
+2011,15,49,169,66,21,167,112,248,236,
+2010,23,102,204,189,16,179,178,225,282,
+2009,6,1,45,10,21,75,62,24,15,
+2008,9,1,49,51,1,128,46,78,12,
+2007,8,3,23,38,9,99,11,130,111,
+2006,23,13,26,242,9,61,28,52,120,
+2005,7,2,4,146,15,20,12,7,53,
+2004,16,10,87,102,11,106,74,119,181,
+)
+
+gt_theme_538 <- function(data,...) {
+  data %>%
+  opt_all_caps()  %>%
+  opt_table_font(
+    font = list(
+      google_font("Chivo"),
+      default_fonts()
+    )
+  ) %>%
+    tab_style(
+      style = cell_borders(
+        sides = "bottom", color = "transparent", weight = px(2)
+      ),
+      locations = cells_body(
+        columns = TRUE,
+        # This is a relatively sneaky way of changing the bottom border
+        # Regardless of data size
+        rows = nrow(data$`_data`)
+      )
+    )  %>% 
+  tab_options(
+    column_labels.background.color = "white",
+    table.border.top.width = px(3),
+    table.border.top.color = "transparent",
+    table.border.bottom.color = "transparent",
+    table.border.bottom.width = px(3),
+    column_labels.border.top.width = px(3),
+    column_labels.border.top.color = "transparent",
+    column_labels.border.bottom.width = px(3),
+    column_labels.border.bottom.color = "black",
+    data_row.padding = px(3),
+    source_notes.font.size = 12,
+    table.font.size = 16,
+    heading.align = "left",
+    ...
+  ) 
+}
+
+gt_tbl <- gt(data = kenpom)
+
+
+gt_tbl <- 
+  gt_tbl %>%
+   tab_spanner(
+    label = "Tempo + Efficiency",
+    columns = vars(AdjT, AdjO)
+  ) %>% 
+  tab_spanner(
+    label = "Four Factors",
+    columns = vars(eFG, TO, OR, FTR)
+  ) %>% 
+   tab_spanner(
+    label = "Shooting Pct",
+    columns = vars(TP, RP, FT)
+  ) %>% 
+  data_color(
+    columns = vars(AdjT),
+    colors = scales::col_numeric(
+      palette = c("white", "#f99d67"),
+      domain = NULL
+    )
+  ) %>% 
+    data_color(
+    columns = vars(AdjO),
+    colors = scales::col_numeric(
+      palette = c("white", "#8c93fd"),
+      domain = NULL
+    )
+  ) %>% 
+   data_color(
+    columns = vars(eFG),
+    colors = scales::col_numeric(
+      palette = c("white", "#f99d67"),
+      domain = NULL
+    )
+  ) %>% 
+     data_color(
+    columns = vars(TO),
+    colors = scales::col_numeric(
+      palette = c("white", "#8c93fd"),
+      domain = NULL
+    )
+  ) %>% 
+   data_color(
+    columns = vars(OR),
+    colors = scales::col_numeric(
+      palette = c("white", "#f99d67"),
+      domain = NULL
+    )
+  ) %>%
+   data_color(
+    columns = vars(FTR),
+    colors = scales::col_numeric(
+      palette = c("white", "#8c93fd"),
+      domain = NULL
+    )
+  ) %>%
+   data_color(
+    columns = vars(TP),
+    colors = scales::col_numeric(
+      palette = c("white", "#f99d67"),
+      domain = NULL
+    )
+  ) %>%
+   data_color(
+    columns = vars(RP),
+    colors = scales::col_numeric(
+      palette = c("white", "#8c93fd"),
+      domain = NULL
+    )
+  ) %>%
+     data_color(
+    columns = vars(FT),
+    colors = scales::col_numeric(
+      palette = c("white", "#f99d67"),
+      domain = NULL
+    )
+  ) %>%
+   cols_label(
+    eFG = "eFG%",
+    TO = "TO%",
+    OR = "OR%",
+    TP = "2PT%",
+    RP = "3PT%",
+    FT = "FT%",
+  ) %>%
+  tab_header(
+    title = "Carolina: Offensive Rankings Compared to D-I Teams (kenpom)",
+    subtitle = "All numbers are rankings compared to other D-I teams. Tempo and efficiency numbers are both adjusted."
+  ) %>%
+  tab_source_note(
+    source_note = "Source: Data via kenpom.com. All numbers are rankings compared to other D-I teams."
+  )  %>% 
+  gt_theme_538()
+
+gt_tbl
+```
+
+This is a table showing Carolina basketball's offensive rankings via [kenpom.com](https://kenpom.com/) since 2004. All data is via kenpom.com. 
+
+This uses the [gt package](https://gt.rstudio.com/) and the [538 theme](https://rdrr.io/cran/ggthemes/man/theme_fivethirtyeight.html). The [tutorials](https://themockup.blog/posts/2020-09-26-functions-and-themes-for-gt-tables/?panelset3=table-code2&panelset4=table-code3) here were useful. 
+
+I am late to the party with the 538 theme, but this is my first experience in utilizing it. The gt package remains impressive to me, and starting to learn how to use it more and more. 
+
+
+Code is below . . .
+
+```
+library(tidyverse)
+library(gt)
+
+kenpom <- tibble::tribble(
+~Season,~AdjT,~AdjO,~eFG,~TO,~OR,~FTR,~TP,~RP,~FT,
+2020,67,77,309,119,12,154,283,306,265,
+2019,6,8,80,84,16,255,92,84,60,
+2018,46,6,124,61,3,315,135,112,68,
+2017,40,9,115,39,1,208,102,148,172,
+2016,60,1,54,21,3,285,21,259,32,
+2015,16,11,74,109,5,224,56,99,143,
+2014,18,48,155,76,13,97,117,198,343,
+2013,12,31,129,33,77,335,224,38,226,
+2012,10,12,141,10,10,150,103,207,215,
+2011,15,49,169,66,21,167,112,248,236,
+2010,23,102,204,189,16,179,178,225,282,
+2009,6,1,45,10,21,75,62,24,15,
+2008,9,1,49,51,1,128,46,78,12,
+2007,8,3,23,38,9,99,11,130,111,
+2006,23,13,26,242,9,61,28,52,120,
+2005,7,2,4,146,15,20,12,7,53,
+2004,16,10,87,102,11,106,74,119,181,
+)
+
+gt_theme_538 <- function(data,...) {
+  data %>%
+  opt_all_caps()  %>%
+  opt_table_font(
+    font = list(
+      google_font("Chivo"),
+      default_fonts()
+    )
+  ) %>%
+    tab_style(
+      style = cell_borders(
+        sides = "bottom", color = "transparent", weight = px(2)
+      ),
+      locations = cells_body(
+        columns = TRUE,
+        # This is a relatively sneaky way of changing the bottom border
+        # Regardless of data size
+        rows = nrow(data$`_data`)
+      )
+    )  %>% 
+  tab_options(
+    column_labels.background.color = "white",
+    table.border.top.width = px(3),
+    table.border.top.color = "transparent",
+    table.border.bottom.color = "transparent",
+    table.border.bottom.width = px(3),
+    column_labels.border.top.width = px(3),
+    column_labels.border.top.color = "transparent",
+    column_labels.border.bottom.width = px(3),
+    column_labels.border.bottom.color = "black",
+    data_row.padding = px(3),
+    source_notes.font.size = 12,
+    table.font.size = 16,
+    heading.align = "left",
+    ...
+  ) 
+}
+
+gt_tbl <- gt(data = kenpom)
+
+
+gt_tbl <- 
+  gt_tbl %>%
+   tab_spanner(
+    label = "Tempo + Efficiency",
+    columns = vars(AdjT, AdjO)
+  ) %>% 
+  tab_spanner(
+    label = "Four Factors",
+    columns = vars(eFG, TO, OR, FTR)
+  ) %>% 
+   tab_spanner(
+    label = "Shooting Pct",
+    columns = vars(TP, RP, FT)
+  ) %>% 
+  data_color(
+    columns = vars(AdjT),
+    colors = scales::col_numeric(
+      palette = c("white", "#f99d67"),
+      domain = NULL
+    )
+  ) %>% 
+    data_color(
+    columns = vars(AdjO),
+    colors = scales::col_numeric(
+      palette = c("white", "#8c93fd"),
+      domain = NULL
+    )
+  ) %>% 
+   data_color(
+    columns = vars(eFG),
+    colors = scales::col_numeric(
+      palette = c("white", "#f99d67"),
+      domain = NULL
+    )
+  ) %>% 
+     data_color(
+    columns = vars(TO),
+    colors = scales::col_numeric(
+      palette = c("white", "#8c93fd"),
+      domain = NULL
+    )
+  ) %>% 
+   data_color(
+    columns = vars(OR),
+    colors = scales::col_numeric(
+      palette = c("white", "#f99d67"),
+      domain = NULL
+    )
+  ) %>%
+   data_color(
+    columns = vars(FTR),
+    colors = scales::col_numeric(
+      palette = c("white", "#8c93fd"),
+      domain = NULL
+    )
+  ) %>%
+   data_color(
+    columns = vars(TP),
+    colors = scales::col_numeric(
+      palette = c("white", "#f99d67"),
+      domain = NULL
+    )
+  ) %>%
+   data_color(
+    columns = vars(RP),
+    colors = scales::col_numeric(
+      palette = c("white", "#8c93fd"),
+      domain = NULL
+    )
+  ) %>%
+     data_color(
+    columns = vars(FT),
+    colors = scales::col_numeric(
+      palette = c("white", "#f99d67"),
+      domain = NULL
+    )
+  ) %>%
+   cols_label(
+    eFG = "eFG%",
+    TO = "TO%",
+    OR = "OR%",
+    TP = "2PT%",
+    RP = "3PT%",
+    FT = "FT%",
+  ) %>%
+  tab_header(
+    title = "Carolina: Offensive Rankings Compared to D-I Teams (kenpom)",
+    subtitle = "All numbers are rankings compared to other D-I teams. Tempo and efficiency numbers are both adjusted."
+  ) %>%
+  tab_source_note(
+    source_note = "Source: Data via kenpom.com. All numbers are rankings compared to other D-I teams."
+  )  %>% 
+  gt_theme_538()
+```
