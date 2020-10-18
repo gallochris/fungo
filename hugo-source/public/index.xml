@@ -6,10 +6,19 @@
     <description>Recent content on Fungo by Chris Gallo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 09 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 18 Oct 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Record by Months</title>
+      <link>/record-by-months/</link>
+      <pubDate>Sun, 18 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/record-by-months/</guid>
+      <description>@import url(&#34;https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap&#34;); html { font-family: Chivo, -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Oxygen, Ubuntu, Cantarell, &#39;Helvetica Neue&#39;, &#39;Fira Sans&#39;, &#39;Droid Sans&#39;, Arial, sans-serif; } #bauyuntjhe .gt_table { display: table; border-collapse: collapse; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 3px; border-top-color: transparent; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 3px; border-bottom-color: transparent; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; } #bauyuntjhe .</description>
+    </item>
     
     <item>
       <title>Background Biscuits</title>
@@ -27,7 +36,7 @@ Carolina has a promotion with Bojangles for fans to receive free bisucits when 1
       <pubDate>Mon, 05 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>/538-late/</guid>
-      <description>@import url(&#34;https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap&#34;); html { font-family: Chivo, -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Oxygen, Ubuntu, Cantarell, &#39;Helvetica Neue&#39;, &#39;Fira Sans&#39;, &#39;Droid Sans&#39;, Arial, sans-serif; } #nokurxuzrs .gt_table { display: table; border-collapse: collapse; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 3px; border-top-color: transparent; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 3px; border-bottom-color: transparent; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; } #nokurxuzrs .</description>
+      <description>@import url(&#34;https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap&#34;); html { font-family: Chivo, -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Oxygen, Ubuntu, Cantarell, &#39;Helvetica Neue&#39;, &#39;Fira Sans&#39;, &#39;Droid Sans&#39;, Arial, sans-serif; } #smeezhkkdn .gt_table { display: table; border-collapse: collapse; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 3px; border-top-color: transparent; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 3px; border-bottom-color: transparent; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; } #smeezhkkdn .</description>
     </item>
     
     <item>
@@ -48,7 +57,7 @@ library(ggplot2) library(dplyr) library(hrbrthemes) data &amp;lt;- read.csv(&amp
       <pubDate>Sat, 19 Sep 2020 00:00:00 +0000</pubDate>
       
       <guid>/gt-tables/</guid>
-      <description>html { font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Oxygen, Ubuntu, Cantarell, &#39;Helvetica Neue&#39;, &#39;Fira Sans&#39;, &#39;Droid Sans&#39;, Arial, sans-serif; } #susuaulmeu .gt_table { display: table; border-collapse: collapse; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; } #susuaulmeu .</description>
+      <description>html { font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Oxygen, Ubuntu, Cantarell, &#39;Helvetica Neue&#39;, &#39;Fira Sans&#39;, &#39;Droid Sans&#39;, Arial, sans-serif; } #kwermbcsrx .gt_table { display: table; border-collapse: collapse; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; } #kwermbcsrx .</description>
     </item>
     
     <item>
@@ -134,9 +143,7 @@ This is a line plot showing how free throw rate and three-point attempt rate has
       <pubDate>Fri, 24 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>/scrape-odds/</guid>
-      <description>Table 1: NBA Champ Odds  Team FanDuel DraftKings    Lakers -900 -909  Heat +610 +600    Web scraping sounds hard. I’m finding it’s not too difficult with tools like rvest.
-This is a simple example pulling together markdown table of team’s odds to make the NBA Championship. It pulls from OddsBoom and selects the odds of a few sports books.
-There isn’t any sorting, converting of the odds, and styling done.</description>
+      <description>Table 1: NBA Champ Odds  Team Best365    Lakers +333  Clippers +450  Bucks +600  Warriors +550  Nets +900  Heat +1600  Celtics +1300  Raptors +1800  Nuggets +2200  Mavericks +2500  Rockets +2200  76ers +2000  Jazz +3300  Blazers +4500  Pelicans +5000  Thunder +8000  Pacers +10000  Suns +10000  Hawks +10000  Bulls +25000  Grizzlies +12500  Timberwolves +15000  Magic +12500  Wizards +15000  Kings +15000  Spurs +10000  Hornets +20000  Cavaliers +25000  Pistons +20000  Knicks +25000    Web scraping sounds hard.</description>
     </item>
     
     <item>
