@@ -1,0 +1,306 @@
+---
+title: "Record by Months"
+author: "Chris Gallo"
+date: '2020-10-18'
+slug: record-by-months
+tags:
+- R Markdown
+categories: R
+type: post
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.width=12, fig.height=8)
+```
+
+```{r, echo=FALSE, message=FALSE}
+library(tidyverse)
+library(gt)
+months <- tibble::tribble(
+~season, ~novw, ~novl, ~decw, ~decl, ~janw, ~janl, ~febw, ~febl, ~marw, ~marl, ~aprw, ~aprl,
+2004,3,0,5,1,5,4,4,3,2,3,0,0,
+2005,4,1,7,0,6,1,7,1,7,1,2,0,
+2006,3,1,4,1,5,3,7,1,4,2,0,0,
+2007,5,1,7,0,8,1,4,3,7,2,0,0,
+2008,6,0,7,0,7,1,6,1,10,0,0,1,
+2009,7,0,6,0,6,2,6,1,7,1,2,0,
+2010,6,1,5,2,2,5,2,6,5,2,0,1,
+2011,4,3,5,1,6,1,7,1,7,2,0,0,
+2012,6,1,6,1,7,1,7,1,6,2,0,0,
+2013,5,2,5,1,4,3,6,2,5,3,0,0,
+2014,4,1,6,2,3,4,8,0,3,3,0,0,
+2015,5,1,5,2,7,2,3,4,6,3,0,0,
+2016,5,1,7,1,7,0,5,4,8,0,1,1,
+2017,7,1,5,2,8,1,5,2,6,1,2,0,
+2018,6,1,6,1,4,5,6,1,4,3,0,0,
+2019,6,2,3,1,7,1,7,1,6,2,0,0,
+2020,6,1,2,4,2,5,2,7,2,2,0,0
+) %>%
+  dplyr::arrange(desc(season))
+
+gt_theme_538 <- function(data,...) {
+  data %>%
+  opt_all_caps()  %>%
+  opt_table_font(
+    font = list(
+      google_font("Chivo"),
+      default_fonts()
+    )
+  ) %>%
+    tab_style(
+      style = cell_borders(
+        sides = "bottom", color = "transparent", weight = px(2)
+      ),
+      locations = cells_body(
+        columns = TRUE,
+        # This is a relatively sneaky way of changing the bottom border
+        # Regardless of data size
+        rows = nrow(data$`_data`)
+      )
+    )  %>% 
+  tab_options(
+    column_labels.background.color = "white",
+    table.border.top.width = px(3),
+    table.border.top.color = "transparent",
+    table.border.bottom.color = "transparent",
+    table.border.bottom.width = px(3),
+    column_labels.border.top.width = px(3),
+    column_labels.border.top.color = "transparent",
+    column_labels.border.bottom.width = px(3),
+    column_labels.border.bottom.color = "black",
+    data_row.padding = px(3),
+    source_notes.font.size = 12,
+    table.font.size = 16,
+    heading.align = "left",
+    ...
+  ) 
+}
+
+gt_tbl <- gt(data = months)
+
+gt_tbl <- 
+  gt_tbl %>%
+   cols_label(
+    novw = "W",
+    novl = "L",
+    decw = "W",
+    decl = "L",
+    janw = "W",
+    janl = "L",
+    febw = "W",
+    febl = "L",
+    marw = "W",
+    marl = "L",
+    aprw = "W",
+    aprl = "L"
+  ) %>%
+  tab_spanner(
+      label = "November",
+      columns = vars(novw, novl)
+    ) %>%
+      tab_spanner(
+      label = "December",
+      columns = vars(decw, decl)
+    ) %>%
+     tab_spanner(
+      label = "January",
+      columns = vars(janw, janl)
+    ) %>%
+      tab_spanner(
+      label = "February",
+      columns = vars(febw, febl)
+    ) %>%
+      tab_spanner(
+      label = "March",
+      columns = vars(marw, marl)
+    ) %>%
+      tab_spanner(
+      label = "April",
+      columns = vars(aprw, aprl)
+    ) %>%
+   summary_rows(
+    groups = NULL,
+    columns = vars(novw, novl, decw, decl, janw, janl, febw, febl, marw, marl, aprw, aprl),
+    fns = list("sum"),
+    formatter = fmt_number,
+    decimals = 0
+) %>%
+    data_color(
+    columns = vars(novw, decw, janw, febw, marw, aprw),
+    colors = scales::col_numeric(
+      palette = c("white", "lightgreen"),
+      domain = NULL
+    )
+  ) %>% 
+   data_color(
+    columns = vars(novl, decl, janl, febl, marl, aprl),
+    colors = scales::col_numeric(
+      palette = c("white", "lightpink"),
+      domain = NULL
+    )
+  ) %>% 
+tab_header(
+    title = "Carolina: Record by Month Since 2003-04 Season",
+    subtitle = "Only games shown during the Roy Williams Era (since 2003-04 season)"
+  ) %>%
+  tab_source_note(
+    source_note = "Source: app.dadgumboxscores.com"
+  )  %>% 
+  gt_theme_538()
+
+gt_tbl
+```
+
+This is table showing Carolina men's basketball record by month since the 2003-2004 season. It summarizes the monthly records, and groups them by month. 
+
+
+This uses the [gt package](https://gt.rstudio.com/). All data is via my Shiny app, [app.dadgumboxscores.com](https://app.dadgumboxscores.com/), and cleaned using Excel (😬) and the `count` function in R. 
+
+Code is below . . .
+
+```
+# clean data and count
+wow <- read.csv("bdata.csv")
+
+data <- as.data.frame(wow)
+
+data %>% 
+count(Season, Month, Result, sort = TRUE)
+
+# make a table and summarize data 
+library(tidyverse)
+library(gt)
+months <- tibble::tribble(
+~season, ~novw, ~novl, ~decw, ~decl, ~janw, ~janl, ~febw, ~febl, ~marw, ~marl, ~aprw, ~aprl,
+2004,3,0,5,1,5,4,4,3,2,3,0,0,
+2005,4,1,7,0,6,1,7,1,7,1,2,0,
+2006,3,1,4,1,5,3,7,1,4,2,0,0,
+2007,5,1,7,0,8,1,4,3,7,2,0,0,
+2008,6,0,7,0,7,1,6,1,10,0,0,1,
+2009,7,0,6,0,6,2,6,1,7,1,2,0,
+2010,6,1,5,2,2,5,2,6,5,2,0,1,
+2011,4,3,5,1,6,1,7,1,7,2,0,0,
+2012,6,1,6,1,7,1,7,1,6,2,0,0,
+2013,5,2,5,1,4,3,6,2,5,3,0,0,
+2014,4,1,6,2,3,4,8,0,3,3,0,0,
+2015,5,1,5,2,7,2,3,4,6,3,0,0,
+2016,5,1,7,1,7,0,5,4,8,0,1,1,
+2017,7,1,5,2,8,1,5,2,6,1,2,0,
+2018,6,1,6,1,4,5,6,1,4,3,0,0,
+2019,6,2,3,1,7,1,7,1,6,2,0,0,
+2020,6,1,2,4,2,5,2,7,2,2,0,0
+) %>%
+  dplyr::arrange(desc(season))
+
+gt_theme_538 <- function(data,...) {
+  data %>%
+  opt_all_caps()  %>%
+  opt_table_font(
+    font = list(
+      google_font("Chivo"),
+      default_fonts()
+    )
+  ) %>%
+    tab_style(
+      style = cell_borders(
+        sides = "bottom", color = "transparent", weight = px(2)
+      ),
+      locations = cells_body(
+        columns = TRUE,
+        # This is a relatively sneaky way of changing the bottom border
+        # Regardless of data size
+        rows = nrow(data$`_data`)
+      )
+    )  %>% 
+  tab_options(
+    column_labels.background.color = "white",
+    table.border.top.width = px(3),
+    table.border.top.color = "transparent",
+    table.border.bottom.color = "transparent",
+    table.border.bottom.width = px(3),
+    column_labels.border.top.width = px(3),
+    column_labels.border.top.color = "transparent",
+    column_labels.border.bottom.width = px(3),
+    column_labels.border.bottom.color = "black",
+    data_row.padding = px(3),
+    source_notes.font.size = 12,
+    table.font.size = 16,
+    heading.align = "left",
+    ...
+  ) 
+}
+
+gt_tbl <- gt(data = months)
+
+gt_tbl <- 
+  gt_tbl %>%
+   cols_label(
+    novw = "W",
+    novl = "L",
+    decw = "W",
+    decl = "L",
+    janw = "W",
+    janl = "L",
+    febw = "W",
+    febl = "L",
+    marw = "W",
+    marl = "L",
+    aprw = "W",
+    aprl = "L"
+  ) %>%
+  tab_spanner(
+      label = "November",
+      columns = vars(novw, novl)
+    ) %>%
+      tab_spanner(
+      label = "December",
+      columns = vars(decw, decl)
+    ) %>%
+     tab_spanner(
+      label = "January",
+      columns = vars(janw, janl)
+    ) %>%
+      tab_spanner(
+      label = "February",
+      columns = vars(febw, febl)
+    ) %>%
+      tab_spanner(
+      label = "March",
+      columns = vars(marw, marl)
+    ) %>%
+      tab_spanner(
+      label = "April",
+      columns = vars(aprw, aprl)
+    ) %>%
+   summary_rows(
+    groups = NULL,
+    columns = vars(novw, novl, decw, decl, janw, janl, febw, febl, marw, marl, aprw, aprl),
+    fns = list("sum"),
+    formatter = fmt_number,
+    decimals = 0
+) %>%
+    data_color(
+    columns = vars(novw, decw, janw, febw, marw, aprw),
+    colors = scales::col_numeric(
+      palette = c("white", "lightgreen"),
+      domain = NULL
+    )
+  ) %>% 
+   data_color(
+    columns = vars(novl, decl, janl, febl, marl, aprl),
+    colors = scales::col_numeric(
+      palette = c("white", "lightpink"),
+      domain = NULL
+    )
+  ) %>% 
+tab_header(
+    title = "Carolina: Record by Month Since 2003-04 Season",
+    subtitle = "Only games shown during the Roy Williams Era (since 2003-04 season)"
+  ) %>%
+  tab_source_note(
+    source_note = "Source: app.dadgumboxscores.com"
+  )  %>% 
+  gt_theme_538()
+
+gt_tbl
+```

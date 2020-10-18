@@ -82,9 +82,7 @@ This is a line plot showing how free throw rate and three-point attempt rate has
       <pubDate>Fri, 24 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>/scrape-odds/</guid>
-      <description>Table 1: NBA Champ Odds  Team FanDuel DraftKings    Lakers -900 -909  Heat +610 +600    Web scraping sounds hard. I’m finding it’s not too difficult with tools like rvest.
-This is a simple example pulling together markdown table of team’s odds to make the NBA Championship. It pulls from OddsBoom and selects the odds of a few sports books.
-There isn’t any sorting, converting of the odds, and styling done.</description>
+      <description>Table 1: NBA Champ Odds  Team Best365    Lakers +333  Clippers +450  Bucks +600  Warriors +550  Nets +900  Heat +1600  Celtics +1300  Raptors +1800  Nuggets +2200  Mavericks +2500  Rockets +2200  76ers +2000  Jazz +3300  Blazers +4500  Pelicans +5000  Thunder +8000  Pacers +10000  Suns +10000  Hawks +10000  Bulls +25000  Grizzlies +12500  Timberwolves +15000  Magic +12500  Wizards +15000  Kings +15000  Spurs +10000  Hornets +20000  Cavaliers +25000  Pistons +20000  Knicks +25000    Web scraping sounds hard.</description>
     </item>
     
     <item>
