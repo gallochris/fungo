@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.73.0" />
+
+
+<title>Sans Touchdown Histogram - Fungo by Chris Gallo</title>
+<meta property="og:title" content="Sans Touchdown Histogram - Fungo by Chris Gallo">
+
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <ul class="nav-links">
+    
+    <li><a href="/about-fungo/">fungo by chris gallo</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">1 min read</span>
+    
+
+    <h1 class="article-title">Sans Touchdown Histogram</h1>
+
+    
+    <span class="article-date">2020-10-18</span>
+    
+
+    <div class="article-content">
+      
+
+
+<p><img src="/post/2020-11-21-histo_files/figure-html/unnamed-chunk-1-1.png" width="1152" /></p>
+<p>How many NFL teams have won a game without scoring a touchdown since 2000?</p>
+<p>This histogram answers that question. Since 2000, 68 total teams have won a game in the regular season or playoffs without scoring a touchdown. Only two of those games were in the playoffs.</p>
+<p>The data here is pulled from <a href="https://stathead.com/">stathead.com</a> by Sports-Reference. A Stathead membership is like a library card to the largest sports history treasure trove. This data was pulled in less than two minutes.</p>
+<p>This uses the ggplot package and economist theme.</p>
+<p>Code is below . . .</p>
+<pre><code>library(tidyverse)
+library(ggthemes)
+
+data &lt;- read.csv(&#39;no-tds.csv&#39;)
+
+p1 &lt;- ggplot(data, aes(x=Year)) + theme_economist() + scale_colour_economist() +
+  geom_histogram(binwidth=1, color=&quot;black&quot;, fill=&quot;#FBFFB9&quot;) +
+  theme(legend.position=&quot;bottom&quot;, legend.direction=&quot;horizontil&quot;,
+        legend.title = element_blank()) +
+  scale_x_continuous(breaks=seq(2000,2020,1)) +
+  scale_y_continuous(breaks=seq(0,8,1)) +
+  stat_bin(binwidth=1, geom=&quot;text&quot;, aes(label=..count..), vjust=-1.5) +
+  labs(x=&quot;Year&quot;, y=&quot;Frequency&quot;, 
+title = &quot;NFL: How Many Teams Win Without a Touchdown Season-by-Season Since 2000&quot;,
+        caption = &quot;Data source: stathead.com&quot;)
+p1</code></pre>
+
+    </div>
+  </article>
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/" target="_blank">home</a>
+          </li>
+          <li>
+            <a href="https://hotdogsandeggs.com/" class="footer-links-kudos">made with hot dogs and eggs</a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+
+  </body>
+</html>
+

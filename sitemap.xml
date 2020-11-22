@@ -33,6 +33,11 @@
   </url>
   
   <url>
+    <loc>/histogram-touchdown/</loc>
+    <lastmod>2020-10-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/</loc>
     <lastmod>2020-10-18T00:00:00+00:00</lastmod>
   </url>
@@ -83,11 +88,6 @@
   </url>
   
   <url>
-    <loc>/mlb-games-played/</loc>
-    <lastmod>2020-08-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/dumb-bell/</loc>
     <lastmod>2020-08-07T00:00:00+00:00</lastmod>
   </url>
@@ -95,11 +95,6 @@
   <url>
     <loc>/line-plot-over-time/</loc>
     <lastmod>2020-07-31T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/scrape-odds/</loc>
-    <lastmod>2020-07-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
