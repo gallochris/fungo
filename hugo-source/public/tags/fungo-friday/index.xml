@@ -44,18 +44,6 @@ Random notes:
     </item>
     
     <item>
-      <title>MLB Sans Bubble</title>
-      <link>/mlb-games-played/</link>
-      <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/mlb-games-played/</guid>
-      <description>Major League Baseball without a bubble is strange. We’re now updating this chart weekly (last update: September 25).
-The data was pulled from baseball-reference.com. This plot uses the Economist theme.
-Code is below . . .
-library(tidyverse) library(rvest) library(ggthemes) library(extrafont) &amp;#39;https://www.baseball-reference.com/leagues/MLB/2020-standings.shtml&amp;#39; %&amp;gt;% read_html() %&amp;gt;% html_table() %&amp;gt;% bind_rows() %&amp;gt;% mutate(gp = W + L) %&amp;gt;% count(gp) %&amp;gt;% ggplot(aes(gp, n)) + geom_bar( stat = &amp;#39;identity&amp;#39;, width = 0.8, alpha = 0.</description>
-    </item>
-    
-    <item>
       <title>Bells are not Dumb</title>
       <link>/dumb-bell/</link>
       <pubDate>Fri, 07 Aug 2020 00:00:00 +0000</pubDate>
@@ -74,15 +62,6 @@ It’s incredible how much the game changed, and Vince Carter’s rate actually 
       <description>FiveThirtyEight wrote an article about Roy Williams recently, and it in it discusses how his team’s do not attempt as many three-point shots compared to the rest of college basketball.
 Williams has been around a long time. 30 plus years as a head coach. College basketball has changed quite a lot. Williams has not.
 This is a line plot showing how free throw rate and three-point attempt rate has changed since 1987.</description>
-    </item>
-    
-    <item>
-      <title>Scraping Odds</title>
-      <link>/scrape-odds/</link>
-      <pubDate>Fri, 24 Jul 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/scrape-odds/</guid>
-      <description>Table 1: NBA Champ Odds  Team Best365    Lakers +333  Clippers +450  Bucks +600  Warriors +550  Nets +900  Heat +1600  Celtics +1300  Raptors +1800  Nuggets +2200  Mavericks +2500  Rockets +2200  76ers +2000  Jazz +3300  Blazers +4500  Pelicans +5000  Thunder +8000  Pacers +10000  Suns +10000  Hawks +10000  Bulls +25000  Grizzlies +12500  Timberwolves +15000  Magic +12500  Wizards +15000  Kings +15000  Spurs +10000  Hornets +20000  Cavaliers +25000  Pistons +20000  Knicks +25000    Web scraping sounds hard.</description>
     </item>
     
     <item>

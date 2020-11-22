@@ -1,0 +1,62 @@
+---
+title: "Sans Touchdown Histogram"
+author: "Chris Gallo"
+date: '2020-10-18'
+slug: histogram-touchdown
+tags:
+- R Markdown
+categories: R
+type: post
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.width=12, fig.height=8)
+```
+
+```{r, echo=FALSE, message=FALSE}
+library(tidyverse)
+library(ggthemes)
+
+data <- read.csv('no-tds.csv')
+
+p1 <- ggplot(data, aes(x=Year)) + theme_economist() + scale_colour_economist() +
+  geom_histogram(binwidth=1, color="black", fill="#FBFFB9") +
+  theme(legend.position="bottom", legend.direction="horizontil",
+        legend.title = element_blank()) +
+  scale_x_continuous(breaks=seq(2000,2020,1)) +
+  scale_y_continuous(breaks=seq(0,8,1)) +
+  stat_bin(binwidth=1, geom="text", aes(label=..count..), vjust=-1.5) +
+  labs(x="Year", y="Frequency", 
+title = "NFL: How Many Teams Win Without a Touchdown Season-by-Season Since 2000",
+        caption = "Data source: stathead.com")
+p1
+```
+
+How many NFL teams have won a game without scoring a touchdown since 2000? 
+
+This histogram answers that question. Since 2000, 68 total teams have won a game in the regular season or playoffs without scoring a touchdown. Only two of those games were in the playoffs. 
+
+The data here is pulled from [stathead.com](https://stathead.com/) by Sports-Reference. A Stathead membership is like a library card to the largest sports history treasure trove. This data was pulled in less than two minutes.
+
+This uses the ggplot package and economist theme.
+
+Code is below . . .
+
+```
+library(tidyverse)
+library(ggthemes)
+
+data <- read.csv('no-tds.csv')
+
+p1 <- ggplot(data, aes(x=Year)) + theme_economist() + scale_colour_economist() +
+  geom_histogram(binwidth=1, color="black", fill="#FBFFB9") +
+  theme(legend.position="bottom", legend.direction="horizontil",
+        legend.title = element_blank()) +
+  scale_x_continuous(breaks=seq(2000,2020,1)) +
+  scale_y_continuous(breaks=seq(0,8,1)) +
+  stat_bin(binwidth=1, geom="text", aes(label=..count..), vjust=-1.5) +
+  labs(x="Year", y="Frequency", 
+title = "NFL: How Many Teams Win Without a Touchdown Season-by-Season Since 2000",
+        caption = "Data source: stathead.com")
+p1
+```

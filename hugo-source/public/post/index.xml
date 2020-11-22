@@ -17,7 +17,18 @@
       <pubDate>Sun, 18 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>/record-by-months/</guid>
-      <description>@import url(&#34;https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap&#34;); html { font-family: Chivo, -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Oxygen, Ubuntu, Cantarell, &#39;Helvetica Neue&#39;, &#39;Fira Sans&#39;, &#39;Droid Sans&#39;, Arial, sans-serif; } #bauyuntjhe .gt_table { display: table; border-collapse: collapse; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 3px; border-top-color: transparent; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 3px; border-bottom-color: transparent; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; } #bauyuntjhe .</description>
+      <description>@import url(&#34;https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap&#34;); html { font-family: Chivo, -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Oxygen, Ubuntu, Cantarell, &#39;Helvetica Neue&#39;, &#39;Fira Sans&#39;, &#39;Droid Sans&#39;, Arial, sans-serif; } #uvfcbwpstu .gt_table { display: table; border-collapse: collapse; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 3px; border-top-color: transparent; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 3px; border-bottom-color: transparent; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; } #uvfcbwpstu .</description>
+    </item>
+    
+    <item>
+      <title>Sans Touchdown Histogram</title>
+      <link>/histogram-touchdown/</link>
+      <pubDate>Sun, 18 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/histogram-touchdown/</guid>
+      <description>How many NFL teams have won a game without scoring a touchdown since 2000?
+This histogram answers that question. Since 2000, 68 total teams have won a game in the regular season or playoffs without scoring a touchdown. Only two of those games were in the playoffs.
+The data here is pulled from stathead.com by Sports-Reference. A Stathead membership is like a library card to the largest sports history treasure trove.</description>
     </item>
     
     <item>
@@ -36,7 +47,7 @@ Carolina has a promotion with Bojangles for fans to receive free bisucits when 1
       <pubDate>Mon, 05 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>/538-late/</guid>
-      <description>@import url(&#34;https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap&#34;); html { font-family: Chivo, -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Oxygen, Ubuntu, Cantarell, &#39;Helvetica Neue&#39;, &#39;Fira Sans&#39;, &#39;Droid Sans&#39;, Arial, sans-serif; } #smeezhkkdn .gt_table { display: table; border-collapse: collapse; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 3px; border-top-color: transparent; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 3px; border-bottom-color: transparent; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; } #smeezhkkdn .</description>
+      <description>@import url(&#34;https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap&#34;); html { font-family: Chivo, -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Oxygen, Ubuntu, Cantarell, &#39;Helvetica Neue&#39;, &#39;Fira Sans&#39;, &#39;Droid Sans&#39;, Arial, sans-serif; } #dvnpvgtsyi .gt_table { display: table; border-collapse: collapse; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 3px; border-top-color: transparent; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 3px; border-bottom-color: transparent; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; } #dvnpvgtsyi .</description>
     </item>
     
     <item>
@@ -57,7 +68,7 @@ library(ggplot2) library(dplyr) library(hrbrthemes) data &amp;lt;- read.csv(&amp
       <pubDate>Sat, 19 Sep 2020 00:00:00 +0000</pubDate>
       
       <guid>/gt-tables/</guid>
-      <description>html { font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Oxygen, Ubuntu, Cantarell, &#39;Helvetica Neue&#39;, &#39;Fira Sans&#39;, &#39;Droid Sans&#39;, Arial, sans-serif; } #kwermbcsrx .gt_table { display: table; border-collapse: collapse; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; } #kwermbcsrx .</description>
+      <description>html { font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Oxygen, Ubuntu, Cantarell, &#39;Helvetica Neue&#39;, &#39;Fira Sans&#39;, &#39;Droid Sans&#39;, Arial, sans-serif; } #xfexnvxqtz .gt_table { display: table; border-collapse: collapse; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; } #xfexnvxqtz .</description>
     </item>
     
     <item>
@@ -105,18 +116,6 @@ Random notes:
     </item>
     
     <item>
-      <title>MLB Sans Bubble</title>
-      <link>/mlb-games-played/</link>
-      <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/mlb-games-played/</guid>
-      <description>Major League Baseball without a bubble is strange. We’re now updating this chart weekly (last update: September 25).
-The data was pulled from baseball-reference.com. This plot uses the Economist theme.
-Code is below . . .
-library(tidyverse) library(rvest) library(ggthemes) library(extrafont) &amp;#39;https://www.baseball-reference.com/leagues/MLB/2020-standings.shtml&amp;#39; %&amp;gt;% read_html() %&amp;gt;% html_table() %&amp;gt;% bind_rows() %&amp;gt;% mutate(gp = W + L) %&amp;gt;% count(gp) %&amp;gt;% ggplot(aes(gp, n)) + geom_bar( stat = &amp;#39;identity&amp;#39;, width = 0.8, alpha = 0.</description>
-    </item>
-    
-    <item>
       <title>Bells are not Dumb</title>
       <link>/dumb-bell/</link>
       <pubDate>Fri, 07 Aug 2020 00:00:00 +0000</pubDate>
@@ -135,15 +134,6 @@ It’s incredible how much the game changed, and Vince Carter’s rate actually 
       <description>FiveThirtyEight wrote an article about Roy Williams recently, and it in it discusses how his team’s do not attempt as many three-point shots compared to the rest of college basketball.
 Williams has been around a long time. 30 plus years as a head coach. College basketball has changed quite a lot. Williams has not.
 This is a line plot showing how free throw rate and three-point attempt rate has changed since 1987.</description>
-    </item>
-    
-    <item>
-      <title>Scraping Odds</title>
-      <link>/scrape-odds/</link>
-      <pubDate>Fri, 24 Jul 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/scrape-odds/</guid>
-      <description>Table 1: NBA Champ Odds  Team Best365    Lakers +333  Clippers +450  Bucks +600  Warriors +550  Nets +900  Heat +1600  Celtics +1300  Raptors +1800  Nuggets +2200  Mavericks +2500  Rockets +2200  76ers +2000  Jazz +3300  Blazers +4500  Pelicans +5000  Thunder +8000  Pacers +10000  Suns +10000  Hawks +10000  Bulls +25000  Grizzlies +12500  Timberwolves +15000  Magic +12500  Wizards +15000  Kings +15000  Spurs +10000  Hornets +20000  Cavaliers +25000  Pistons +20000  Knicks +25000    Web scraping sounds hard.</description>
     </item>
     
     <item>
