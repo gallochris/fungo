@@ -1,0 +1,185 @@
+---
+title: "Free Throw Margin"
+author: "Chris Gallo"
+date: '2020-12-16'
+slug: free-throw-margin
+tags:
+- R Markdown
+categories: R
+type: post
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.width=12, fig.height=8)
+```
+
+```{r, echo=FALSE, message=FALSE}
+library(tidyverse)
+
+theme_me <- function () {
+  theme_minimal(base_size = 15) %+replace%
+    theme (
+      plot.title = element_text(hjust = 0.5),
+      plot.subtitle = element_text(
+        hjust = 0.5,
+        vjust = -2,
+        lineheight = 0.9,
+        size = 10
+      ),
+      plot.caption = element_text(size = 8, hjust = 1),
+      panel.grid.minor = element_blank(),
+      plot.background = element_rect(fill = "#c9e1f1", color = "#c9e1f1")
+    )
+}
+
+ft <- tibble::tribble(
+  ~Season,~ftm,~fta,~Delta,~fill,
+  2021,110,85,25,"plus",
+  2020,470,583,-113,"minus",
+  2019,541,639,-98,"minus",
+  2018,503,597,-94,"minus",
+  2017,642,746,-104,"minus",
+  2016,617,725,-108,"minus",
+  2015,571,843,-272,"minus",
+  2014,552,807,-255,"minus",
+  2013,442,581,-139,"minus",
+  2012,629,529,100,"plus",
+  2011,590,580,10,"plus",
+  2010,558,585,-27,"minus",
+  2009,739,627,112,"plus",
+  2008,738,641,97,"plus",
+  2007,669,646,23,"plus",
+  2006,519,522,-3,"minus",
+  2005,724,689,35,"plus",
+  2004,515,597,-82,"minus",
+)
+
+ggplot(ft, aes(x = Season, y = Delta, fill = fill)) +
+  geom_col(aes(x = Season), width = 0.3) +
+  geom_text(
+    aes(
+      label = ifelse(Delta > 0, paste0("+", Delta), Delta),
+      vjust = ifelse(Delta > 0,-1,-1)
+    ),
+    colour = "#13294B",
+    size = 5,
+    family = "RobotoCondensed-Regular"
+  ) +
+  scale_fill_manual(values = c("#c80815", "#030200"), guide = FALSE) +
+  scale_x_continuous(breaks = seq(2004, 2021, 1)) +
+  coord_flip() +
+  theme_me() +
+  theme(legend.position = "none") +
+  theme(
+    axis.text.x = element_blank(),
+    axis.line = element_blank(),
+    axis.ticks = element_blank()
+  ) +
+  annotate(
+    "text",
+    x = 2018,
+    y = 50,
+    label = "Only six seasons \n with a positive margin \n in Roy Williams Era \n prior to 2020-21 season.
+    \n 2020-21 Carolina has made \n 110 free throws and opponents \n have attempted 85 free throws.",
+    family = "Chalkboard Bold",
+    size = 3.5,
+    color = "#EF426F"
+  ) +
+  labs(
+    x = "Season",
+    y = "Margin",
+    title = "Carolina: Margin Between Made Free Throws and Opponent Free Throw Attemps",
+    subtitle = "Season-by-season during the Roy Williams Era (since 2004). 2020-21 season is only six games old.",
+    caption = "@dadgumboxscores"
+  )
+```
+
+Carolina's free throw rate is 45.8 (163 FTA / 356 FGA) through six games. 
+
+Would be highest mark in Roy Williams Era, of course, this is in a silly small sample size. 
+
+Tar Heels have _made_ 25 more free throws than opponents have _attempted_.
+
+This bar chart shows how that margin compares to other full seasons.
+
+Code is below . . .
+
+```
+library(ggplot2)
+theme_me <- function () {
+  theme_minimal(base_size = 15, base_family = "RobotoCondensed-Regular") %+replace%
+    theme (
+      plot.title = element_text(hjust = 0.5),
+      plot.subtitle = element_text(
+        hjust = 0.5,
+        vjust = -2,
+        lineheight = 0.9,
+        size = 10
+      ),
+      plot.caption = element_text(size = 8, hjust = 1),
+      panel.grid.minor = element_blank(),
+      plot.background = element_rect(fill = "#c9e1f1", color = "#c9e1f1")
+    )
+}
+
+ft <- tibble::tribble(
+  ~Season,~ftm,~fta,~Delta,~fill,
+  2021,110,85,25,"plus",
+  2020,470,583,-113,"minus",
+  2019,541,639,-98,"minus",
+  2018,503,597,-94,"minus",
+  2017,642,746,-104,"minus",
+  2016,617,725,-108,"minus",
+  2015,571,843,-272,"minus",
+  2014,552,807,-255,"minus",
+  2013,442,581,-139,"minus",
+  2012,629,529,100,"plus",
+  2011,590,580,10,"plus",
+  2010,558,585,-27,"minus",
+  2009,739,627,112,"plus",
+  2008,738,641,97,"plus",
+  2007,669,646,23,"plus",
+  2006,519,522,-3,"minus",
+  2005,724,689,35,"plus",
+  2004,515,597,-82,"minus",
+)
+
+ggplot(ft, aes(x = Season, y = Delta, fill = fill)) +
+  geom_col(aes(x = Season), width = 0.3) +
+  geom_text(
+    aes(
+      label = ifelse(Delta > 0, paste0("+", Delta), Delta),
+      vjust = ifelse(Delta > 0,-1,-1)
+    ),
+    colour = "#13294B",
+    size = 5,
+    family = "RobotoCondensed-Regular"
+  ) +
+  scale_fill_manual(values = c("#c80815", "#030200"), guide = FALSE) +
+  scale_x_continuous(breaks = seq(2004, 2021, 1)) +
+  coord_flip() +
+  theme_me() +
+  theme(legend.position = "none") +
+  theme(
+    axis.text.x = element_blank(),
+    axis.line = element_blank(),
+    axis.ticks = element_blank()
+  ) +
+  annotate(
+    "text",
+    x = 2018,
+    y = 50,
+    label = "Only six seasons \n with a positive margin \n in Roy Williams Era \n prior to 2020-21 season.
+    \n 2020-21 Carolina has made \n 110 free throws and opponents \n have attempted 85 free throws.",
+    family = "Chalkboard Bold",
+    size = 3.5,
+    color = "#EF426F"
+  ) +
+  labs(
+    x = "Season",
+    y = "Margin",
+    title = "Carolina: Margin Between Made Free Throws and Opponent Free Throw Attemps",
+    subtitle = "Season-by-season during the Roy Williams Era (since 2004). 2020-21 season is only six games old.",
+    caption = "@dadgumboxscores"
+  )
+```
