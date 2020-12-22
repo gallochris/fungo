@@ -1,0 +1,162 @@
+---
+title: "Waffle Turnovers"
+author: "Chris Gallo"
+date: '2020-12-18'
+slug: waffle-turnovers
+tags:
+- R Markdown
+categories: R
+type: post
+---
+
+<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+
+
+<p><img src="/post/2020-12-18-waffle-turnovers_files/figure-html/unnamed-chunk-1-1.png" width="1152" /></p>
+<p>This is a waffle chart showing Carolina’s offensive turnover rate through six games.</p>
+<p>It’s built off this example from <a href="https://github.com/Henryjean/Free-Throw-Gods">Owen J. Phillips</a>.</p>
+<p>It uses the <code>geom_waffle</code> package and cowplot package.</p>
+<p>Code is below . . .</p>
+<pre><code>library(tidyverse)
+library(data.table)
+library(extrafont)
+library(magick)
+library(paletteer)
+library(ggforce)
+library(waffle)
+library(scales)
+theme_me &lt;- function () {
+  theme_minimal(base_size = 12, base_family = &quot;RobotoCondensed-Regular&quot;) %+replace%
+    theme(
+      panel.grid.minor = element_blank(),
+      panel.grid.major = element_blank(),
+      plot.background = element_rect(fill = &#39;floralwhite&#39;, color = &quot;floralwhite&quot;)
+    )
+}
+
+
+turns &lt;- tibble::tribble(
+  ~ Opponent,
+  ~ Possessions,
+  ~ Turnovers,
+  ~ Non,
+  &quot;College of Charleston&quot;,
+  73,
+  9,
+  64,
+  &quot;UNLV&quot;,
+  72,
+  16,
+  56,
+  &quot;Stanford&quot;,
+  71,
+  23,
+  48,
+  &quot;Texas&quot;,
+  68,
+  13,
+  55,
+  &quot;Iowa&quot;,
+  79,
+  18,
+  61,
+  &quot;NC Central&quot;,
+  71,
+  15,
+  56,
+)
+
+df &lt;- turns %&gt;%
+  select(Opponent, Possessions, Turnovers, Non) %&gt;%
+  group_by(Opponent) %&gt;%
+  summarise(turn.pct = Turnovers / Possessions,
+            nonturn.pct = Non / Possessions,)
+
+df$Opponent &lt;-
+  factor(
+    df$Opponent,
+    levels = c(
+      &quot;College of Charleston&quot;,
+      &quot;UNLV&quot;,
+      &quot;Stanford&quot;,
+      &quot;Texas&quot;,
+      &quot;Iowa&quot;,
+      &quot;NC Central&quot;
+    ),
+    labels = c(
+      &quot;College of Charleston&quot;,
+      &quot;UNLV&quot;,
+      &quot;Stanford&quot;,
+      &quot;Texas&quot;,
+      &quot;Iowa&quot;,
+      &quot;NC Central&quot;
+    )
+  )
+
+df &lt;- df %&gt;%
+  select(Opponent, turn.pct, nonturn.pct) %&gt;% gather(Type, Value,-Opponent)
+
+df$Type &lt;- as.factor(df$Type)
+levels(df$Type)
+df$Type = factor(df$Type, levels(df$Type)[c(3, 2, 1)])
+
+df &lt;-
+  df %&gt;% group_by(Opponent) %&gt;% arrange(Type) %&gt;% mutate(total = sum(Value), pcts = round(100 *
+                                                                                            Value / total))
+df &lt;-
+  df %&gt;% group_by(Opponent) %&gt;% mutate(totalsum = 100 - sum(pcts[-length(pcts)]))
+
+p &lt;- df %&gt;%
+  ggplot(aes(fill = Type, values = pcts)) +
+  geom_waffle(
+    color = &quot;white&quot;,
+    size = .25,
+    n_rows = 10,
+    flip = T
+  ) +
+  facet_wrap( ~ Opponent, nrow = 2, strip.position = &quot;bottom&quot;) +
+  coord_equal(clip  = &#39;off&#39;) +
+  scale_x_discrete(expand = c(0, 0)) +
+  scale_y_continuous(
+    breaks = function(x)
+      seq(5, max(x), by = 5),
+    expand = c(0, 0)
+  )  +
+  theme_me() +
+  theme(
+    axis.title.y = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank()
+  ) +
+  theme(legend.position = &#39;top&#39;) +
+  scale_fill_manual(
+    values = c(&quot;#13294B&quot;, &quot;#4B9CD3&quot;),
+    labels = c(&quot;Turnovers&quot;, &quot;Non-Turnovers&quot;)
+  )  +
+  theme(strip.text.x = element_text(size = 10)) +
+  labs(
+    fill = &quot;&quot;,
+    title = &quot;Carolina Offense: Turnover Rates for Games in 2020-21 Season&quot;,
+    subtitle = &quot;Each square represents one percent of total turnovers out of total possessions.&quot;,
+    caption = &quot;@dadgumboxscores | data: kenpom.com&quot;
+  ) +
+  theme(
+    plot.title = element_text(face = &#39;bold&#39;, size = 15, hjust = .5),
+    plot.subtitle = element_text(size = 10, hjust = .5),
+    plot.caption = element_text(color = &#39;black&#39;)
+  ) +
+  theme(
+    plot.margin = unit(c(.5, 0, .5, 0), &quot;cm&quot;),
+    panel.border = element_rect(
+      colour = &quot;black&quot;,
+      fill = NA,
+      size = .25
+    )
+  )   +
+  theme(legend.margin = margin(0, 0, 0, 0),
+        legend.box.margin = margin(0, 0, 0, 0))
+
+p &lt;- cowplot::ggdraw(p) +
+  theme(plot.background = element_rect(fill = &quot;floralwhite&quot;, color = NA))
+p</code></pre>

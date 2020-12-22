@@ -3,112 +3,137 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/categories/</loc>
+    <loc>https://fungo.hotdogsandeggs.com/categories/</loc>
+    <lastmod>2020-12-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://fungo.hotdogsandeggs.com/</loc>
+    <lastmod>2020-12-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://fungo.hotdogsandeggs.com/post/</loc>
+    <lastmod>2020-12-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://fungo.hotdogsandeggs.com/categories/r/</loc>
+    <lastmod>2020-12-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://fungo.hotdogsandeggs.com/tags/r-markdown/</loc>
+    <lastmod>2020-12-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://fungo.hotdogsandeggs.com/tags/</loc>
+    <lastmod>2020-12-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://fungo.hotdogsandeggs.com/waffle-turnovers/</loc>
+    <lastmod>2020-12-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://fungo.hotdogsandeggs.com/three-point-changes/</loc>
+    <lastmod>2020-12-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://fungo.hotdogsandeggs.com/free-throw-margin/</loc>
+    <lastmod>2020-12-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://fungo.hotdogsandeggs.com/bpm-minutes/</loc>
+    <lastmod>2020-12-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://fungo.hotdogsandeggs.com/turnover-frequency/</loc>
+    <lastmod>2020-12-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://fungo.hotdogsandeggs.com/histogram-touchdown/</loc>
+    <lastmod>2020-11-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://fungo.hotdogsandeggs.com/record-by-months/</loc>
     <lastmod>2020-10-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/</loc>
-    <lastmod>2020-10-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
-    <lastmod>2020-10-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/r/</loc>
-    <lastmod>2020-10-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/r-markdown/</loc>
-    <lastmod>2020-10-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/record-by-months/</loc>
-    <lastmod>2020-10-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/histogram-touchdown/</loc>
-    <lastmod>2020-10-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2020-10-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/background-biscuits/</loc>
+    <loc>https://fungo.hotdogsandeggs.com/background-biscuits/</loc>
     <lastmod>2020-10-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/538-late/</loc>
+    <loc>https://fungo.hotdogsandeggs.com/538-late/</loc>
     <lastmod>2020-10-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/area-plot/</loc>
+    <loc>https://fungo.hotdogsandeggs.com/area-plot/</loc>
     <lastmod>2020-09-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/gt-tables/</loc>
+    <loc>https://fungo.hotdogsandeggs.com/gt-tables/</loc>
     <lastmod>2020-09-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/lines-and-points/</loc>
+    <loc>https://fungo.hotdogsandeggs.com/lines-and-points/</loc>
     <lastmod>2020-09-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/fungo-friday/</loc>
+    <loc>https://fungo.hotdogsandeggs.com/tags/fungo-friday/</loc>
     <lastmod>2020-09-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/quarter-chart/</loc>
+    <loc>https://fungo.hotdogsandeggs.com/quarter-chart/</loc>
     <lastmod>2020-09-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/dot-champs/</loc>
+    <loc>https://fungo.hotdogsandeggs.com/dot-champs/</loc>
     <lastmod>2020-08-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tar-heel-nba-draft-picks/</loc>
+    <loc>https://fungo.hotdogsandeggs.com/tar-heel-nba-draft-picks/</loc>
     <lastmod>2020-08-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/dumb-bell/</loc>
+    <loc>https://fungo.hotdogsandeggs.com/dumb-bell/</loc>
     <lastmod>2020-08-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/line-plot-over-time/</loc>
+    <loc>https://fungo.hotdogsandeggs.com/line-plot-over-time/</loc>
     <lastmod>2020-07-31T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/sheed-wallace-waffles/</loc>
+    <loc>https://fungo.hotdogsandeggs.com/sheed-wallace-waffles/</loc>
     <lastmod>2020-07-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/about-fungo/</loc>
+    <loc>https://fungo.hotdogsandeggs.com/about-fungo/</loc>
     <lastmod>2020-07-08T21:48:51-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/moneyline-percentages/</loc>
+    <loc>https://fungo.hotdogsandeggs.com/moneyline-percentages/</loc>
     <lastmod>2020-07-08T21:13:14-05:00</lastmod>
   </url>
   

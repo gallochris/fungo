@@ -1,0 +1,93 @@
+---
+title: "Three-Point Changes"
+author: "Chris Gallo"
+date: '2020-12-17'
+slug: three-point-changes
+tags:
+- R Markdown
+categories: R
+type: post
+---
+
+<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+
+
+<p><img src="/post/2020-12-17-three-point-changes_files/figure-html/unnamed-chunk-1-1.png" width="1152" /></p>
+<p>Carolina has made 24 of 89 three-point shots through six games.</p>
+<p>That is a putrid ~27 percent.</p>
+<p>This annotated line chart shows how that incomplete sample size compares to past season three-point percentages in the Roy Williams Era, including when the line was moved back.</p>
+<p>Code is below . . .</p>
+<pre><code>library(ggplot2)
+
+theme_me &lt;- function () {
+  theme_minimal(base_size = 15, base_family = &quot;RobotoCondensed-Regular&quot;) %+replace%
+    theme (
+      plot.title = element_text(hjust = 0.5),
+      plot.subtitle = element_text(
+        hjust = 0.5,
+        vjust = -2,
+        lineheight = 0.9,
+        size = 10
+      ),
+      plot.caption = element_text(size = 8, hjust = 1),
+      panel.grid.minor = element_blank(),
+      plot.background = element_rect(fill = &quot;#c9e1f1&quot;, color = &quot;#c9e1f1&quot;)
+    )
+}
+
+three &lt;- tibble::tribble(
+  ~Season,~pct,
+  2021,27.0,
+  2020,30.4,
+  2019,36.2,
+  2018,35.9,
+  2017,35.5,
+  2016,32.7,
+  2015,35.8,
+  2014,33.6,
+  2013,37.2,
+  2012,33.4,
+  2011,32.8,
+  2010,32.8,
+  2009,38.5,
+  2008,37.2,
+  2007,35.8,
+  2006,37.5,
+  2005,40.3,
+  2004,35.2,
+)
+
+ggplot(three, aes(x = Season, y = pct, label = pct)) +
+  geom_line(color = &quot;#e6cab1&quot;) +
+  geom_point() +
+  geom_text(aes(label = sprintf(&quot;%0.1f&quot;, round(pct, digits = 1))), 
+            color = &quot;#13294B&quot;,
+            size = 4, fontface = &quot;bold&quot;, vjust = -2.5) +
+  geom_vline(xintercept = 2008.5, lty = 2) +
+  geom_vline(xintercept = 2019.5, lty = 2) +
+  scale_x_continuous(breaks = seq(2004, 2021, 1)) +
+  ylim(25, 45) +
+  theme_me() +
+  theme(legend.position = &quot;none&quot;) +
+  annotate(
+    &quot;text&quot;,
+    x = 2015,
+    y = 40,
+    label = &quot;Three-point was \n moved back prior to \n 2008-09 and \n 2019-20 seasons&quot;,
+    family = &quot;Chalkboard Bold&quot;,
+    size = 4,
+    color = &quot;#EF426F&quot;
+  ) +
+   annotate(
+    geom = &quot;curve&quot;, color = &quot;#EF426F&quot;, x = 2019, y = 27, xend = 2020.8, yend = 26.5, 
+    curvature = .3, arrow = arrow(length = unit(2, &quot;mm&quot;))
+  ) +
+  annotate(geom = &quot;text&quot;, x = 2018.8, y = 28, label = &quot;24-89 through \n six games&quot;, family = &quot;Chalkboard Bold&quot;, size = 4, color = &quot;#EF426F&quot;) +
+  labs(
+    x = &quot;Season&quot;,
+    y = &quot;Three-point percentage&quot;,
+    title = &quot;Carolina Offense: Three-Point Percentage Since 2004&quot;,
+    subtitle = &quot;Season-by-season during the Roy Williams Era (since 2004). 2020-21 season is only six games old.&quot;,
+    caption = &quot;@dadgumboxscores&quot;
+  )</code></pre>

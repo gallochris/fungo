@@ -1,0 +1,312 @@
+---
+title: "Waffle Turnovers"
+author: "Chris Gallo"
+date: '2020-12-18'
+slug: waffle-turnovers
+tags:
+- R Markdown
+categories: R
+type: post
+---
+
+```{r setup, include=FALSE }
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, fig.width=12, fig.height=8)
+```
+
+```{r, echo=FALSE, message= FALSE, warning = FALSE}
+library(tidyverse)
+library(extrafont)
+library(paletteer)
+library(ggforce)
+library(waffle)
+library(scales)
+options(dplyr.summarise.inform = FALSE)
+
+theme_me <- function () {
+  theme_minimal(base_size = 12) %+replace%
+    theme(
+      panel.grid.minor = element_blank(),
+      panel.grid.major = element_blank(),
+      plot.background = element_rect(fill = 'floralwhite', color = "floralwhite")
+    )
+}
+
+
+turns <- tibble::tribble(
+  ~ Opponent,
+  ~ Possessions,
+  ~ Turnovers,
+  ~ Non,
+  "College of Charleston",
+  73,
+  9,
+  64,
+  "UNLV",
+  72,
+  16,
+  56,
+  "Stanford",
+  71,
+  23,
+  48,
+  "Texas",
+  68,
+  13,
+  55,
+  "Iowa",
+  79,
+  18,
+  61,
+  "NC Central",
+  71,
+  15,
+  56,
+)
+
+df <- turns %>%
+  select(Opponent, Possessions, Turnovers, Non) %>%
+  group_by(Opponent) %>%
+  summarise(turn.pct = Turnovers / Possessions,
+            nonturn.pct = Non / Possessions, .groups = 'drop')
+
+df$Opponent <-
+  factor(
+    df$Opponent,
+    levels = c(
+      "College of Charleston",
+      "UNLV",
+      "Stanford",
+      "Texas",
+      "Iowa",
+      "NC Central"
+    ),
+    labels = c(
+      "College of Charleston",
+      "UNLV",
+      "Stanford",
+      "Texas",
+      "Iowa",
+      "NC Central"
+    )
+  )
+
+df <- df %>%
+  select(Opponent, turn.pct, nonturn.pct) %>% gather(Type, Value,-Opponent)
+
+df$Type <- as.factor(df$Type)
+levels(df$Type)
+df$Type = factor(df$Type, levels(df$Type)[c(3, 2, 1)])
+
+df <-
+  df %>% group_by(Opponent) %>% arrange(Type) %>% mutate(total = sum(Value), pcts = round(100 *
+                                                                                            Value / total))
+df <-
+  df %>% group_by(Opponent) %>% mutate(totalsum = 100 - sum(pcts[-length(pcts)]))
+
+p <- df %>%
+  ggplot(aes(fill = Type, values = pcts)) +
+  geom_waffle(
+    color = "white",
+    size = .25,
+    n_rows = 10,
+    flip = T
+  ) +
+  facet_wrap( ~ Opponent, nrow = 2, strip.position = "bottom") +
+  coord_equal(clip  = 'off') +
+  scale_x_discrete(expand = c(0, 0)) +
+  scale_y_continuous(
+    breaks = function(x)
+      seq(5, max(x), by = 5),
+    expand = c(0, 0)
+  )  +
+  theme_me() +
+  theme(
+    axis.title.y = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank()
+  ) +
+  theme(legend.position = 'top') +
+  scale_fill_manual(
+    values = c("#13294B", "#4B9CD3"),
+    labels = c("Turnovers", "Non-Turnovers")
+  )  +
+  theme(strip.text.x = element_text(size = 10)) +
+  labs(
+    fill = "",
+    title = "Carolina Offense: Turnover Rates for Games in 2020-21 Season",
+    subtitle = "Each square represents one percent of total turnovers out of total possessions.",
+    caption = "@dadgumboxscores | data: kenpom.com"
+  ) +
+  theme(
+    plot.title = element_text(face = 'bold', size = 15, hjust = .5),
+    plot.subtitle = element_text(size = 10, hjust = .5),
+    plot.caption = element_text(color = 'black')
+  ) +
+  theme(
+    plot.margin = unit(c(.5, 0, .5, 0), "cm"),
+    panel.border = element_rect(
+      colour = "black",
+      fill = NA,
+      size = .25
+    )
+  )   +
+  theme(legend.margin = margin(0, 0, 0, 0),
+        legend.box.margin = margin(0, 0, 0, 0))
+
+cowplot::ggdraw(p) +
+  theme(plot.background = element_rect(fill = "floralwhite", color = NA))
+
+```
+
+This is a waffle chart showing Carolina's offensive turnover rate through six games. 
+
+It's built off this example from [Owen J. Phillips](https://github.com/Henryjean/Free-Throw-Gods). 
+
+It uses the `geom_waffle` package and cowplot package. 
+
+Code is below . . .
+
+```
+library(tidyverse)
+library(data.table)
+library(extrafont)
+library(magick)
+library(paletteer)
+library(ggforce)
+library(waffle)
+library(scales)
+theme_me <- function () {
+  theme_minimal(base_size = 12, base_family = "RobotoCondensed-Regular") %+replace%
+    theme(
+      panel.grid.minor = element_blank(),
+      panel.grid.major = element_blank(),
+      plot.background = element_rect(fill = 'floralwhite', color = "floralwhite")
+    )
+}
+
+
+turns <- tibble::tribble(
+  ~ Opponent,
+  ~ Possessions,
+  ~ Turnovers,
+  ~ Non,
+  "College of Charleston",
+  73,
+  9,
+  64,
+  "UNLV",
+  72,
+  16,
+  56,
+  "Stanford",
+  71,
+  23,
+  48,
+  "Texas",
+  68,
+  13,
+  55,
+  "Iowa",
+  79,
+  18,
+  61,
+  "NC Central",
+  71,
+  15,
+  56,
+)
+
+df <- turns %>%
+  select(Opponent, Possessions, Turnovers, Non) %>%
+  group_by(Opponent) %>%
+  summarise(turn.pct = Turnovers / Possessions,
+            nonturn.pct = Non / Possessions,)
+
+df$Opponent <-
+  factor(
+    df$Opponent,
+    levels = c(
+      "College of Charleston",
+      "UNLV",
+      "Stanford",
+      "Texas",
+      "Iowa",
+      "NC Central"
+    ),
+    labels = c(
+      "College of Charleston",
+      "UNLV",
+      "Stanford",
+      "Texas",
+      "Iowa",
+      "NC Central"
+    )
+  )
+
+df <- df %>%
+  select(Opponent, turn.pct, nonturn.pct) %>% gather(Type, Value,-Opponent)
+
+df$Type <- as.factor(df$Type)
+levels(df$Type)
+df$Type = factor(df$Type, levels(df$Type)[c(3, 2, 1)])
+
+df <-
+  df %>% group_by(Opponent) %>% arrange(Type) %>% mutate(total = sum(Value), pcts = round(100 *
+                                                                                            Value / total))
+df <-
+  df %>% group_by(Opponent) %>% mutate(totalsum = 100 - sum(pcts[-length(pcts)]))
+
+p <- df %>%
+  ggplot(aes(fill = Type, values = pcts)) +
+  geom_waffle(
+    color = "white",
+    size = .25,
+    n_rows = 10,
+    flip = T
+  ) +
+  facet_wrap( ~ Opponent, nrow = 2, strip.position = "bottom") +
+  coord_equal(clip  = 'off') +
+  scale_x_discrete(expand = c(0, 0)) +
+  scale_y_continuous(
+    breaks = function(x)
+      seq(5, max(x), by = 5),
+    expand = c(0, 0)
+  )  +
+  theme_me() +
+  theme(
+    axis.title.y = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank()
+  ) +
+  theme(legend.position = 'top') +
+  scale_fill_manual(
+    values = c("#13294B", "#4B9CD3"),
+    labels = c("Turnovers", "Non-Turnovers")
+  )  +
+  theme(strip.text.x = element_text(size = 10)) +
+  labs(
+    fill = "",
+    title = "Carolina Offense: Turnover Rates for Games in 2020-21 Season",
+    subtitle = "Each square represents one percent of total turnovers out of total possessions.",
+    caption = "@dadgumboxscores | data: kenpom.com"
+  ) +
+  theme(
+    plot.title = element_text(face = 'bold', size = 15, hjust = .5),
+    plot.subtitle = element_text(size = 10, hjust = .5),
+    plot.caption = element_text(color = 'black')
+  ) +
+  theme(
+    plot.margin = unit(c(.5, 0, .5, 0), "cm"),
+    panel.border = element_rect(
+      colour = "black",
+      fill = NA,
+      size = .25
+    )
+  )   +
+  theme(legend.margin = margin(0, 0, 0, 0),
+        legend.box.margin = margin(0, 0, 0, 0))
+
+p <- cowplot::ggdraw(p) +
+  theme(plot.background = element_rect(fill = "floralwhite", color = NA))
+p
+```
