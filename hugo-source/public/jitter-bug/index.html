@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.73.0" />
+
+
+<title>Jitter Bug - Fungo by Chris Gallo</title>
+<meta property="og:title" content="Jitter Bug - Fungo by Chris Gallo">
+
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <ul class="nav-links">
+    
+    <li><a href="/about-fungo/">fungo by chris gallo</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">2 min read</span>
+    
+
+    <h1 class="article-title">Jitter Bug</h1>
+
+    
+    <span class="article-date">2021-01-11</span>
+    
+
+    <div class="article-content">
+      
+<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+
+
+<p><img src="/post/2021-01-11-jitter-bug_files/figure-html/unnamed-chunk-1-1.png" width="1152" /></p>
+<p>This is plot showing four factor values for Carolina basketball on offense against Syracuse. The data is pulled from app.dadgumboxscores.com, and it includes 12 different games.</p>
+<p>It uses <code>geom_jitter</code> to space the values out across the different four factor categories. It intercepts at line 40 and annontates the plot to show seven of the 12 games have an offensive rebounding rate over 40.</p>
+<p>Code is below . . .</p>
+<pre><code>library(tidyverse)
+
+
+theme_me &lt;- function () {
+  theme_minimal(base_size = 15, base_family = &quot;RobotoCondensed-Regular&quot;) %+replace%
+    theme (
+      plot.title = element_text(hjust = 0.5),
+      plot.subtitle = element_text(
+        hjust = 0.5,
+        vjust = -2,
+        lineheight = 0.9,
+        size = 10
+      ),
+      plot.caption = element_text(size = 8, hjust = 1),
+      panel.grid.minor = element_blank(),
+      plot.background = element_rect(fill = &quot;#c9e1f1&quot;, color = &quot;#c9e1f1&quot;)
+    )
+}
+
+data &lt;- read.csv(&#39;cuse.csv&#39;)
+
+data &lt;- as.data.frame(data)
+data$Factor &lt;- factor(data$Factor, levels = c(&quot;efg&quot;, &quot;to&quot;, &quot;or&quot;, &quot;ft&quot;),
+                              labels = c(&quot;eFG%&quot;, &quot;TORate&quot;, &quot;OR%&quot;, &quot;FTRate&quot;))
+
+ ggplot(data, aes(x = Value, y = Factor)) + 
+  geom_jitter(height = 0, width = 0.10, shape = 21, color = &#39;black&#39;, fill = &#39;#D44500&#39;, size = 4, aes(alpha = Value)) + 
+  theme_me() + 
+  scale_x_continuous(breaks = seq(0, 70, 10)) +
+  geom_vline(xintercept = 40, lty = 2) +
+  theme(legend.position = &quot;none&quot;) +
+  labs(
+    x = &quot;&quot;,
+    y = &quot;Four Factors&quot;,
+    title = &quot;Carolina Offense: Four Factors Against Syracuse in the Roy Williams Era (12 Games)&quot;,
+    subtitle = &quot;Shows the values of each of the four factors on offense for every meeting against Syracuse since 2003-04 season. &quot;,
+    caption = &quot;@dadgumboxscores&quot;
+  ) +
+   annotate(
+    &quot;text&quot;,
+    x = 55,
+    y = &#39;TORate&#39;,
+    label = &quot;Carolina is 9-3 against Syracuse under Roy Williams. \n Tar Heels have an offensive rebounding rate of 40 or better \n in seven of the 12 games. 6-1 record in those seven games.&quot;,
+    family = &quot;Chalkboard Bold&quot;,
+    size = 4,
+    color = &quot;#D44500&quot;
+  )</code></pre>
+
+    </div>
+  </article>
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/" target="_blank">home</a>
+          </li>
+          <li>
+            <a href="https://hotdogsandeggs.com/" class="footer-links-kudos">made with hot dogs and eggs</a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+  </body>
+</html>
+
