@@ -55,7 +55,7 @@ data$Factor <- factor(data$Factor, levels = c("efg", "to", "or", "ft"),
     "text",
     x = 55,
     y = 'TORate',
-    label = "Carolina is 9-3 against Syracuse under Roy Williams. \n Tar Heels have an offensive rebounding rate of 40 or better \n in seven of the 12 games. 6-1 record in those seven games.",
+    label = "Carolina is 9-3 against Syracuse \n under Roy Williams. Tar Heels have an \n offensive rebounding rate of 40 or better \n in seven of the 12 games. \n 6-1 record in those seven games.",
     family = "Chalkboard Bold",
     size = 4,
     color = "#D44500"
