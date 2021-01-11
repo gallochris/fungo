@@ -6,10 +6,21 @@
     <description>Recent content on Fungo by Chris Gallo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 18 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 11 Jan 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://fungo.hotdogsandeggs.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Jitter Bug</title>
+      <link>https://fungo.hotdogsandeggs.com/jitter-bug/</link>
+      <pubDate>Mon, 11 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://fungo.hotdogsandeggs.com/jitter-bug/</guid>
+      <description>This is plot showing four factor values for Carolina basketball on offense against Syracuse. The data is pulled from app.dadgumboxscores.com, and it includes 12 different games.
+It uses geom_jitter to space the values out across the different four factor categories. It intercepts at line 40 and annontates the plot to show seven of the 12 games have an offensive rebounding rate over 40.
+Code is below . . .</description>
+    </item>
     
     <item>
       <title>Waffle Turnovers</title>

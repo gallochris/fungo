@@ -1,0 +1,119 @@
+---
+title: "Jitter Bug"
+author: "Chris Gallo"
+date: '2021-01-11'
+slug: jitter-bug
+tags:
+- R Markdown
+categories: R
+type: post
+---
+
+```{r setup, include=FALSE }
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, fig.width=12, fig.height=8)
+```
+
+```{r, echo=FALSE, message= FALSE, warning = FALSE}
+library(ggplot2)
+
+theme_me <- function () {
+  theme_minimal(base_size = 15, base_family = "RobotoCondensed-Regular") %+replace%
+    theme (
+      plot.title = element_text(hjust = 0.5),
+      plot.subtitle = element_text(
+        hjust = 0.5,
+        vjust = -2,
+        lineheight = 0.9,
+        size = 10
+      ),
+      plot.caption = element_text(size = 8, hjust = 1),
+      panel.grid.minor = element_blank(),
+      plot.background = element_rect(fill = "#c9e1f1", color = "#c9e1f1")
+    )
+}
+
+data <- read.csv('cuse-bball.csv')
+
+data <- as.data.frame(data)
+data$Factor <- factor(data$Factor, levels = c("efg", "to", "or", "ft"),
+                              labels = c("eFG%", "TORate", "OR%", "FTRate"))
+
+ ggplot(data, aes(x = Value, y = Factor)) + 
+  geom_jitter(height = 0, width = 0.10, shape = 21, color = 'black', fill = '#D44500', size = 4, aes(alpha = Value)) + 
+  theme_me() + 
+  scale_x_continuous(breaks = seq(0, 70, 10)) +
+  geom_vline(xintercept = 40, lty = 2) +
+  theme(legend.position = "none") +
+  labs(
+    x = "",
+    y = "Four Factors",
+    title = "Carolina Offense: Four Factors Against Syracuse in the Roy Williams Era (12 Games)",
+    subtitle = "Shows the values of each of the four factors on offense for every meeting against Syracuse since 2003-04 season. ",
+    caption = "@dadgumboxscores"
+  ) +
+   annotate(
+    "text",
+    x = 55,
+    y = 'TORate',
+    label = "Carolina is 9-3 against Syracuse under Roy Williams. \n Tar Heels have an offensive rebounding rate of 40 or better \n in seven of the 12 games. 6-1 record in those seven games.",
+    family = "Chalkboard Bold",
+    size = 4,
+    color = "#D44500"
+  ) 
+```
+
+This is plot showing four factor values for Carolina basketball on offense against Syracuse. The data is pulled from app.dadgumboxscores.com, and it includes 12 different games. 
+
+It uses `geom_jitter` to space the values out across the different four factor categories. It intercepts at line 40 and annontates the plot to show seven of the 12 games have an offensive rebounding rate over 40. 
+
+Code is below . . .
+
+```
+library(tidyverse)
+
+
+theme_me <- function () {
+  theme_minimal(base_size = 15, base_family = "RobotoCondensed-Regular") %+replace%
+    theme (
+      plot.title = element_text(hjust = 0.5),
+      plot.subtitle = element_text(
+        hjust = 0.5,
+        vjust = -2,
+        lineheight = 0.9,
+        size = 10
+      ),
+      plot.caption = element_text(size = 8, hjust = 1),
+      panel.grid.minor = element_blank(),
+      plot.background = element_rect(fill = "#c9e1f1", color = "#c9e1f1")
+    )
+}
+
+data <- read.csv('cuse.csv')
+
+data <- as.data.frame(data)
+data$Factor <- factor(data$Factor, levels = c("efg", "to", "or", "ft"),
+                              labels = c("eFG%", "TORate", "OR%", "FTRate"))
+
+ ggplot(data, aes(x = Value, y = Factor)) + 
+  geom_jitter(height = 0, width = 0.10, shape = 21, color = 'black', fill = '#D44500', size = 4, aes(alpha = Value)) + 
+  theme_me() + 
+  scale_x_continuous(breaks = seq(0, 70, 10)) +
+  geom_vline(xintercept = 40, lty = 2) +
+  theme(legend.position = "none") +
+  labs(
+    x = "",
+    y = "Four Factors",
+    title = "Carolina Offense: Four Factors Against Syracuse in the Roy Williams Era (12 Games)",
+    subtitle = "Shows the values of each of the four factors on offense for every meeting against Syracuse since 2003-04 season. ",
+    caption = "@dadgumboxscores"
+  ) +
+   annotate(
+    "text",
+    x = 55,
+    y = 'TORate',
+    label = "Carolina is 9-3 against Syracuse under Roy Williams. \n Tar Heels have an offensive rebounding rate of 40 or better \n in seven of the 12 games. 6-1 record in those seven games.",
+    family = "Chalkboard Bold",
+    size = 4,
+    color = "#D44500"
+  )
+```
