@@ -1,0 +1,267 @@
+---
+title: "Better line charts"
+author: "Chris Gallo"
+date: '2021-01-21'
+slug: better-line-charts
+tags:
+- R Markdown
+categories: R
+type: post
+---
+
+```{r setup, include=FALSE }
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, fig.width=12, fig.height=8)
+```
+
+```{r, echo=FALSE, message= FALSE, warning = FALSE}
+library(tidyverse)
+
+theme_me <- function () {
+  theme_minimal(base_size = 15, base_family = "RobotoCondensed-Regular") %+replace%
+    theme (
+      plot.title = element_text(hjust = 0.5),
+      plot.subtitle = element_text(
+        hjust = 0.5,
+        vjust = -2,
+        lineheight = 0.9,
+        size = 10
+      ),
+      plot.caption = element_text(size = 8, hjust = 1),
+      panel.grid.minor = element_blank(),
+      plot.background = element_rect(fill = "#c9e1f1", color = "#c9e1f1")
+    )
+}
+
+ortg <- read.csv('or.csv')
+ortg$N <- as.factor(ortg$N)
+ortg$N <-
+  factor(
+    ortg$N,
+    levels = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14),
+    labels = c(
+      "Charleston",
+      "UNLV",
+      "Stanford",
+      "Texas",
+      "Iowa",
+      "NC Central",
+      "Kentucky",
+      "NC State",
+      "Georgia Tech",
+      "Notre Dame",
+      "Miami",
+      "Syracuse",
+      "Florida State",
+      "Wake Forest"
+    )
+  )
+
+ortg <- as.data.frame(ortg)
+ortg$Player <- factor(
+  ortg$Player,
+  levels = c("Davis", "Love"),
+  labels = c("RJ Davis", "Caleb Love")
+)
+
+ortg  %>%
+  ggplot(aes(x = N, y = O, group = Player)) +
+  geom_line(aes(color = Player)) +
+  geom_point(
+    color = 'black',
+    fill = "#c4ced4",
+    shape = 21,
+    size = 4.5,
+    alpha = .75,
+    aes(color = Player)
+  ) +
+  theme_me() +
+  scale_y_continuous(breaks = seq(25, 165, 10)) +
+  geom_hline(yintercept = 100, linetype = 'dashed') +
+  labs(
+    x = "Game",
+    y = "Offensive Rating",
+    title = "Carolina: RJ Davis and Caleb Love Offensive Ratings Game-by-Game",
+    subtitle = "Game-by-game offensive ratings for the 2020-21 season",
+    caption = "@dadgumboxscores | data via kenpom.com"
+  ) +
+  theme(
+    plot.title = element_text(face = 'bold', size = 15),
+    plot.subtitle = element_text(size = 10),
+    plot.title.position = "plot",
+    plot.caption.position =  "plot",
+    plot.caption = element_text(size = 10, vjust = 2.5),
+    plot.margin = unit(c(.5, .5, 1, .5), "lines"),
+    legend.position = "none"
+  ) +
+  annotate(
+    geom = 'label',
+    x = 8,
+    y = 145,
+    hjust = 0.75,
+    label = "Two games where RJ Davis & Caleb Love both have an offensive rating above 100",
+    fill = "lightgreen",
+    fontface = 'bold',
+    alpha = .5
+  ) +
+  annotate(
+    geom = 'label',
+    x = 8,
+    y = 45,
+    hjust = 0.75,
+    label = " Seven games where both players have an offensive rating below 100",
+    fill = "lightpink",
+    fontface = 'bold',
+    alpha = .5
+  ) +
+  annotate(
+    geom = 'label',
+    x = 14,
+    y = 116,
+    hjust = 0.75,
+    label = "RJ Davis",
+    fill = "#f8766d",
+    fontface = 'bold',
+    alpha = .5
+  ) +
+  annotate(
+    geom = 'label',
+    x = 14,
+    y = 105,
+    hjust = 0.75,
+    label = "Caleb Love",
+    fill = "#00bfc4",
+    fontface = 'bold',
+    alpha = .5
+  )
+
+```
+This is line chart showing how offensive rating has changed game to game for RJ Davis and Caleb Love. These two players have only turned in an offensive rating above 100 in two of 14 games thus far. 
+
+Individual offensive rating is the number of points produced by a player per hundred total individual possessions. In other words, _How many points is a player likely to generate when he tries?_
+
+It was inspired by Owen J. Phillips' dynamite [newsletter - F5](https://thef5.substack.com/). It adds a few annotations and ignores the legend to try and better identify which player is being highlighted. 
+
+Code is below . . .
+
+```
+library(tidyverse)
+
+theme_me <- function () {
+  theme_minimal(base_size = 15, base_family = "RobotoCondensed-Regular") %+replace%
+    theme (
+      plot.title = element_text(hjust = 0.5),
+      plot.subtitle = element_text(
+        hjust = 0.5,
+        vjust = -2,
+        lineheight = 0.9,
+        size = 10
+      ),
+      plot.caption = element_text(size = 8, hjust = 1),
+      panel.grid.minor = element_blank(),
+      plot.background = element_rect(fill = "#c9e1f1", color = "#c9e1f1")
+    )
+}
+
+ortg <- read.csv('or.csv')
+ortg$N <- as.factor(ortg$N)
+ortg$N <-
+  factor(
+    ortg$N,
+    levels = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14),
+    labels = c(
+      "Charleston",
+      "UNLV",
+      "Stanford",
+      "Texas",
+      "Iowa",
+      "NC Central",
+      "Kentucky",
+      "NC State",
+      "Georgia Tech",
+      "Notre Dame",
+      "Miami",
+      "Syracuse",
+      "Florida State",
+      "Wake Forest"
+    )
+  )
+
+ortg <- as.data.frame(ortg)
+ortg$Player <- factor(
+  ortg$Player,
+  levels = c("Davis", "Love"),
+  labels = c("RJ Davis", "Caleb Love")
+)
+
+ortg  %>%
+  ggplot(aes(x = N, y = O, group = Player)) +
+  geom_line(aes(color = Player)) +
+  geom_point(
+    color = 'black',
+    fill = "#c4ced4",
+    shape = 21,
+    size = 4.5,
+    alpha = .75,
+    aes(color = Player)
+  ) +
+  theme_me() +
+  scale_y_continuous(breaks = seq(25, 165, 10)) +
+  geom_hline(yintercept = 100, linetype = 'dashed') +
+  labs(
+    x = "Game",
+    y = "Offensive Rating",
+    title = "Carolina: RJ Davis and Caleb Love Offensive Ratings Game-by-Game",
+    subtitle = "Game-by-game offensive ratings for the 2020-21 season",
+    caption = "@dadgumboxscores | data via kenpom.com"
+  ) +
+  theme(
+    plot.title = element_text(face = 'bold', size = 15),
+    plot.subtitle = element_text(size = 10),
+    plot.title.position = "plot",
+    plot.caption.position =  "plot",
+    plot.caption = element_text(size = 10, vjust = 2.5),
+    plot.margin = unit(c(.5, .5, 1, .5), "lines"),
+    legend.position = "none"
+  ) +
+  annotate(
+    geom = 'label',
+    x = 8,
+    y = 145,
+    hjust = 0.75,
+    label = "Two games where RJ Davis & Caleb Love both have an offensive rating above 100",
+    fill = "lightgreen",
+    fontface = 'bold',
+    alpha = .5
+  ) +
+  annotate(
+    geom = 'label',
+    x = 8,
+    y = 45,
+    hjust = 0.75,
+    label = " Seven games where both players have an offensive rating below 100",
+    fill = "lightpink",
+    fontface = 'bold',
+    alpha = .5
+  ) +
+  annotate(
+    geom = 'label',
+    x = 14,
+    y = 116,
+    hjust = 0.75,
+    label = "RJ Davis",
+    fill = "#f8766d",
+    fontface = 'bold',
+    alpha = .5
+  ) +
+  annotate(
+    geom = 'label',
+    x = 14,
+    y = 105,
+    hjust = 0.75,
+    label = "Caleb Love",
+    fill = "#00bfc4",
+    fontface = 'bold',
+    alpha = .5
+  )
+
+```

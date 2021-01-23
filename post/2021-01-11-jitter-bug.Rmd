@@ -55,22 +55,21 @@ data$Factor <- factor(data$Factor, levels = c("efg", "to", "or", "ft"),
     "text",
     x = 55,
     y = 'TORate',
-    label = "Carolina is 9-3 against Syracuse under Roy Williams. \n Tar Heels have an offensive rebounding rate of 40 or better \n in seven of the 12 games. 6-1 record in those seven games.",
+    label = "Carolina is 9-3 against Syracuse under Roy Williams. \n Tar Heels have an offensive rebounding rate of 40 \n or better in seven of the 12 games. \n 6-1 record in those seven games.",
     family = "Chalkboard Bold",
     size = 4,
     color = "#D44500"
   ) 
 ```
 
-This is plot showing four factor values for Carolina basketball on offense against Syracuse. The data is pulled from app.dadgumboxscores.com, and it includes 12 different games. 
+This is plot showing four factor values for Carolina basketball on offense against Syracuse. The data is pulled from [app.dadgumboxscores.com](https://app.dadgumboxscores.com/), and it includes 12 different games. 
 
 It uses `geom_jitter` to space the values out across the different four factor categories. It intercepts at line 40 and annontates the plot to show seven of the 12 games have an offensive rebounding rate over 40. 
 
 Code is below . . .
 
 ```
-library(tidyverse)
-
+library(ggplot2)
 
 theme_me <- function () {
   theme_minimal(base_size = 15, base_family = "RobotoCondensed-Regular") %+replace%
@@ -88,7 +87,7 @@ theme_me <- function () {
     )
 }
 
-data <- read.csv('cuse.csv')
+data <- read.csv('cuse-bball.csv')
 
 data <- as.data.frame(data)
 data$Factor <- factor(data$Factor, levels = c("efg", "to", "or", "ft"),
@@ -111,9 +110,9 @@ data$Factor <- factor(data$Factor, levels = c("efg", "to", "or", "ft"),
     "text",
     x = 55,
     y = 'TORate',
-    label = "Carolina is 9-3 against Syracuse under Roy Williams. \n Tar Heels have an offensive rebounding rate of 40 or better \n in seven of the 12 games. 6-1 record in those seven games.",
+    label = "Carolina is 9-3 against Syracuse under Roy Williams. \n Tar Heels have an offensive rebounding rate of 40 \n or better in seven of the 12 games. \n 6-1 record in those seven games.",
     family = "Chalkboard Bold",
     size = 4,
     color = "#D44500"
-  )
+  ) 
 ```
