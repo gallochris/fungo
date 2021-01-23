@@ -1,0 +1,140 @@
+---
+title: "Better line charts"
+author: "Chris Gallo"
+date: '2021-01-21'
+slug: better-line-charts
+tags:
+- R Markdown
+categories: R
+type: post
+---
+
+<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+
+
+<p><img src="/post/2021-01-21-better-line-charts_files/figure-html/unnamed-chunk-1-1.png" width="1152" />
+This is line chart showing how offensive rating has changed game to game for RJ Davis and Caleb Love. These two players have only turned in an offensive rating above 100 in two of 14 games thus far.</p>
+<p>Individual offensive rating is the number of points produced by a player per hundred total individual possessions. In other words, <em>How many points is a player likely to generate when he tries?</em></p>
+<p>It was inspired by Owen J. Phillips’ dynamite <a href="https://thef5.substack.com/">newsletter - F5</a>. It adds a few annotations and ignores the legend to try and better identify which player is being highlighted.</p>
+<p>Code is below . . .</p>
+<pre><code>library(tidyverse)
+
+theme_me &lt;- function () {
+  theme_minimal(base_size = 15, base_family = &quot;RobotoCondensed-Regular&quot;) %+replace%
+    theme (
+      plot.title = element_text(hjust = 0.5),
+      plot.subtitle = element_text(
+        hjust = 0.5,
+        vjust = -2,
+        lineheight = 0.9,
+        size = 10
+      ),
+      plot.caption = element_text(size = 8, hjust = 1),
+      panel.grid.minor = element_blank(),
+      plot.background = element_rect(fill = &quot;#c9e1f1&quot;, color = &quot;#c9e1f1&quot;)
+    )
+}
+
+ortg &lt;- read.csv(&#39;or.csv&#39;)
+ortg$N &lt;- as.factor(ortg$N)
+ortg$N &lt;-
+  factor(
+    ortg$N,
+    levels = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14),
+    labels = c(
+      &quot;Charleston&quot;,
+      &quot;UNLV&quot;,
+      &quot;Stanford&quot;,
+      &quot;Texas&quot;,
+      &quot;Iowa&quot;,
+      &quot;NC Central&quot;,
+      &quot;Kentucky&quot;,
+      &quot;NC State&quot;,
+      &quot;Georgia Tech&quot;,
+      &quot;Notre Dame&quot;,
+      &quot;Miami&quot;,
+      &quot;Syracuse&quot;,
+      &quot;Florida State&quot;,
+      &quot;Wake Forest&quot;
+    )
+  )
+
+ortg &lt;- as.data.frame(ortg)
+ortg$Player &lt;- factor(
+  ortg$Player,
+  levels = c(&quot;Davis&quot;, &quot;Love&quot;),
+  labels = c(&quot;RJ Davis&quot;, &quot;Caleb Love&quot;)
+)
+
+ortg  %&gt;%
+  ggplot(aes(x = N, y = O, group = Player)) +
+  geom_line(aes(color = Player)) +
+  geom_point(
+    color = &#39;black&#39;,
+    fill = &quot;#c4ced4&quot;,
+    shape = 21,
+    size = 4.5,
+    alpha = .75,
+    aes(color = Player)
+  ) +
+  theme_me() +
+  scale_y_continuous(breaks = seq(25, 165, 10)) +
+  geom_hline(yintercept = 100, linetype = &#39;dashed&#39;) +
+  labs(
+    x = &quot;Game&quot;,
+    y = &quot;Offensive Rating&quot;,
+    title = &quot;Carolina: RJ Davis and Caleb Love Offensive Ratings Game-by-Game&quot;,
+    subtitle = &quot;Game-by-game offensive ratings for the 2020-21 season&quot;,
+    caption = &quot;@dadgumboxscores | data via kenpom.com&quot;
+  ) +
+  theme(
+    plot.title = element_text(face = &#39;bold&#39;, size = 15),
+    plot.subtitle = element_text(size = 10),
+    plot.title.position = &quot;plot&quot;,
+    plot.caption.position =  &quot;plot&quot;,
+    plot.caption = element_text(size = 10, vjust = 2.5),
+    plot.margin = unit(c(.5, .5, 1, .5), &quot;lines&quot;),
+    legend.position = &quot;none&quot;
+  ) +
+  annotate(
+    geom = &#39;label&#39;,
+    x = 8,
+    y = 145,
+    hjust = 0.75,
+    label = &quot;Two games where RJ Davis &amp; Caleb Love both have an offensive rating above 100&quot;,
+    fill = &quot;lightgreen&quot;,
+    fontface = &#39;bold&#39;,
+    alpha = .5
+  ) +
+  annotate(
+    geom = &#39;label&#39;,
+    x = 8,
+    y = 45,
+    hjust = 0.75,
+    label = &quot; Seven games where both players have an offensive rating below 100&quot;,
+    fill = &quot;lightpink&quot;,
+    fontface = &#39;bold&#39;,
+    alpha = .5
+  ) +
+  annotate(
+    geom = &#39;label&#39;,
+    x = 14,
+    y = 116,
+    hjust = 0.75,
+    label = &quot;RJ Davis&quot;,
+    fill = &quot;#f8766d&quot;,
+    fontface = &#39;bold&#39;,
+    alpha = .5
+  ) +
+  annotate(
+    geom = &#39;label&#39;,
+    x = 14,
+    y = 105,
+    hjust = 0.75,
+    label = &quot;Caleb Love&quot;,
+    fill = &quot;#00bfc4&quot;,
+    fontface = &#39;bold&#39;,
+    alpha = .5
+  )
+</code></pre>

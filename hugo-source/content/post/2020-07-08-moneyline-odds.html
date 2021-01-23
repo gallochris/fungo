@@ -1,7 +1,7 @@
 ---
 title: "Moneyline Odds to Percentages"
 author: "Chris Gallo"
-date: 2020-07-08T21:13:14-05:00
+date: 2020-07-08
 categories: ["R"]
 slug: "moneyline-percentages"
 type: "post"
@@ -28,7 +28,9 @@ tags: ["R Markdown"]
 <p>Code is below . . .</p>
 <pre class="r"><code>library(reactable)
 library(htmltools)
+
 data &lt;- read.csv(&quot;odds.csv&quot;, stringsAsFactors = FALSE)
+
 tbl &lt;- reactable(
   data,
   pagination = FALSE,

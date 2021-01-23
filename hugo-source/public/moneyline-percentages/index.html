@@ -60,6 +60,8 @@
 
     <div class="article-content">
       
+<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
 <script src="/rmarkdown-libs/core-js/shim.min.js"></script>
 <script src="/rmarkdown-libs/react/react.min.js"></script>
 <script src="/rmarkdown-libs/react/react-dom.min.js"></script>
@@ -78,7 +80,9 @@
 <p>Code is below . . .</p>
 <pre class="r"><code>library(reactable)
 library(htmltools)
+
 data &lt;- read.csv(&quot;odds.csv&quot;, stringsAsFactors = FALSE)
+
 tbl &lt;- reactable(
   data,
   pagination = FALSE,

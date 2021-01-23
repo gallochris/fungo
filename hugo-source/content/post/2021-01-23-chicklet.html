@@ -1,0 +1,127 @@
+---
+title: "Chicklet charts"
+author: "Chris Gallo"
+date: '2021-01-23'
+slug: chicklet-charts
+tags:
+- R Markdown
+categories: R
+type: post
+---
+
+<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+
+
+<p><img src="/post/2021-01-23-chicklet_files/figure-html/unnamed-chunk-1-1.png" width="1152" />
+This is plot showing points distribution for Carolina basketball across two-pointers in the paint, two-pointers outside the paint, three-pointers, and free throws.</p>
+<p>It uses the <a href="https://github.com/hrbrmstr/ggchicklet">ggchicklet</a> package, and it was inspired by Owen J. Phillips’ awesome <a href="https://thef5.substack.com/">newsletter - F5</a>.</p>
+<p>This one was particularly tricky to apply the text of the percentages. A few required different adjusting to show the percentages on the graph.</p>
+<p>Code is below . . .</p>
+<pre><code>library(tidyverse)
+library(extrafont)
+library(rvest)
+library(janitor)
+library(scales)
+library(ggchicklet)
+library(paletteer)
+
+theme_me &lt;- function () {
+  theme_minimal(base_size = 15, base_family = &quot;RobotoCondensed-Regular&quot;) %+replace%
+    theme (
+      plot.title = element_text(hjust = 0.5),
+      plot.subtitle = element_text(
+        hjust = 0.5,
+        vjust = -2,
+        lineheight = 0.9,
+        size = 10
+      ),
+      plot.caption = element_text(size = 8, hjust = 1),
+      panel.grid.minor = element_blank(),
+      plot.background = element_rect(fill = &quot;#c9e1f1&quot;, color = &quot;#c9e1f1&quot;)
+    )
+}
+
+df &lt;- read.csv(&#39;unclogs.csv&#39;)
+
+df$type &lt;- as.factor(df$type)
+df$type &lt;-
+  factor(df$type,
+         levels = c(&quot;paint&quot;, &quot;non_paint_two&quot;, &quot;three&quot;, &quot;free_throws&quot;))
+
+df$game &lt;- as.factor(df$game)
+df$game &lt;-
+  factor(
+    df$game,
+    levels = c(
+      &quot;NC State&quot;,
+      &quot;Georgia Tech&quot;,
+      &quot;Notre Dame&quot;,
+      &quot;Miami&quot;,
+      &quot;Syracuse&quot;,
+      &quot;Florida State&quot;,
+      &quot;Wake Forest&quot;
+    )
+  )
+
+
+df %&gt;%
+  ggplot(aes(game, pct)) +
+  geom_chicklet(aes(fill = type)) +
+  geom_text(
+    data = . %&gt;% filter(
+      pct &gt; .1,
+      game == &quot;Wake Forest&quot; |
+        game == &quot;Notre Dame&quot; |
+        game == &quot;Miami&quot; |
+        game == &quot;Georgia Tech&quot; |
+        game == &quot;Florida State&quot;
+    ),
+    aes(label = percent(pct, accuracy = 1L)),
+    family = &quot;RobotoCondensed-Regular&quot;,
+    size = 4,
+    position = position_stack(vjust = 0.15)
+  ) +
+  geom_text(
+    data = . %&gt;% filter(pct &gt; .01, game == &quot;Syracuse&quot; |
+                          game == &quot;NC State&quot;),
+    aes(label = percent(pct, accuracy = 1L)),
+    family = &quot;RobotoCondensed-Regular&quot;,
+    size = 4,
+    position = position_stack(vjust = 0.15)
+  ) +
+  scale_y_continuous(
+    position = &quot;left&quot;,
+    labels = c(&quot;0%&quot;, &quot;25%&quot;, &quot;50%&quot;, &quot;75%&quot;, &quot;100%&quot;),
+    limits = c(0, 1)
+  ) +
+  theme_me() +
+  coord_flip() +
+  theme(
+    legend.position = &#39;bottom&#39;,
+    axis.title.y = element_blank(),
+    axis.title.x = element_blank(),
+    legend.title = element_blank(),
+    legend.text = element_text(size = 9),
+    plot.title = element_text(face = &#39;bold&#39;, hjust = .5),
+    plot.subtitle = element_text(hjust = .5, size = 10),
+    plot.title.position = &quot;plot&quot;,
+    plot.margin = unit(c(.5, .5, 1, .5), &quot;lines&quot;),
+    axis.text.y = element_text(margin = margin(0, -15, 0, 0)),
+    legend.margin = margin(0, 0, 0, 0),
+    legend.box.margin = margin(.5, .5, .5, .5)
+  ) +
+  labs(title = &quot;Carolina Offense: Points Diet in ACC Games as of January 22, 2021&quot;,
+       subtitle = &quot;Percentage of points from paint, non-paint two-point shots, three-point shots, and free throws.&quot;,
+       caption = &quot;@dadgumboxscores&quot;)  +
+  guides(
+    fill = guide_legend(
+      keywidth = .5,
+      keyheight = .2,
+      default.unit = &quot;inch&quot;,
+      label.position = &#39;top&#39;,
+      nrow = 1
+    )
+  ) +
+  scale_fill_paletteer_d(&quot;nord::aurora&quot;,
+                         labels = c(&quot;Paint&quot;, &quot;Non-Paint Twos&quot;, &quot;Threes&quot;, &quot;Free Throws&quot;))</code></pre>

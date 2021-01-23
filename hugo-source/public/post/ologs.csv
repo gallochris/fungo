@@ -1,0 +1,29 @@
+﻿game,type,total,pct
+NC State,paint,52,0.68
+NC State,non_paint_two,6,0.08
+NC State,three,6,0.08
+NC State,free_throws,12,0.16
+Georgia Tech,paint,22,0.33
+Georgia Tech,non_paint_two,12,0.18
+Georgia Tech,three,24,0.36
+Georgia Tech,free_throws,9,0.13
+Notre Dame,paint,24,0.36
+Notre Dame,non_paint_two,8,0.12
+Notre Dame,three,24,0.36
+Notre Dame,free_throws,10,0.15
+Miami,paint,24,0.36
+Miami,non_paint_two,0,0.00
+Miami,three,27,0.40
+Miami,free_throws,16,0.24
+Syracuse,paint,42,0.52
+Syracuse,non_paint_two,6,0.07
+Syracuse,three,15,0.19
+Syracuse,free_throws,18,0.22
+Florida State,paint,22,0.29
+Florida State,non_paint_two,12,0.16
+Florida State,three,30,0.40
+Florida State,free_throws,11,0.15
+Wake Forest,paint,36,0.45
+Wake Forest,non_paint_two,16,0.20
+Wake Forest,three,9,0.11
+Wake Forest,free_throws,19,0.24

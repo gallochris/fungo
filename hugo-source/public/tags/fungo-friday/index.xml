@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Fungo Friday on Fungo by Chris Gallo</title>
-    <link>https://fungo.hotdogsandeggs.com/tags/fungo-friday/</link>
+    <link>/tags/fungo-friday/</link>
     <description>Recent content in Fungo Friday on Fungo by Chris Gallo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 04 Sep 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://fungo.hotdogsandeggs.com/tags/fungo-friday/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/fungo-friday/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Questionable Quarters</title>
-      <link>https://fungo.hotdogsandeggs.com/quarter-chart/</link>
+      <link>/quarter-chart/</link>
       <pubDate>Fri, 04 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://fungo.hotdogsandeggs.com/quarter-chart/</guid>
+      <guid>/quarter-chart/</guid>
       <description>Milwaukee Bucks: Point Differential by Quarter Against Miami Heat Bucks have outscored the Heat in seven of 12 quarters depsite not wining a single game in the series yet.   {&#34;x&#34;:{&#34;tag&#34;:{&#34;name&#34;:&#34;Reactable&#34;,&#34;attribs&#34;:{&#34;data&#34;:{&#34;Game&#34;:[&#34;One&#34;,&#34;Two&#34;,&#34;Three&#34;],&#34;Q1&#34;:[11,-9,1],&#34;Q2&#34;:[-8,3,6],&#34;Q3&#34;:[-9,2,5],&#34;Q4&#34;:[-5,2,-27],&#34;Total&#34;:[-11,-2,-15]},&#34;columns&#34;:[{&#34;accessor&#34;:&#34;Game&#34;,&#34;name&#34;:&#34;Game&#34;,&#34;type&#34;:&#34;character&#34;},{&#34;accessor&#34;:&#34;Q1&#34;,&#34;name&#34;:&#34;Q1&#34;,&#34;type&#34;:&#34;numeric&#34;,&#34;cell&#34;:[&#34;+11&#34;,&#34;-9&#34;,&#34;+1&#34;],&#34;style&#34;:[{&#34;fontWeight&#34;:200,&#34;color&#34;:&#34;#00471B&#34;,&#34;maxWidth&#34;:20},{&#34;fontWeight&#34;:200,&#34;color&#34;:&#34;#98002E&#34;,&#34;maxWidth&#34;:20},{&#34;fontWeight&#34;:200,&#34;color&#34;:&#34;#00471B&#34;,&#34;maxWidth&#34;:20}]},{&#34;accessor&#34;:&#34;Q2&#34;,&#34;name&#34;:&#34;Q2&#34;,&#34;type&#34;:&#34;numeric&#34;,&#34;cell&#34;:[&#34;-8&#34;,&#34;+3&#34;,&#34;+6&#34;],&#34;style&#34;:[{&#34;fontWeight&#34;:400,&#34;color&#34;:&#34;#98002E&#34;,&#34;maxWidth&#34;:20},{&#34;fontWeight&#34;:400,&#34;color&#34;:&#34;#00471B&#34;,&#34;maxWidth&#34;:20},{&#34;fontWeight&#34;:400,&#34;color&#34;:&#34;#00471B&#34;,&#34;maxWidth&#34;:20}]},{&#34;accessor&#34;:&#34;Q3&#34;,&#34;name&#34;:&#34;Q3&#34;,&#34;type&#34;:&#34;numeric&#34;,&#34;cell&#34;:[&#34;-9&#34;,&#34;+2&#34;,&#34;+5&#34;],&#34;style&#34;:[{&#34;fontWeight&#34;:500,&#34;color&#34;:&#34;#98002E&#34;,&#34;maxWidth&#34;:20},{&#34;fontWeight&#34;:500,&#34;color&#34;:&#34;#00471B&#34;,&#34;maxWidth&#34;:20},{&#34;fontWeight&#34;:500,&#34;color&#34;:&#34;#00471B&#34;,&#34;maxWidth&#34;:20}]},{&#34;accessor&#34;:&#34;Q4&#34;,&#34;name&#34;:&#34;Q4&#34;,&#34;type&#34;:&#34;numeric&#34;,&#34;cell&#34;:[&#34;-5&#34;,&#34;+2&#34;,&#34;-27&#34;],&#34;style&#34;:[{&#34;fontWeight&#34;:800,&#34;color&#34;:&#34;#98002E&#34;,&#34;maxwidth&#34;:20},{&#34;fontWeight&#34;:800,&#34;color&#34;:&#34;#00471B&#34;,&#34;maxwidth&#34;:20},{&#34;fontWeight&#34;:800,&#34;color&#34;:&#34;#98002E&#34;,&#34;maxwidth&#34;:20}]},{&#34;accessor&#34;:&#34;Total&#34;,&#34;name&#34;:&#34;Total&#34;,&#34;type&#34;:&#34;numeric&#34;}],&#34;defaultPageSize&#34;:10,&#34;paginationType&#34;:&#34;numbers&#34;,&#34;showPageInfo&#34;:true,&#34;minRows&#34;:1,&#34;dataKey&#34;:&#34;fcf524de9c001ec88802d670cdd6fc8a&#34;,&#34;key&#34;:&#34;fcf524de9c001ec88802d670cdd6fc8a&#34;},&#34;children&#34;:[]},&#34;class&#34;:&#34;reactR_markup&#34;},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]} Data via NBA.com  This is a table showing the point differential per quarter in the first three games of the Milwaukee Bucks and Miami Heat series. The Heat have won all three games despite losing seven of 12 quarters thus far.</description>
     </item>
     
     <item>
       <title>Dot Drill</title>
-      <link>https://fungo.hotdogsandeggs.com/dot-champs/</link>
+      <link>/dot-champs/</link>
       <pubDate>Fri, 28 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://fungo.hotdogsandeggs.com/dot-champs/</guid>
+      <guid>/dot-champs/</guid>
       <description>This is a dotchart showing the University of North Carolina team championships by sport. It includes NCAA and ITA (tennis) events for any teams.
 Women’s soccer has 22 of Carolina’s 51 team National Championships. While women’s soccer owns 43 percent of all team titles, it hasn’t won any of the last 10:
  Women’s Tennis (4) Field Hockey (2) Women’s Lacrosse (2) Men’s Basketball (1) Men’s Tennis (1)  The data is pulled from goheels.</description>
@@ -33,10 +33,10 @@ Women’s soccer has 22 of Carolina’s 51 team National Championships. While wo
     
     <item>
       <title>Scatter First Round</title>
-      <link>https://fungo.hotdogsandeggs.com/tar-heel-nba-draft-picks/</link>
+      <link>/tar-heel-nba-draft-picks/</link>
       <pubDate>Fri, 21 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://fungo.hotdogsandeggs.com/tar-heel-nba-draft-picks/</guid>
+      <guid>/tar-heel-nba-draft-picks/</guid>
       <description>Here is a scatter plot showing all NBA first round draft picks out of North Carolina since 1976. The draft has changed a ton. Fewer rounds. Expansion teams. Eligibility rules.
 But there is always round one.
 Random notes:
@@ -45,20 +45,20 @@ Random notes:
     
     <item>
       <title>Bells are not Dumb</title>
-      <link>https://fungo.hotdogsandeggs.com/dumb-bell/</link>
+      <link>/dumb-bell/</link>
       <pubDate>Fri, 07 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://fungo.hotdogsandeggs.com/dumb-bell/</guid>
+      <guid>/dumb-bell/</guid>
       <description>This is a riff off the Rasheed Wallace Waffles post. It looks at college and pro three-point rates for four Tar Heels that played at least 16 seasons in the NBA using a dumbbell plot to show the change.
 It’s incredible how much the game changed, and Vince Carter’s rate actually went down. Carter played 22 years in the league. About 31 percent of Carter’s shot attempts were from thee-point land as a collegiate player, and about 29 percent as a pro.</description>
     </item>
     
     <item>
       <title>Ch-Ch-Changes</title>
-      <link>https://fungo.hotdogsandeggs.com/line-plot-over-time/</link>
+      <link>/line-plot-over-time/</link>
       <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://fungo.hotdogsandeggs.com/line-plot-over-time/</guid>
+      <guid>/line-plot-over-time/</guid>
       <description>FiveThirtyEight wrote an article about Roy Williams recently, and it in it discusses how his team’s do not attempt as many three-point shots compared to the rest of college basketball.
 Williams has been around a long time. 30 plus years as a head coach. College basketball has changed quite a lot. Williams has not.
 This is a line plot showing how free throw rate and three-point attempt rate has changed since 1987.</description>
@@ -66,10 +66,10 @@ This is a line plot showing how free throw rate and three-point attempt rate has
     
     <item>
       <title>Rasheed Wallace Waffles</title>
-      <link>https://fungo.hotdogsandeggs.com/sheed-wallace-waffles/</link>
+      <link>/sheed-wallace-waffles/</link>
       <pubDate>Fri, 17 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://fungo.hotdogsandeggs.com/sheed-wallace-waffles/</guid>
+      <guid>/sheed-wallace-waffles/</guid>
       <description>Rasheed Wallace is one of my favorite basketball players. This uses a waffle chart to display his points distribution in both college and the NBA.
 Wallace attempted only four three-point shots in his collegiate career. This means only 0.67 percent of his shot attempts at North Carolina were behind the three-point line.
 He played 18 years in the NBA and attempted 3,228 three-point shots. 23.9 percent of his shots came from three-point land as a pro, and he scored ~21 percent of his points in the NBA via the three-point shot.</description>

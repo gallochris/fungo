@@ -55,7 +55,7 @@ data$Factor <- factor(data$Factor, levels = c("efg", "to", "or", "ft"),
     "text",
     x = 55,
     y = 'TORate',
-    label = "Carolina is 9-3 against Syracuse \n under Roy Williams. Tar Heels have an \n offensive rebounding rate of 40 or better \n in seven of the 12 games. \n 6-1 record in those seven games.",
+    label = "Carolina is 9-3 against Syracuse under Roy Williams. \n Tar Heels have an offensive rebounding rate of 40 \n or better in seven of the 12 games. \n 6-1 record in those seven games.",
     family = "Chalkboard Bold",
     size = 4,
     color = "#D44500"
@@ -69,8 +69,7 @@ It uses `geom_jitter` to space the values out across the different four factor c
 Code is below . . .
 
 ```
-library(tidyverse)
-
+library(ggplot2)
 
 theme_me <- function () {
   theme_minimal(base_size = 15, base_family = "RobotoCondensed-Regular") %+replace%
@@ -88,7 +87,7 @@ theme_me <- function () {
     )
 }
 
-data <- read.csv('cuse.csv')
+data <- read.csv('cuse-bball.csv')
 
 data <- as.data.frame(data)
 data$Factor <- factor(data$Factor, levels = c("efg", "to", "or", "ft"),
@@ -111,9 +110,9 @@ data$Factor <- factor(data$Factor, levels = c("efg", "to", "or", "ft"),
     "text",
     x = 55,
     y = 'TORate',
-    label = "Carolina is 9-3 against Syracuse under Roy Williams. \n Tar Heels have an offensive rebounding rate of 40 or better \n in seven of the 12 games. 6-1 record in those seven games.",
+    label = "Carolina is 9-3 against Syracuse under Roy Williams. \n Tar Heels have an offensive rebounding rate of 40 \n or better in seven of the 12 games. \n 6-1 record in those seven games.",
     family = "Chalkboard Bold",
     size = 4,
     color = "#D44500"
-  )
+  ) 
 ```

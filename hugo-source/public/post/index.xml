@@ -2,21 +2,43 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Fungo by Chris Gallo</title>
-    <link>https://fungo.hotdogsandeggs.com/post/</link>
+    <link>/post/</link>
     <description>Recent content in Posts on Fungo by Chris Gallo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 11 Jan 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 23 Jan 2021 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://fungo.hotdogsandeggs.com/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Chicklet charts</title>
+      <link>/chicklet-charts/</link>
+      <pubDate>Sat, 23 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/chicklet-charts/</guid>
+      <description>This is plot showing points distribution for Carolina basketball across two-pointers in the paint, two-pointers outside the paint, three-pointers, and free throws.
+It uses the ggchicklet package, and it was inspired by Owen J. Phillips’ awesome newsletter - F5.
+This one was particularly tricky to apply the text of the percentages. A few required different adjusting to show the percentages on the graph.
+Code is below . . .</description>
+    </item>
+    
+    <item>
+      <title>Better line charts</title>
+      <link>/better-line-charts/</link>
+      <pubDate>Thu, 21 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/better-line-charts/</guid>
+      <description>This is line chart showing how offensive rating has changed game to game for RJ Davis and Caleb Love. These two players have only turned in an offensive rating above 100 in two of 14 games thus far.
+Individual offensive rating is the number of points produced by a player per hundred total individual possessions. In other words, How many points is a player likely to generate when he tries?</description>
+    </item>
+    
+    <item>
       <title>Jitter Bug</title>
-      <link>https://fungo.hotdogsandeggs.com/jitter-bug/</link>
+      <link>/jitter-bug/</link>
       <pubDate>Mon, 11 Jan 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://fungo.hotdogsandeggs.com/jitter-bug/</guid>
+      <guid>/jitter-bug/</guid>
       <description>This is plot showing four factor values for Carolina basketball on offense against Syracuse. The data is pulled from app.dadgumboxscores.com, and it includes 12 different games.
 It uses geom_jitter to space the values out across the different four factor categories. It intercepts at line 40 and annontates the plot to show seven of the 12 games have an offensive rebounding rate over 40.
 Code is below . . .</description>
@@ -24,11 +46,11 @@ Code is below . . .</description>
     
     <item>
       <title>Waffle Turnovers</title>
-      <link>https://fungo.hotdogsandeggs.com/waffle-turnovers/</link>
+      <link>/waffle-turnovers/</link>
       <pubDate>Fri, 18 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://fungo.hotdogsandeggs.com/waffle-turnovers/</guid>
-      <description>This is a waffle chart showing Carolina’s offensive turnover rate through six games.
+      <guid>/waffle-turnovers/</guid>
+      <description>## [1] &amp;quot;nonturn.pct&amp;quot; &amp;quot;turn.pct&amp;quot; This is a waffle chart showing Carolina’s offensive turnover rate through six games.
 It’s built off this example from Owen J. Phillips.
 It uses the geom_waffle package and cowplot package.
 Code is below . . .
@@ -37,10 +59,10 @@ library(tidyverse) library(data.table) library(extrafont) library(magick) librar
     
     <item>
       <title>Three-Point Changes</title>
-      <link>https://fungo.hotdogsandeggs.com/three-point-changes/</link>
+      <link>/three-point-changes/</link>
       <pubDate>Thu, 17 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://fungo.hotdogsandeggs.com/three-point-changes/</guid>
+      <guid>/three-point-changes/</guid>
       <description>Carolina has made 24 of 89 three-point shots through six games.
 That is a putrid ~27 percent.
 This annotated line chart shows how that incomplete sample size compares to past season three-point percentages in the Roy Williams Era, including when the line was moved back.
@@ -50,10 +72,10 @@ library(ggplot2) theme_me &amp;lt;- function () { theme_minimal(base_size = 15, 
     
     <item>
       <title>Free Throw Margin</title>
-      <link>https://fungo.hotdogsandeggs.com/free-throw-margin/</link>
+      <link>/free-throw-margin/</link>
       <pubDate>Wed, 16 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://fungo.hotdogsandeggs.com/free-throw-margin/</guid>
+      <guid>/free-throw-margin/</guid>
       <description>Carolina’s free throw rate is 45.8 (163 FTA / 356 FGA) through six games.
 Would be highest mark in Roy Williams Era, of course, this is in a silly small sample size.
 Tar Heels have made 25 more free throws than opponents have attempted.
@@ -64,10 +86,10 @@ library(ggplot2) theme_me &amp;lt;- function () { theme_minimal(base_size = 15, 
     
     <item>
       <title>BPM</title>
-      <link>https://fungo.hotdogsandeggs.com/bpm-minutes/</link>
+      <link>/bpm-minutes/</link>
       <pubDate>Tue, 15 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://fungo.hotdogsandeggs.com/bpm-minutes/</guid>
+      <guid>/bpm-minutes/</guid>
       <description>This shows minutes percentage + box score plus/minus through six games this season for Carolina basketball.
 It’s a super small sample size of six games.
 Only players shown that have at least 5 percent of minutes played.
@@ -77,20 +99,20 @@ library(tidyverse) library(ggrepel) theme_me &amp;lt;- function () { theme_minim
     
     <item>
       <title>Turnover Frequency</title>
-      <link>https://fungo.hotdogsandeggs.com/turnover-frequency/</link>
+      <link>/turnover-frequency/</link>
       <pubDate>Mon, 14 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://fungo.hotdogsandeggs.com/turnover-frequency/</guid>
+      <guid>/turnover-frequency/</guid>
       <description>This is a plot showing the frequency of turnover rates in the Roy Williams Era since 2010. It uses geom_smooth and annotates that Carolina has had a turnover rate of 20 or higher in 5 of 6 games thus far.
 library(ggplot2) library(ggthemes) library(dplyr) data &amp;lt;- read.csv(&amp;#39;efgto.csv&amp;#39;) theme_me &amp;lt;- function () { theme_minimal(base_size = 15, base_family = &amp;quot;RobotoCondensed-Regular&amp;quot;) %+replace% theme ( plot.title = element_text(hjust = 0.5), plot.subtitle = element_text( hjust = 0.</description>
     </item>
     
     <item>
       <title>Sans Touchdown Histogram</title>
-      <link>https://fungo.hotdogsandeggs.com/histogram-touchdown/</link>
+      <link>/histogram-touchdown/</link>
       <pubDate>Sat, 21 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://fungo.hotdogsandeggs.com/histogram-touchdown/</guid>
+      <guid>/histogram-touchdown/</guid>
       <description>How many NFL teams have won a game without scoring a touchdown since 2000?
 This histogram answers that question. Since 2000, 68 total teams have won a game in the regular season or playoffs without scoring a touchdown. Only two of those games were in the playoffs.
 The data here is pulled from stathead.com by Sports-Reference. A Stathead membership is like a library card to the largest sports history treasure trove.</description>
@@ -98,38 +120,38 @@ The data here is pulled from stathead.com by Sports-Reference. A Stathead member
     
     <item>
       <title>Record by Months</title>
-      <link>https://fungo.hotdogsandeggs.com/record-by-months/</link>
+      <link>/record-by-months/</link>
       <pubDate>Sun, 18 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://fungo.hotdogsandeggs.com/record-by-months/</guid>
-      <description>@import url(&#34;https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap&#34;); html { font-family: Chivo, -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Oxygen, Ubuntu, Cantarell, &#39;Helvetica Neue&#39;, &#39;Fira Sans&#39;, &#39;Droid Sans&#39;, Arial, sans-serif; } #uvfcbwpstu .gt_table { display: table; border-collapse: collapse; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 3px; border-top-color: transparent; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 3px; border-bottom-color: transparent; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; } #uvfcbwpstu .</description>
+      <guid>/record-by-months/</guid>
+      <description>@import url(&#34;https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap&#34;); html { font-family: Chivo, -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Oxygen, Ubuntu, Cantarell, &#39;Helvetica Neue&#39;, &#39;Fira Sans&#39;, &#39;Droid Sans&#39;, Arial, sans-serif; } #hrctvvwdik .gt_table { display: table; border-collapse: collapse; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 3px; border-top-color: transparent; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 3px; border-bottom-color: transparent; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; } #hrctvvwdik .</description>
     </item>
     
     <item>
       <title>Background Biscuits</title>
-      <link>https://fungo.hotdogsandeggs.com/background-biscuits/</link>
+      <link>/background-biscuits/</link>
       <pubDate>Fri, 09 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://fungo.hotdogsandeggs.com/background-biscuits/</guid>
+      <guid>/background-biscuits/</guid>
       <description>This is bar plot with labels showing the number of games with 100 points or more scored since the 2004 season for the North Carolina men’s basketball team. The Tar Heels failed to score 100 or more points in 33 games during the 2019-20 season. The first time ever in the Roy Williams Era.
 Carolina has a promotion with Bojangles for fans to receive free bisucits when 100 or more points are scored.</description>
     </item>
     
     <item>
       <title>538-and-Late</title>
-      <link>https://fungo.hotdogsandeggs.com/538-late/</link>
+      <link>/538-late/</link>
       <pubDate>Mon, 05 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://fungo.hotdogsandeggs.com/538-late/</guid>
-      <description>@import url(&#34;https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap&#34;); html { font-family: Chivo, -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Oxygen, Ubuntu, Cantarell, &#39;Helvetica Neue&#39;, &#39;Fira Sans&#39;, &#39;Droid Sans&#39;, Arial, sans-serif; } #dvnpvgtsyi .gt_table { display: table; border-collapse: collapse; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 3px; border-top-color: transparent; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 3px; border-bottom-color: transparent; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; } #dvnpvgtsyi .</description>
+      <guid>/538-late/</guid>
+      <description>@import url(&#34;https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap&#34;); html { font-family: Chivo, -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Oxygen, Ubuntu, Cantarell, &#39;Helvetica Neue&#39;, &#39;Fira Sans&#39;, &#39;Droid Sans&#39;, Arial, sans-serif; } #dpahmwzzud .gt_table { display: table; border-collapse: collapse; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 3px; border-top-color: transparent; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 3px; border-bottom-color: transparent; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; } #dpahmwzzud .</description>
     </item>
     
     <item>
       <title>Area Plots</title>
-      <link>https://fungo.hotdogsandeggs.com/area-plot/</link>
+      <link>/area-plot/</link>
       <pubDate>Sat, 26 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://fungo.hotdogsandeggs.com/area-plot/</guid>
+      <guid>/area-plot/</guid>
       <description>This is an area plot showing the number of different starting lineups and minutes continuity since the 2010 season for the North Carolina men’s basketball. Carolina turned it its lowest minutes continuity (24.3) and highest number of starting lineups (10) last season.
 This uses the ggplot2 package and hrbrthemes package. Followed the tutorials here.
 Code is below . . .
@@ -138,19 +160,19 @@ library(ggplot2) library(dplyr) library(hrbrthemes) data &amp;lt;- read.csv(&amp
     
     <item>
       <title>GT Tables</title>
-      <link>https://fungo.hotdogsandeggs.com/gt-tables/</link>
+      <link>/gt-tables/</link>
       <pubDate>Sat, 19 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://fungo.hotdogsandeggs.com/gt-tables/</guid>
-      <description>html { font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Oxygen, Ubuntu, Cantarell, &#39;Helvetica Neue&#39;, &#39;Fira Sans&#39;, &#39;Droid Sans&#39;, Arial, sans-serif; } #xfexnvxqtz .gt_table { display: table; border-collapse: collapse; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; } #xfexnvxqtz .</description>
+      <guid>/gt-tables/</guid>
+      <description>html { font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Oxygen, Ubuntu, Cantarell, &#39;Helvetica Neue&#39;, &#39;Fira Sans&#39;, &#39;Droid Sans&#39;, Arial, sans-serif; } #vwpiwxkldl .gt_table { display: table; border-collapse: collapse; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; } #vwpiwxkldl .</description>
     </item>
     
     <item>
       <title>Lines and Points</title>
-      <link>https://fungo.hotdogsandeggs.com/lines-and-points/</link>
+      <link>/lines-and-points/</link>
       <pubDate>Sun, 13 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://fungo.hotdogsandeggs.com/lines-and-points/</guid>
+      <guid>/lines-and-points/</guid>
       <description>This is a table showing yards per play by drive during the Syracuse and North Carolina football game. This shows Syracuse offense and Carolina defense.
 It uses the following packages: ggplot, hrbrthemes, and cfbscrapR.
 Code is below . . .
@@ -159,19 +181,19 @@ library(ggplot2) library(hrbrthemes) charts.data &amp;lt;- read.csv(&amp;quot;cu
     
     <item>
       <title>Questionable Quarters</title>
-      <link>https://fungo.hotdogsandeggs.com/quarter-chart/</link>
+      <link>/quarter-chart/</link>
       <pubDate>Fri, 04 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://fungo.hotdogsandeggs.com/quarter-chart/</guid>
+      <guid>/quarter-chart/</guid>
       <description>Milwaukee Bucks: Point Differential by Quarter Against Miami Heat Bucks have outscored the Heat in seven of 12 quarters depsite not wining a single game in the series yet.   {&#34;x&#34;:{&#34;tag&#34;:{&#34;name&#34;:&#34;Reactable&#34;,&#34;attribs&#34;:{&#34;data&#34;:{&#34;Game&#34;:[&#34;One&#34;,&#34;Two&#34;,&#34;Three&#34;],&#34;Q1&#34;:[11,-9,1],&#34;Q2&#34;:[-8,3,6],&#34;Q3&#34;:[-9,2,5],&#34;Q4&#34;:[-5,2,-27],&#34;Total&#34;:[-11,-2,-15]},&#34;columns&#34;:[{&#34;accessor&#34;:&#34;Game&#34;,&#34;name&#34;:&#34;Game&#34;,&#34;type&#34;:&#34;character&#34;},{&#34;accessor&#34;:&#34;Q1&#34;,&#34;name&#34;:&#34;Q1&#34;,&#34;type&#34;:&#34;numeric&#34;,&#34;cell&#34;:[&#34;+11&#34;,&#34;-9&#34;,&#34;+1&#34;],&#34;style&#34;:[{&#34;fontWeight&#34;:200,&#34;color&#34;:&#34;#00471B&#34;,&#34;maxWidth&#34;:20},{&#34;fontWeight&#34;:200,&#34;color&#34;:&#34;#98002E&#34;,&#34;maxWidth&#34;:20},{&#34;fontWeight&#34;:200,&#34;color&#34;:&#34;#00471B&#34;,&#34;maxWidth&#34;:20}]},{&#34;accessor&#34;:&#34;Q2&#34;,&#34;name&#34;:&#34;Q2&#34;,&#34;type&#34;:&#34;numeric&#34;,&#34;cell&#34;:[&#34;-8&#34;,&#34;+3&#34;,&#34;+6&#34;],&#34;style&#34;:[{&#34;fontWeight&#34;:400,&#34;color&#34;:&#34;#98002E&#34;,&#34;maxWidth&#34;:20},{&#34;fontWeight&#34;:400,&#34;color&#34;:&#34;#00471B&#34;,&#34;maxWidth&#34;:20},{&#34;fontWeight&#34;:400,&#34;color&#34;:&#34;#00471B&#34;,&#34;maxWidth&#34;:20}]},{&#34;accessor&#34;:&#34;Q3&#34;,&#34;name&#34;:&#34;Q3&#34;,&#34;type&#34;:&#34;numeric&#34;,&#34;cell&#34;:[&#34;-9&#34;,&#34;+2&#34;,&#34;+5&#34;],&#34;style&#34;:[{&#34;fontWeight&#34;:500,&#34;color&#34;:&#34;#98002E&#34;,&#34;maxWidth&#34;:20},{&#34;fontWeight&#34;:500,&#34;color&#34;:&#34;#00471B&#34;,&#34;maxWidth&#34;:20},{&#34;fontWeight&#34;:500,&#34;color&#34;:&#34;#00471B&#34;,&#34;maxWidth&#34;:20}]},{&#34;accessor&#34;:&#34;Q4&#34;,&#34;name&#34;:&#34;Q4&#34;,&#34;type&#34;:&#34;numeric&#34;,&#34;cell&#34;:[&#34;-5&#34;,&#34;+2&#34;,&#34;-27&#34;],&#34;style&#34;:[{&#34;fontWeight&#34;:800,&#34;color&#34;:&#34;#98002E&#34;,&#34;maxwidth&#34;:20},{&#34;fontWeight&#34;:800,&#34;color&#34;:&#34;#00471B&#34;,&#34;maxwidth&#34;:20},{&#34;fontWeight&#34;:800,&#34;color&#34;:&#34;#98002E&#34;,&#34;maxwidth&#34;:20}]},{&#34;accessor&#34;:&#34;Total&#34;,&#34;name&#34;:&#34;Total&#34;,&#34;type&#34;:&#34;numeric&#34;}],&#34;defaultPageSize&#34;:10,&#34;paginationType&#34;:&#34;numbers&#34;,&#34;showPageInfo&#34;:true,&#34;minRows&#34;:1,&#34;dataKey&#34;:&#34;fcf524de9c001ec88802d670cdd6fc8a&#34;,&#34;key&#34;:&#34;fcf524de9c001ec88802d670cdd6fc8a&#34;},&#34;children&#34;:[]},&#34;class&#34;:&#34;reactR_markup&#34;},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]} Data via NBA.com  This is a table showing the point differential per quarter in the first three games of the Milwaukee Bucks and Miami Heat series. The Heat have won all three games despite losing seven of 12 quarters thus far.</description>
     </item>
     
     <item>
       <title>Dot Drill</title>
-      <link>https://fungo.hotdogsandeggs.com/dot-champs/</link>
+      <link>/dot-champs/</link>
       <pubDate>Fri, 28 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://fungo.hotdogsandeggs.com/dot-champs/</guid>
+      <guid>/dot-champs/</guid>
       <description>This is a dotchart showing the University of North Carolina team championships by sport. It includes NCAA and ITA (tennis) events for any teams.
 Women’s soccer has 22 of Carolina’s 51 team National Championships. While women’s soccer owns 43 percent of all team titles, it hasn’t won any of the last 10:
  Women’s Tennis (4) Field Hockey (2) Women’s Lacrosse (2) Men’s Basketball (1) Men’s Tennis (1)  The data is pulled from goheels.</description>
@@ -179,10 +201,10 @@ Women’s soccer has 22 of Carolina’s 51 team National Championships. While wo
     
     <item>
       <title>Scatter First Round</title>
-      <link>https://fungo.hotdogsandeggs.com/tar-heel-nba-draft-picks/</link>
+      <link>/tar-heel-nba-draft-picks/</link>
       <pubDate>Fri, 21 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://fungo.hotdogsandeggs.com/tar-heel-nba-draft-picks/</guid>
+      <guid>/tar-heel-nba-draft-picks/</guid>
       <description>Here is a scatter plot showing all NBA first round draft picks out of North Carolina since 1976. The draft has changed a ton. Fewer rounds. Expansion teams. Eligibility rules.
 But there is always round one.
 Random notes:
@@ -191,20 +213,20 @@ Random notes:
     
     <item>
       <title>Bells are not Dumb</title>
-      <link>https://fungo.hotdogsandeggs.com/dumb-bell/</link>
+      <link>/dumb-bell/</link>
       <pubDate>Fri, 07 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://fungo.hotdogsandeggs.com/dumb-bell/</guid>
+      <guid>/dumb-bell/</guid>
       <description>This is a riff off the Rasheed Wallace Waffles post. It looks at college and pro three-point rates for four Tar Heels that played at least 16 seasons in the NBA using a dumbbell plot to show the change.
 It’s incredible how much the game changed, and Vince Carter’s rate actually went down. Carter played 22 years in the league. About 31 percent of Carter’s shot attempts were from thee-point land as a collegiate player, and about 29 percent as a pro.</description>
     </item>
     
     <item>
       <title>Ch-Ch-Changes</title>
-      <link>https://fungo.hotdogsandeggs.com/line-plot-over-time/</link>
+      <link>/line-plot-over-time/</link>
       <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://fungo.hotdogsandeggs.com/line-plot-over-time/</guid>
+      <guid>/line-plot-over-time/</guid>
       <description>FiveThirtyEight wrote an article about Roy Williams recently, and it in it discusses how his team’s do not attempt as many three-point shots compared to the rest of college basketball.
 Williams has been around a long time. 30 plus years as a head coach. College basketball has changed quite a lot. Williams has not.
 This is a line plot showing how free throw rate and three-point attempt rate has changed since 1987.</description>
@@ -212,10 +234,10 @@ This is a line plot showing how free throw rate and three-point attempt rate has
     
     <item>
       <title>Rasheed Wallace Waffles</title>
-      <link>https://fungo.hotdogsandeggs.com/sheed-wallace-waffles/</link>
+      <link>/sheed-wallace-waffles/</link>
       <pubDate>Fri, 17 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://fungo.hotdogsandeggs.com/sheed-wallace-waffles/</guid>
+      <guid>/sheed-wallace-waffles/</guid>
       <description>Rasheed Wallace is one of my favorite basketball players. This uses a waffle chart to display his points distribution in both college and the NBA.
 Wallace attempted only four three-point shots in his collegiate career. This means only 0.67 percent of his shot attempts at North Carolina were behind the three-point line.
 He played 18 years in the NBA and attempted 3,228 three-point shots. 23.9 percent of his shots came from three-point land as a pro, and he scored ~21 percent of his points in the NBA via the three-point shot.</description>
@@ -223,10 +245,10 @@ He played 18 years in the NBA and attempted 3,228 three-point shots. 23.9 percen
     
     <item>
       <title>Moneyline Odds to Percentages</title>
-      <link>https://fungo.hotdogsandeggs.com/moneyline-percentages/</link>
-      <pubDate>Wed, 08 Jul 2020 21:13:14 -0500</pubDate>
+      <link>/moneyline-percentages/</link>
+      <pubDate>Wed, 08 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://fungo.hotdogsandeggs.com/moneyline-percentages/</guid>
+      <guid>/moneyline-percentages/</guid>
       <description>{&#34;x&#34;:{&#34;tag&#34;:{&#34;name&#34;:&#34;Reactable&#34;,&#34;attribs&#34;:{&#34;data&#34;:{&#34;short_odds&#34;:[0.909,0.9,0.889,0.875,0.857,0.833,0.8,0.75,0.667,0.5],&#34;odds&#34;:[1000,900,800,700,600,500,400,300,200,100],&#34;long_odds&#34;:[0.0909,0.1,0.111,0.125,0.143,0.167,0.2,0.25,0.33,0.5]},&#34;columns&#34;:[{&#34;accessor&#34;:&#34;short_odds&#34;,&#34;name&#34;:&#34;➖ Short Odds (i.e. -200)&#34;,&#34;type&#34;:&#34;numeric&#34;,&#34;align&#34;:&#34;left&#34;,&#34;headerClassName&#34;:&#34;header-p&#34;,&#34;cell&#34;:&#34;function(cellInfo) {\n // Format as percentage\n const pct = (cellInfo.value * 100).toFixed(1) + &#39;%&#39;\n // Pad single-digit numbers\n let value = pct.padStart(5)\n // Show % on first row only\n if (cellInfo.viewIndex  0) {\n value = value.replace(&#39;%&#39;, &#39; &#39;)\n }\n // Render bar chart\n return (\n &#39;&#39; +\n &#39;&#39; + value + &#39;&#39; +\n &#39;&#39; +\n &#39;&#39; +\n &#39;&#39; +\n &#39;&#39;\n )\n }&#34;</description>
     </item>
     

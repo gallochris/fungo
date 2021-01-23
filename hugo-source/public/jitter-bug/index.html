@@ -65,11 +65,10 @@
 
 
 <p><img src="/post/2021-01-11-jitter-bug_files/figure-html/unnamed-chunk-1-1.png" width="1152" /></p>
-<p>This is plot showing four factor values for Carolina basketball on offense against Syracuse. The data is pulled from app.dadgumboxscores.com, and it includes 12 different games.</p>
+<p>This is plot showing four factor values for Carolina basketball on offense against Syracuse. The data is pulled from <a href="https://app.dadgumboxscores.com/">app.dadgumboxscores.com</a>, and it includes 12 different games.</p>
 <p>It uses <code>geom_jitter</code> to space the values out across the different four factor categories. It intercepts at line 40 and annontates the plot to show seven of the 12 games have an offensive rebounding rate over 40.</p>
 <p>Code is below . . .</p>
-<pre><code>library(tidyverse)
-
+<pre><code>library(ggplot2)
 
 theme_me &lt;- function () {
   theme_minimal(base_size = 15, base_family = &quot;RobotoCondensed-Regular&quot;) %+replace%
@@ -87,7 +86,7 @@ theme_me &lt;- function () {
     )
 }
 
-data &lt;- read.csv(&#39;cuse.csv&#39;)
+data &lt;- read.csv(&#39;cuse-bball.csv&#39;)
 
 data &lt;- as.data.frame(data)
 data$Factor &lt;- factor(data$Factor, levels = c(&quot;efg&quot;, &quot;to&quot;, &quot;or&quot;, &quot;ft&quot;),
@@ -110,11 +109,11 @@ data$Factor &lt;- factor(data$Factor, levels = c(&quot;efg&quot;, &quot;to&quot;
     &quot;text&quot;,
     x = 55,
     y = &#39;TORate&#39;,
-    label = &quot;Carolina is 9-3 against Syracuse under Roy Williams. \n Tar Heels have an offensive rebounding rate of 40 or better \n in seven of the 12 games. 6-1 record in those seven games.&quot;,
+    label = &quot;Carolina is 9-3 against Syracuse under Roy Williams. \n Tar Heels have an offensive rebounding rate of 40 \n or better in seven of the 12 games. \n 6-1 record in those seven games.&quot;,
     family = &quot;Chalkboard Bold&quot;,
     size = 4,
     color = &quot;#D44500&quot;
-  )</code></pre>
+  ) </code></pre>
 
     </div>
   </article>
