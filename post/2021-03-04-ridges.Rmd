@@ -2,7 +2,7 @@
 title: "Brontosaurus Charts"
 author: "Chris Gallo"
 date: '2021-03-04'
-slug: ridgs
+slug: ridges
 tags:
 - R Markdown
 categories: R
