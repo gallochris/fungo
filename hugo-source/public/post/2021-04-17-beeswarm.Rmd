@@ -1,0 +1,143 @@
+---
+title: "Beeswarm"
+author: "Chris Gallo"
+date: '2021-04-17'
+slug: beeswarm
+tags:
+- R Markdown
+categories: R
+type: post
+---
+
+```{r setup, include=FALSE }
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, fig.width=12, fig.height=8)
+```
+
+```{r, echo=FALSE, message= FALSE, warning = FALSE}
+library(tidyverse)
+library(ggplot2)
+library(ggbeeswarm)
+
+bee <- read.csv('be.csv')
+
+theme_me <- function () {
+  theme_minimal(base_size = 15, base_family = "RobotoCondensed-Regular") %+replace%
+    theme (
+      plot.title = element_text(hjust = 0.5),
+      plot.subtitle = element_text(
+        hjust = 0.5,
+        vjust = -2,
+        lineheight = 0.9,
+        size = 10
+      ),
+      plot.caption = element_text(size = 8, hjust = 1),
+      panel.grid.minor = element_blank(),
+      plot.background = element_rect(fill = "floralwhite", color = "floralwhite")
+    )
+}
+
+ggplot(bee, aes(x = type, y = total, color=Result)) +
+  geom_quasirandom() +
+  scale_x_discrete(name = "Four Factors") +
+  scale_color_manual(values=c("lightpink", "lightgreen")) +
+  scale_y_continuous(name = "Difference", breaks = seq(-60, 60, 10)) +
+  geom_hline(yintercept = 0, linetype = 'dashed') +
+  theme_me() +
+   labs(
+    title = "Carolina: Record by Four Factors in Roy Williams Era",
+    subtitle = "Shows the difference in four factors for all 648 games.",
+    caption = "@dadgumboxscores"
+  ) +
+  theme(legend.position = "none") +
+  annotate(
+    geom = 'label',
+  x = "TurnoverRate",
+    y = 50,
+    label = "RECORD WHEN BETTER \n eFG: 382-28 (.932) \n TORate: 278-65 (.811) \n Rebounding: 407-100 (.803) \n FTRate: 365-64 (.851)",
+    fill = "lightgreen",
+    fontface = 'bold',
+    alpha = .5,
+    hjust = 0.5,
+    family = "RobotoCondensed-Regular"
+  ) +
+  annotate(
+    geom = 'label',
+  x = "eFG",
+    y = -50,
+    label = "RECORD WHEN SAME OR WORSE \n eFG: 103-135 (.433) \n TORate: 207-98 (.679) \n Rebounding: 78-63 (.553) \n FTRate: 120-99 (.548)",
+    fill = "lightpink",
+    fontface = 'bold',
+    alpha = .5,
+    hjust = 0.5,
+    family = "RobotoCondensed-Regular"
+  )
+
+```
+This is beeswarm plot showing the difference in the four factors for all games in the Roy Williams Era.
+
+The plot is annotated to reveal the record (wins and losses) when Carolina wins one of the factors.
+
+The goal of this graph was to try to show the importance of each factor.
+
+Code is below . . .
+
+```
+library(tidyverse)
+library(ggplot2)
+library(ggbeeswarm)
+
+bee <- read.csv('be.csv')
+
+theme_me <- function () {
+  theme_minimal(base_size = 15, base_family = "RobotoCondensed-Regular") %+replace%
+    theme (
+      plot.title = element_text(hjust = 0.5),
+      plot.subtitle = element_text(
+        hjust = 0.5,
+        vjust = -2,
+        lineheight = 0.9,
+        size = 10
+      ),
+      plot.caption = element_text(size = 8, hjust = 1),
+      panel.grid.minor = element_blank(),
+      plot.background = element_rect(fill = "floralwhite", color = "floralwhite")
+    )
+}
+
+ggplot(bee, aes(x = type, y = total, color=Result)) +
+  geom_quasirandom() +
+  scale_x_discrete(name = "Four Factors") +
+  scale_color_manual(values=c("lightpink", "lightgreen")) +
+  scale_y_continuous(name = "Difference", breaks = seq(-60, 60, 10)) +
+  geom_hline(yintercept = 0, linetype = 'dashed') +
+  theme_me() +
+   labs(
+    title = "Carolina: Record by Four Factors in Roy Williams Era",
+    subtitle = "Shows the difference in four factors for all 648 games.",
+    caption = "@dadgumboxscores"
+  ) +
+  theme(legend.position = "none") +
+  annotate(
+    geom = 'label',
+  x = "TurnoverRate",
+    y = 50,
+    label = "RECORD WHEN BETTER \n eFG: 382-28 (.932) \n TORate: 278-65 (.811) \n Rebounding: 407-100 (.803) \n FTRate: 365-64 (.851)",
+    fill = "lightgreen",
+    fontface = 'bold',
+    alpha = .5,
+    hjust = 0.5,
+    family = "RobotoCondensed-Regular"
+  ) +
+  annotate(
+    geom = 'label',
+  x = "eFG",
+    y = -50,
+    label = "RECORD WHEN SAME OR WORSE \n eFG: 103-135 (.433) \n TORate: 207-98 (.679) \n Rebounding: 78-63 (.553) \n FTRate: 120-99 (.548)",
+    fill = "lightpink",
+    fontface = 'bold',
+    alpha = .5,
+    hjust = 0.5,
+    family = "RobotoCondensed-Regular"
+  )
+
+```
