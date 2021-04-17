@@ -18,7 +18,7 @@ library(tidyverse)
 library(ggplot2)
 library(ggbeeswarm)
 
-bee <- read.csv('be.csv')
+bee <- read.csv('bee.csv')
 
 theme_me <- function () {
   theme_minimal(base_size = 15, base_family = "RobotoCondensed-Regular") %+replace%

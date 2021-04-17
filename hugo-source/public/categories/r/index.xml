@@ -6,7 +6,20 @@
     <description>Recent content in R on Fungo by Chris Gallo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 04 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://fungo.hotdogsandeggs.com/categories/r/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 17 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://fungo.hotdogsandeggs.com/categories/r/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Beeswarm</title>
+      <link>https://fungo.hotdogsandeggs.com/beeswarm/</link>
+      <pubDate>Sat, 17 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://fungo.hotdogsandeggs.com/beeswarm/</guid>
+      <description>This is beeswarm plot showing the difference in the four factors for all games in the Roy Williams Era.
+The plot is annotated to reveal the record (wins and losses) when Carolina wins one of the factors.
+The goal of this graph was to try to show the importance of each factor.
+Code is below . . .
+library(tidyverse) library(ggplot2) library(ggbeeswarm) bee &amp;lt;- read.csv(&amp;#39;be.csv&amp;#39;) theme_me &amp;lt;- function () { theme_minimal(base_size = 15, base_family = &amp;quot;RobotoCondensed-Regular&amp;quot;) %+replace% theme ( plot.</description>
+    </item>
+    
     <item>
       <title>Brontosaurus Charts</title>
       <link>https://fungo.hotdogsandeggs.com/ridges/</link>
