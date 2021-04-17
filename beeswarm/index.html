@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.80.0" />
+
+
+<title>Beeswarm - Fungo by Chris Gallo</title>
+<meta property="og:title" content="Beeswarm - Fungo by Chris Gallo">
+
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <ul class="nav-links">
+    
+    <li><a href="/about-fungo/">fungo by chris gallo</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">2 min read</span>
+    
+
+    <h1 class="article-title">Beeswarm</h1>
+
+    
+    <span class="article-date">2021-04-17</span>
+    
+
+    <div class="article-content">
+      
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p><img src="/post/2021-04-17-beeswarm_files/figure-html/unnamed-chunk-1-1.png" width="1152" />
+This is beeswarm plot showing the difference in the four factors for all games in the Roy Williams Era.</p>
+<p>The plot is annotated to reveal the record (wins and losses) when Carolina wins one of the factors.</p>
+<p>The goal of this graph was to try to show the importance of each factor.</p>
+<p>Code is below . . .</p>
+<pre><code>library(tidyverse)
+library(ggplot2)
+library(ggbeeswarm)
+
+bee &lt;- read.csv(&#39;be.csv&#39;)
+
+theme_me &lt;- function () {
+  theme_minimal(base_size = 15, base_family = &quot;RobotoCondensed-Regular&quot;) %+replace%
+    theme (
+      plot.title = element_text(hjust = 0.5),
+      plot.subtitle = element_text(
+        hjust = 0.5,
+        vjust = -2,
+        lineheight = 0.9,
+        size = 10
+      ),
+      plot.caption = element_text(size = 8, hjust = 1),
+      panel.grid.minor = element_blank(),
+      plot.background = element_rect(fill = &quot;floralwhite&quot;, color = &quot;floralwhite&quot;)
+    )
+}
+
+ggplot(bee, aes(x = type, y = total, color=Result)) +
+  geom_quasirandom() +
+  scale_x_discrete(name = &quot;Four Factors&quot;) +
+  scale_color_manual(values=c(&quot;lightpink&quot;, &quot;lightgreen&quot;)) +
+  scale_y_continuous(name = &quot;Difference&quot;, breaks = seq(-60, 60, 10)) +
+  geom_hline(yintercept = 0, linetype = &#39;dashed&#39;) +
+  theme_me() +
+   labs(
+    title = &quot;Carolina: Record by Four Factors in Roy Williams Era&quot;,
+    subtitle = &quot;Shows the difference in four factors for all 648 games.&quot;,
+    caption = &quot;@dadgumboxscores&quot;
+  ) +
+  theme(legend.position = &quot;none&quot;) +
+  annotate(
+    geom = &#39;label&#39;,
+  x = &quot;TurnoverRate&quot;,
+    y = 50,
+    label = &quot;RECORD WHEN BETTER \n eFG: 382-28 (.932) \n TORate: 278-65 (.811) \n Rebounding: 407-100 (.803) \n FTRate: 365-64 (.851)&quot;,
+    fill = &quot;lightgreen&quot;,
+    fontface = &#39;bold&#39;,
+    alpha = .5,
+    hjust = 0.5,
+    family = &quot;RobotoCondensed-Regular&quot;
+  ) +
+  annotate(
+    geom = &#39;label&#39;,
+  x = &quot;eFG&quot;,
+    y = -50,
+    label = &quot;RECORD WHEN SAME OR WORSE \n eFG: 103-135 (.433) \n TORate: 207-98 (.679) \n Rebounding: 78-63 (.553) \n FTRate: 120-99 (.548)&quot;,
+    fill = &quot;lightpink&quot;,
+    fontface = &#39;bold&#39;,
+    alpha = .5,
+    hjust = 0.5,
+    family = &quot;RobotoCondensed-Regular&quot;
+  )
+</code></pre>
+
+    </div>
+  </article>
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/" target="_blank">home</a>
+          </li>
+          <li>
+            <a href="https://hotdogsandeggs.com/" class="footer-links-kudos">made with hot dogs and eggs</a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+  </body>
+</html>
+
