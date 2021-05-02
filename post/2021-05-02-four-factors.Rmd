@@ -1,0 +1,364 @@
+---
+title: "Four Factor Combos"
+author: "Chris Gallo"
+date: '2021-05-02'
+slug: four-factors
+tags:
+- R Markdown
+categories: R
+type: post
+---
+
+```{r setup, include=FALSE }
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, fig.width=12, fig.height=8)
+```
+
+```{r, echo=FALSE, message= FALSE, warning = FALSE}
+library(tidyverse)
+library(gt)
+
+gt_theme_538 <- function(data,...) {
+  data %>%
+  opt_all_caps()  %>%
+  opt_table_font(
+    font = list(
+      google_font("Chivo"),
+      default_fonts()
+    )
+  ) %>%
+    tab_style(
+      style = cell_borders(
+        sides = "bottom", weight = px(2)
+      ),
+      locations = cells_body(
+        columns = TRUE,
+        # This is a relatively sneaky way of changing the bottom border
+        # Regardless of data size
+        rows = nrow(data$`_data`)
+      )
+    )  %>%
+  tab_options(
+    column_labels.background.color = "white",
+    table.border.top.width = px(3),
+    table.border.bottom.width = px(3),
+    column_labels.border.top.width = px(3),
+    column_labels.border.top.color = "transparent",
+    column_labels.border.bottom.width = px(3),
+    column_labels.border.bottom.color = "black",
+    data_row.padding = px(3),
+    source_notes.font.size = 12,
+    table.font.size = 16,
+    heading.align = "left",
+    ...
+  )
+}
+
+first <- tibble::tribble(
+~place, ~Total, ~eFG, ~TO, ~OR, ~FTR,
+"Games", 648, 410, 278, 407, 365,
+"Wins", 485, 382, 343, 507, 429,
+"Win Pct", 74.8, 93.2, 81.0, 80.3, 85.1,
+)
+
+gt_tbl_one <- gt(data = first)
+
+gt_tbl_one <-
+  gt_tbl_one %>%
+   cols_label(
+    place = "",
+  ) %>%
+  tab_spanner(
+      label = "Four Factors",
+      columns = vars(eFG, TO, OR, FTR)
+    ) %>%
+   fmt_percent(
+    columns = 2:6,
+    rows = 3,
+    decimals = 1,
+    scale_values = FALSE
+  ) %>%
+   fmt_number(
+    columns = 2:6, # reference cols by position
+    rows = 1:2,
+    decimals = 0 # decrease decimal places
+    ) %>%
+tab_header(
+    title = "Carolina: Record When Winning One of the Four Factors",
+    subtitle = "All 648 games during the Roy Williams Era (since 2003-04 season)"
+  ) %>%
+  tab_source_note(
+    source_note = "Source: app.dadgumboxscores.com"
+  )  %>%
+  gt_theme_538()
+
+second <- tibble::tribble(
+~place, ~eFG_to, ~eFG_or, ~eFG_ftr, ~to_or, ~to_ftr, ~or_ftr,
+"Games", 213, 322, 295, 248, 228, 346,
+"Wins",  207, 313, 284, 216, 204, 303,
+"Win Pct", 97.2, 97.2, 96.3, 87.1, 89.5, 87.6,
+)
+
+gt_tbl_two <- gt(data = second)
+
+gt_tbl_two <-
+  gt_tbl_two %>%
+   cols_label(
+    place = "",
+    eFG_to = "eFG + TO",
+    eFG_or = "eFG + OR",
+    eFG_ftr = "eFG + FTR",
+    to_or = "TO + OR",
+    to_ftr = "TO + FTR",
+    or_ftr = "OR + FTR"
+  ) %>%
+  tab_spanner(
+      label = "Four Factor Combos",
+      columns = vars(eFG_to, eFG_or, eFG_ftr, to_or, to_ftr, or_ftr)
+    ) %>%
+   fmt_percent(
+    columns = 2:7,
+    rows = 3,
+    decimals = 1,
+    scale_values = FALSE
+  ) %>%
+   fmt_number(
+    columns = 2:7, # reference cols by position
+    rows = 1:2,
+    decimals = 0 # decrease decimal places
+    ) %>%
+tab_header(
+    title = "Carolina: Record When Winning Two of the Four Factors",
+    subtitle = "All 648 games during the Roy Williams Era (since 2003-04 season)"
+  ) %>%
+  tab_source_note(
+    source_note = "Source: app.dadgumboxscores.com"
+  )  %>%
+  gt_theme_538()
+
+  three <- tibble::tribble(
+~place, ~eFG_to_or, ~eFG_to_ftr, ~eFG_or_ftr, ~to_or_ftr,
+"Games", 154, 148, 236, 170,
+"Wins",  154, 146, 230, 158,
+"Win Pct", 100.0, 98.6, 97.5, 92.9,
+)
+
+gt_tbl_three <- gt(data = three)
+
+gt_tbl_three <-
+  gt_tbl_three %>%
+   cols_label(
+    place = "",
+    eFG_to_or = "eFG + TO + OR",
+    eFG_to_ftr = "eFG + TO + FTR",
+    eFG_or_ftr = "eFG + OR + FTR",
+    to_or_ftr = "TO + OR + FTR"
+  ) %>%
+  tab_spanner(
+      label = "Four Factor Combos",
+      columns = vars(eFG_to_or, eFG_to_ftr, eFG_or_ftr, to_or_ftr)
+    ) %>%
+   fmt_percent(
+    columns = 2:5,
+    rows = 3,
+    decimals = 1,
+    scale_values = FALSE
+  ) %>%
+   fmt_number(
+    columns = 2:5, # reference cols by position
+    rows = 1:2,
+    decimals = 0 # decrease decimal places
+    ) %>%
+tab_header(
+    title = "Carolina: Record When Winning Three of the Four Factors",
+    subtitle = "All 648 games during the Roy Williams Era (since 2003-04 season)"
+  ) %>%
+  tab_source_note(
+    source_note = "Source: app.dadgumboxscores.com"
+  )  %>%
+  gt_theme_538()
+
+  gt_tbl_one
+
+  gt_tbl_two
+
+  gt_tbl_three
+
+```
+
+Three separate tables showing the win percentage when Carolina basketball peforms better than its opponent across one, two, or three of the four factors. This idea is replicating similar research from this [Cracked Sidewalks post](http://www.crackedsidewalks.com/2021/03/the-four-factors-and-winning-teams.html).
+
+Used the `dplyr` package to filter data from all 648 games in the Roy Williams Era, and manually built the tables using the `gt` package and 538 theme. It's overwhelming _how_ much effective field goal percentage matters for wins. Not breaking news, but win eFG% and it's rare you will lose the game. Shooting matters a lot!
+
+Code is below . . .
+
+```
+library(tidyverse)
+library(gt)
+
+gt_theme_538 <- function(data,...) {
+  data %>%
+  opt_all_caps()  %>%
+  opt_table_font(
+    font = list(
+      google_font("Chivo"),
+      default_fonts()
+    )
+  ) %>%
+    tab_style(
+      style = cell_borders(
+        sides = "bottom", weight = px(2)
+      ),
+      locations = cells_body(
+        columns = TRUE,
+        # This is a relatively sneaky way of changing the bottom border
+        # Regardless of data size
+        rows = nrow(data$`_data`)
+      )
+    )  %>%
+  tab_options(
+    column_labels.background.color = "white",
+    table.border.top.width = px(3),
+    table.border.bottom.width = px(3),
+    column_labels.border.top.width = px(3),
+    column_labels.border.top.color = "transparent",
+    column_labels.border.bottom.width = px(3),
+    column_labels.border.bottom.color = "black",
+    data_row.padding = px(3),
+    source_notes.font.size = 12,
+    table.font.size = 16,
+    heading.align = "left",
+    ...
+  )
+}
+
+first <- tibble::tribble(
+~place, ~Total, ~eFG, ~TO, ~OR, ~FTR,
+"Games", 648, 410, 278, 407, 365,
+"Wins", 485, 382, 343, 507, 429,
+"Win Pct", 74.8, 93.2, 81.0, 80.3, 85.1,
+)
+
+gt_tbl_one <- gt(data = first)
+
+gt_tbl <-
+  gt_tbl %>%
+   cols_label(
+    place = "",
+  ) %>%
+  tab_spanner(
+      label = "Four Factors",
+      columns = vars(eFG, TO, OR, FTR)
+    ) %>%
+   fmt_percent(
+    columns = 2:6,
+    rows = 3,
+    decimals = 1,
+    scale_values = FALSE
+  ) %>%
+   fmt_number(
+    columns = 2:6, # reference cols by position
+    rows = 1:2,
+    decimals = 0 # decrease decimal places
+    ) %>%
+tab_header(
+    title = "Carolina: Record When Winning One of the Four Factors",
+    subtitle = "All 648 games during the Roy Williams Era (since 2003-04 season)"
+  ) %>%
+  tab_source_note(
+    source_note = "Source: app.dadgumboxscores.com"
+  )  %>%
+  gt_theme_538()
+
+  second <- tibble::tribble(
+~place, ~eFG_to, ~eFG_or, ~eFG_ftr, ~to_or, ~to_ftr, ~or_ftr,
+"Games", 213, 322, 295, 248, 228, 346,
+"Wins",  207, 313, 284, 216, 204, 303,
+"Win Pct", 97.2, 97.2, 96.3, 87.1, 89.5, 87.6,
+)
+
+gt_tbl_two <- gt(data = second)
+
+gt_tbl <-
+  gt_tbl %>%
+   cols_label(
+    place = "",
+    eFG_to = "eFG + TO",
+    eFG_or = "eFG + OR",
+    eFG_ftr = "eFG + FTR",
+    to_or = "TO + OR",
+    to_ftr = "TO + FTR",
+    or_ftr = "OR + FTR"
+  ) %>%
+  tab_spanner(
+      label = "Four Factor Combos",
+      columns = vars(eFG_to, eFG_or, eFG_ftr, to_or, to_ftr, or_ftr)
+    ) %>%
+   fmt_percent(
+    columns = 2:7,
+    rows = 3,
+    decimals = 1,
+    scale_values = FALSE
+  ) %>%
+   fmt_number(
+    columns = 2:7, # reference cols by position
+    rows = 1:2,
+    decimals = 0 # decrease decimal places
+    ) %>%
+tab_header(
+    title = "Carolina: Record When Winning Two of the Four Factors",
+    subtitle = "All 648 games during the Roy Williams Era (since 2003-04 season)"
+  ) %>%
+  tab_source_note(
+    source_note = "Source: app.dadgumboxscores.com"
+  )  %>%
+  gt_theme_538()
+
+  three <- tibble::tribble(
+~place, ~eFG_to_or, ~eFG_to_ftr, ~eFG_or_ftr, ~to_or_ftr,
+"Games", 154, 148, 236, 170,
+"Wins",  154, 146, 230, 158,
+"Win Pct", 100.0, 98.6, 97.5, 92.9,
+)
+
+gt_tbl_three <- gt(data = three)
+
+gt_tbl <-
+  gt_tbl %>%
+   cols_label(
+    place = "",
+    eFG_to_or = "eFG + TO + OR",
+    eFG_to_ftr = "eFG + TO + FTR",
+    eFG_or_ftr = "eFG + OR + FTR",
+    to_or_ftr = "TO + OR + FTR"
+  ) %>%
+  tab_spanner(
+      label = "Four Factor Combos",
+      columns = vars(eFG_to_or, eFG_to_ftr, eFG_or_ftr, to_or_ftr)
+    ) %>%
+   fmt_percent(
+    columns = 2:5,
+    rows = 3,
+    decimals = 1,
+    scale_values = FALSE
+  ) %>%
+   fmt_number(
+    columns = 2:5, # reference cols by position
+    rows = 1:2,
+    decimals = 0 # decrease decimal places
+    ) %>%
+tab_header(
+    title = "Carolina: Record When Winning Three of the Four Factors",
+    subtitle = "All 648 games during the Roy Williams Era (since 2003-04 season)"
+  ) %>%
+  tab_source_note(
+    source_note = "Source: app.dadgumboxscores.com"
+  )  %>%
+  gt_theme_538()
+
+  gt_tbl_one
+
+  gt_tbl_two
+
+  gt_tbl_three
+
+```

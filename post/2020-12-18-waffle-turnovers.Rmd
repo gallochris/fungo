@@ -15,7 +15,9 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE, fig.width=12, fig.height=8)
 
 ```{r, echo=FALSE, message= FALSE, warning = FALSE}
 library(tidyverse)
+library(data.table)
 library(extrafont)
+library(magick)
 library(paletteer)
 library(ggforce)
 library(waffle)
@@ -109,7 +111,7 @@ p <- df %>%
     color = "white",
     size = .25,
     n_rows = 10,
-    flip = T
+    flip = T,
   ) +
   facet_wrap( ~ Opponent, nrow = 2, strip.position = "bottom") +
   coord_equal(clip  = 'off') +
@@ -158,11 +160,11 @@ cowplot::ggdraw(p) +
 
 ```
 
-This is a waffle chart showing Carolina's offensive turnover rate through six games. 
+This is a waffle chart showing Carolina's offensive turnover rate through six games.
 
-It's built off this example from [Owen J. Phillips](https://github.com/Henryjean/Free-Throw-Gods). 
+It's built off this example from [Owen J. Phillips](https://github.com/Henryjean/Free-Throw-Gods).
 
-It uses the `geom_waffle` package and cowplot package. 
+It uses the `geom_waffle` package and cowplot package.
 
 Code is below . . .
 
