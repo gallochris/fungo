@@ -185,7 +185,7 @@ tab_header(
 
 ```
 
-Three tables showing the win percentage when Carolina basketball peforms better than its opponent across one, two, or three of the four factors. This idea is replicating similar research from this [Cracked Sidewalks post](http://www.crackedsidewalks.com/2021/03/the-four-factors-and-winning-teams.html).
+Three separate tables showing the win percentage when Carolina basketball peforms better than its opponent across one, two, or three of the four factors. This idea is replicating similar research from this [Cracked Sidewalks post](http://www.crackedsidewalks.com/2021/03/the-four-factors-and-winning-teams.html).
 
 Used the `dplyr` package to filter data from all 648 games in the Roy Williams Era, and manually built the tables using the `gt` package and 538 theme. It's overwhelming _how_ much effective field goal percentage matters for wins. Not breaking news, but win eFG% and it's rare you will lose the game. Shooting matters a lot!
 
