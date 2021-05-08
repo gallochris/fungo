@@ -13,6 +13,8 @@ type: post
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, fig.width=12, fig.height=8)
 ```
 
+Three separate tables showing the win percentage when Carolina basketball performs better than its opponent across one, two, or three of the four factors. This idea is replicating similar research from this [Cracked Sidewalks post](http://www.crackedsidewalks.com/2021/03/the-four-factors-and-winning-teams.html).
+
 ```{r, echo=FALSE, message= FALSE, warning = FALSE}
 library(tidyverse)
 library(gt)
@@ -39,10 +41,6 @@ gt_theme_538 <- function(data,...) {
     )  %>%
   tab_options(
     column_labels.background.color = "white",
-    table.border.top.width = px(3),
-    table.border.bottom.width = px(3),
-    column_labels.border.top.width = px(3),
-    column_labels.border.top.color = "transparent",
     column_labels.border.bottom.width = px(3),
     column_labels.border.bottom.color = "black",
     data_row.padding = px(3),
@@ -91,6 +89,18 @@ tab_header(
   )  %>%
   gt_theme_538()
 
+gt_tbl_one
+```
+
+Carolina won *~93 percent* of games when posting a higher effective field goal percentage (eFG%) than its opponents (648 games). 
+
+When posting a higher free throw rate (FTRate), the Tar Heels won ~85 percent of its games.
+
+Both of these make sense because eFG% and FTRate lead to scoring points. When you score more points than your opponent, you win. 
+
+```{r, echo=FALSE, message= FALSE, warning = FALSE}
+library(tidyverse)
+library(gt)
 second <- tibble::tribble(
 ~place, ~eFG_to, ~eFG_or, ~eFG_ftr, ~to_or, ~to_ftr, ~or_ftr,
 "Games", 213, 322, 295, 248, 228, 346,
@@ -135,7 +145,17 @@ tab_header(
   )  %>%
   gt_theme_538()
 
-  three <- tibble::tribble(
+  gt_tbl_two
+```
+
+When combining eFG% with one of the other four factors, Carolina only lost around three percent of its games. 
+
+It's overwhelming _how_ much effective field goal percentage matters for wins. Not breaking news, but win eFG% and it's rare you will lose the game. Shooting matters a lot!
+
+```{r, echo=FALSE, message= FALSE, warning = FALSE}
+library(tidyverse)
+library(gt)
+three <- tibble::tribble(
 ~place, ~eFG_to_or, ~eFG_to_ftr, ~eFG_or_ftr, ~to_or_ftr,
 "Games", 154, 148, 236, 170,
 "Wins",  154, 146, 230, 158,
@@ -177,17 +197,63 @@ tab_header(
   )  %>%
   gt_theme_538()
 
-  gt_tbl_one
-
-  gt_tbl_two
-
   gt_tbl_three
 
 ```
 
-Three separate tables showing the win percentage when Carolina basketball peforms better than its opponent across one, two, or three of the four factors. This idea is replicating similar research from this [Cracked Sidewalks post](http://www.crackedsidewalks.com/2021/03/the-four-factors-and-winning-teams.html).
+Now, let's try the opposite approach. What about Carolina's record when posting a lower eFG% than its opponent? 
 
-Used the `dplyr` package to filter data from all 648 games in the Roy Williams Era, and manually built the tables using the `gt` package and 538 theme. It's overwhelming _how_ much effective field goal percentage matters for wins. Not breaking news, but win eFG% and it's rare you will lose the game. Shooting matters a lot!
+A lower eFG% and combination with any other factor translates to a loss about 80% of the time. 
+
+```{r, echo=FALSE, message= FALSE, warning = FALSE}
+library(tidyverse)
+library(gt)
+four <- tibble::tribble(
+~place, ~eFG, ~eFG_to, ~eFG_or, ~eFG_ftr,
+"Games", 234, 87, 51, 101,
+"Wins",  100, 21, 9, 21, 
+"Win Pct", 42.7, 24.1, 21.9, 20.7, 
+)
+
+gt_tbl_four<- gt(data = four)
+
+gt_tbl_four <-
+  gt_tbl_four %>%
+   cols_label(
+    place = "",
+    eFG = "eFG",
+    eFG_to = "eFG + TO ",
+    eFG_or = "eFG + OR",
+    eFG_ftr = "eFG + FTR"
+  ) %>%
+  tab_spanner(
+      label = "Four Factor Combos",
+      columns = vars(eFG_to, eFG_or, eFG_ftr)
+    ) %>%
+   fmt_percent(
+    columns = 2:5,
+    rows = 3,
+    decimals = 1,
+    scale_values = FALSE
+  ) %>%
+   fmt_number(
+    columns = 2:5, # reference cols by position
+    rows = 1:2,
+    decimals = 0 # decrease decimal places
+    ) %>%
+tab_header(
+    title = "Carolina: Record When Winning Losing eFG% and other factors",
+    subtitle = "All 648 games during the Roy Williams Era (since 2003-04 season)"
+  ) %>%
+  tab_source_note(
+    source_note = "Source: app.dadgumboxscores.com"
+  )  %>%
+  gt_theme_538()
+
+  gt_tbl_four
+```
+
+Used the `dplyr` package to filter data from all 648 games in the Roy Williams Era, and manually built the tables using the `gt` package and 538 theme.
 
 Code is below . . .
 
@@ -354,11 +420,55 @@ tab_header(
     source_note = "Source: app.dadgumboxscores.com"
   )  %>%
   gt_theme_538()
+  
+  four <- tibble::tribble(
+~place, ~eFG, ~eFG_to, ~eFG_or, ~eFG_ftr,
+"Games", 234, 87, 51, 101,
+"Wins",  100, 21, 9, 21, 
+"Win Pct", 42.7, 24.1, 21.9, 20.7, 
+)
+
+gt_tbl_four<- gt(data = four)
+
+gt_tbl_four <-
+  gt_tbl_four %>%
+   cols_label(
+    place = "",
+    eFG = "eFG",
+    eFG_to = "eFG + TO ",
+    eFG_or = "eFG + OR",
+    eFG_ftr = "eFG + FTR"
+  ) %>%
+  tab_spanner(
+      label = "Four Factor Combos",
+      columns = vars(eFG_to, eFG_or, eFG_ftr)
+    ) %>%
+   fmt_percent(
+    columns = 2:5,
+    rows = 3,
+    decimals = 1,
+    scale_values = FALSE
+  ) %>%
+   fmt_number(
+    columns = 2:5, # reference cols by position
+    rows = 1:2,
+    decimals = 0 # decrease decimal places
+    ) %>%
+tab_header(
+    title = "Carolina: Record When Winning Losing eFG% and other factors",
+    subtitle = "All 648 games during the Roy Williams Era (since 2003-04 season)"
+  ) %>%
+  tab_source_note(
+    source_note = "Source: app.dadgumboxscores.com"
+  )  %>%
+  gt_theme_538()
 
   gt_tbl_one
 
   gt_tbl_two
 
   gt_tbl_three
+  
+  gt_tbl_four
 
 ```
