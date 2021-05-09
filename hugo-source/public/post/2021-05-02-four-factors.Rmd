@@ -13,7 +13,7 @@ type: post
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, fig.width=12, fig.height=8)
 ```
 
-Four Three separate tables showing the win percentage when Carolina basketball performs better than its opponent across one, two, or three of the four factors. This idea is replicating similar research from this [Cracked Sidewalks post](http://www.crackedsidewalks.com/2021/03/the-four-factors-and-winning-teams.html).
+Four separate tables showing the win percentage when Carolina basketball performs better or worse than its opponent across one, two, or three of the four factors. This idea is replicating similar research from this [Cracked Sidewalks post](http://www.crackedsidewalks.com/2021/03/the-four-factors-and-winning-teams.html).
 
 ```{r, echo=FALSE, message= FALSE, warning = FALSE}
 library(tidyverse)
